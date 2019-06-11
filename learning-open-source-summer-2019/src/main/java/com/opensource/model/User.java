@@ -21,10 +21,10 @@ public class User {
 	private long userID;
 	
 	@Column(name = "username",nullable = false,unique = true)
-	private String userName;
+	private String username;
 	
 	@Column(name = "password",nullable = false)
-	private  String passWord;
+	private  String password;
 
 	@Column(name = "enabled",nullable = false)
 	private boolean enabled;
@@ -52,20 +52,20 @@ public class User {
 		this.userID = userID;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public boolean isEnabled() {
