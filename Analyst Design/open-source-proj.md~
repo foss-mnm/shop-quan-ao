@@ -487,7 +487,7 @@
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1890, 803)
+			location   	(1886, 803)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -499,7 +499,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@1
-			    location   	(1623, 622)
+			    location   	(1619, 622)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	534
@@ -511,7 +511,7 @@
 			quidu      	"5CFE3EDC030B"
 			compartment 	(object Compartment
 			    Parent_View 	@1
-			    location   	(1623, 683)
+			    location   	(1619, 683)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -1076,14 +1076,14 @@
 			annotation 	8
 			autoResize 	TRUE)
 		    (object AssociationViewNew "$UNNAMED$1" @20
-			location   	(1447, 687)
+			location   	(1445, 688)
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5CFE4339018A"
 			roleview_list 	(list RoleViews
 			    (object RoleView "n" @21
 				Parent_View 	@20
-				location   	(-425, 475)
+				location   	(-427, 476)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -1095,7 +1095,7 @@
 				    default_color 	TRUE)
 				label      	(object SegLabel @22
 				    Parent_View 	@21
-				    location   	(1326, 613)
+				    location   	(1324, 614)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -1120,12 +1120,12 @@
 				client     	@20
 				supplier   	@19
 				vertices   	(list Points
-				    (1447, 687)
-				    (1281, 644))
+				    (1445, 688)
+				    (1281, 645))
 				line_style 	0)
 			    (object RoleView "1" @23
 				Parent_View 	@20
-				location   	(-425, 475)
+				location   	(-427, 476)
 				font       	(object Font
 				    size       	10
 				    face       	"Arial"
@@ -1137,7 +1137,7 @@
 				    default_color 	TRUE)
 				label      	(object SegLabel @24
 				    Parent_View 	@23
-				    location   	(1591, 682)
+				    location   	(1588, 682)
 				    font       	(object Font
 					size       	10
 					face       	"Arial"
@@ -1162,8 +1162,8 @@
 				client     	@20
 				supplier   	@1
 				vertices   	(list Points
-				    (1447, 687)
-				    (1613, 731))
+				    (1445, 688)
+				    (1609, 731))
 				line_style 	0)))
 		    (object AssociationViewNew "$UNNAMED$3" @25
 			location   	(1281, 1047)
