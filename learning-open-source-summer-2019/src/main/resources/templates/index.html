@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <title>Winkel - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
@@ -90,6 +91,8 @@
 					<li class="nav-item cta cta-colored"><a th:href="@{cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 					<li class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
+					<li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+					<li class="nav-item"><a th:href="@{/admin}" class="nav-link">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -116,8 +119,7 @@
 										style="background-image: url(images/divider.jpg);">Stablished
 										Since 2000</h3>
 									<h1 class="mb-4 mt-3">
-										Catch Your Own <br>
-										<span>Stylish &amp; Look</span>
+										Catch Your Own <br> <span>Stylish &amp; Look</span>
 									</h1>
 									<p>A small river named Duden flows by their place and
 										supplies it with the necessary regelialia. It is a

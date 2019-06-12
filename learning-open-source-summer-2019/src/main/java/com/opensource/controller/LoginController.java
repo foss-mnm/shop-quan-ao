@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 	
-	@GetMapping("/")
+	@GetMapping({"/","/index"})
 	public String index() {
 		return "index";
 	}
@@ -29,5 +29,10 @@ public class LoginController {
 	@GetMapping("/cart")
 	public String cart() {
 		return "cart";
+	}
+	
+	@GetMapping("/403")
+	public String errorPage() {
+		return "403";
 	}
 }

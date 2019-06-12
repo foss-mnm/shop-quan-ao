@@ -29,12 +29,8 @@ create table persistent_login(
     last_used timestamp not null,
     constraint persistent_login_pk primary key (series)
 );
-insert into user(username,password,enabled) values('admin','$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu',1),
-('user','$2a$10$PrI5Gk9L.tSZiW9FXhTS8O8Mz9E97k2FZbFvGFFaSsiTUIl.TCrFu',1);
-insert into role(role_name) values('ROLE_ADMIN'),('ROLE_USER');
-insert into user_role(user_id,role_id) values(1,1),(1,2),(2,2);
 select * from user;
-select * from role;
+select * from role where role_name = 'ROLE_ADMIN';
 SELECT 
     username, password, role_name
 FROM
@@ -43,4 +39,6 @@ FROM
     user_role ur ON u.user_id = ur.user_id
         JOIN
     role r ON ur.role_id = r.role_id;
-
+rename table persistent_login to persistent_logins;
+select * from persistent_logins;
+delete from persistent_logins;

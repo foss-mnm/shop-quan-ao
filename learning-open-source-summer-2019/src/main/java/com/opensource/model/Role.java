@@ -1,5 +1,6 @@
 package com.opensource.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,18 +13,38 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class Role {
+public class Role implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "role_id",nullable = false)
 	private long roleID;
 	
-	@Column(name = "role_name",nullable = false,unique = true)
+	@Column(name = "role_name",nullable = false)
 	private String roleName;
 
 	@ManyToMany(mappedBy = "roles")
-	Set<User> users;
+	private Set<User> users;
 	
+	public Set<User> getUsers() {
+		return users;
+	}
+	
+	public Role() {}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+	public Role(String name) {
+		this.roleName = name;
+	}
+
 	public long getRoleID() {
 		return roleID;
 	}

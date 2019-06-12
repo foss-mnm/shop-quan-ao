@@ -1,5 +1,6 @@
 package com.opensource.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -14,10 +15,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id",nullable = false)
 	private long userID;
 	
 	@Column(name = "username",nullable = false,unique = true)
@@ -35,6 +42,8 @@ public class User {
 		inverseJoinColumns = @JoinColumn(name = "role_id")
 	)
 	private Set<Role> roles;
+	
+	public User() {}
 	
 	public Set<Role> getRoles() {
 		return roles;
