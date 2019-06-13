@@ -43,3 +43,8 @@ rename table persistent_login to persistent_logins;
 select * from persistent_logins;
 delete from persistent_logins;
 select * from hibernate_sequence;
+delete from user;
+delete from role;
+delete from user_role;
+alter table user drop column userid;
+alter table role drop column roleid;
