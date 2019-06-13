@@ -42,3 +42,4 @@ FROM
 rename table persistent_login to persistent_logins;
 select * from persistent_logins;
 delete from persistent_logins;
+select * from hibernate_sequence;

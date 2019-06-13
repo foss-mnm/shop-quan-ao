@@ -8,7 +8,7 @@ public class LoginController {
 	
 	@GetMapping({"/","/index"})
 	public String index() {
-		return "index";
+		return "test/index";
 	}
 	
 	@GetMapping("/login")
@@ -23,12 +23,12 @@ public class LoginController {
 	
 	@GetMapping("/admin")
 	public String admin() {
-		return "admin";
+		return "test/admin";
 	}
 	
 	@GetMapping("/cart")
 	public String cart() {
-		return "cart";
+		return "test/cart";
 	}
 	
 	@GetMapping("/403")
