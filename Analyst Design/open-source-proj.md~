@@ -637,7 +637,21 @@
 					vertices   	(list Points
 					    (1882, 450)
 					    (1423, 457))
-					line_style 	0))))))))
+					line_style 	0)))))))
+	    (object Class_Category "UCManageCart"
+		quid       	"5D01AD3602C6"
+		exportControl 	"Public"
+		logical_models 	(list unit_reference_list)
+		logical_presentations 	(list unit_reference_list
+		    (object UseCaseDiagram "ManageCartDiagram"
+			quid       	"5D01AD43026C"
+			title      	"ManageCartDiagram"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list)))))
 	logical_presentations 	(list unit_reference_list
 	    (object UseCaseDiagram "Main"
 		quid       	"5CFE3BFA02AE"
