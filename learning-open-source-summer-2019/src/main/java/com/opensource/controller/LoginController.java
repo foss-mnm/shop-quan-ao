@@ -6,33 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class LoginController {
 	
-	@GetMapping({"/","/index"})
-	public String index() {
-		return "index";
-	}
-	
 	@GetMapping("/login")
 	public String login() {
-		return "login";
+		return "login/login";
 	}
 	
 	@GetMapping("/register")
 	public String register() {
-		return "register";
-	}
-	
-	@GetMapping("/admin")
-	public String admin() {
-		return "admin";
-	}
-	
-	@GetMapping("/cart")
-	public String cart() {
-		return "cart";
+		return "login/register";
 	}
 	
 	@GetMapping("/403")
 	public String errorPage() {
-		return "403";
+		return "login/403";
 	}
 }

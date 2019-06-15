@@ -1,0 +1,35 @@
+#custom-shop-image {
+	width: 350px;
+	margin-left: 40px;
+	box-shadow: 10px 10px 14px 0px rgba(0, 0, 0, 0.54);
+}
+
+.main {
+	padding-top: 80px;
+	padding-bottom: 100px;
+}
+
+.form-title {
+	text-align: center;
+}
+
+.signin-image-link {
+	float: right;
+	margin: 25px 60px 0 0;
+	color: chocolate;
+	font-size: 17px;
+}
+
+.custom-shop-image2 {
+	margin-top: 40px;
+	margin-right: 40px;
+	margin-left: 0px;
+}
+
+.signin-form{
+	width: 350px;
+}
+
+input,label{
+	font-size: 17px;
+}

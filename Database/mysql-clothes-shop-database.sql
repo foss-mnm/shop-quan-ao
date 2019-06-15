@@ -29,8 +29,15 @@ create table persistent_login(
     last_used timestamp not null,
     constraint persistent_login_pk primary key (series)
 );
+-- ==================================================
+delete from user_role;
+delete from role;
+delete from user;
+-- ==================================================
 select * from user;
-select * from role where role_name = 'ROLE_ADMIN';
+select * from user_role;
+select * from role;
+-- ==================================================
 SELECT 
     username, password, role_name
 FROM
@@ -39,12 +46,8 @@ FROM
     user_role ur ON u.user_id = ur.user_id
         JOIN
     role r ON ur.role_id = r.role_id;
-rename table persistent_login to persistent_logins;
+-- ==================================================
 select * from persistent_logins;
-delete from persistent_logins;
-select * from hibernate_sequence;
-delete from user;
-delete from role;
-delete from user_role;
-alter table user drop column userid;
-alter table role drop column roleid;
+-- ==================================================
+select exists(select * from user where username = 'admin@gmail.com');
+

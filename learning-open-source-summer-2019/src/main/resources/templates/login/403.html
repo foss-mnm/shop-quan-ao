@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Error</title>
+	<title>Error Page</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link href="login/error/style.css" rel='stylesheet' type='text/css' media="all">
 </head>
+
 <body>
-	<h1 style="color: red">You do not permission access that page</h1>
+
+	<h1 class="error">Error Page</h1>
+	<div class="top-w3ls">
+		<h2>403</h2>
+		<h3> SORRY</h3>
+		<p>It looks like that page no longer exist. Would you like to go to</p>
+		<div class="row-col">
+			<div class="banner-agileits-btm">
+				<div class="w3layouts_more-buttn">
+					<a th:href="@{/home}" class="play-icon popup-with-zoom-anim">Home</a>
+				</div>
+				<div id="small-dialog1" class="mfp-hide w3ls_small_dialog wthree_pop">
+					<div class="agileits_modal_body">
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="copyright">
+		<div class="icons">
+		</div>
+		<p>&copy; 2018 Adorable Error Page. All Rights Reserved.</p>
+	</div>
 </body>
 </html>

@@ -37,9 +37,9 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 		}
 		
 		// Admin account
-		if (userRepository.findUserByUsername("admin@gmail.com") == null) {
+		if (userRepository.findUserByUsername("admin") == null) {
 			User admin = new User();
-			admin.setUsername("admin@gmail.com");
+			admin.setUsername("admin");
 			admin.setPassword(passwordEncoder.encode("123456"));
 			admin.setEnabled(true);
 			HashSet<Role> roles = new HashSet<>();
@@ -50,9 +50,9 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 		}
 		
 		// Member account
-		if (userRepository.findUserByUsername("member@gmail.com") == null) {
+		if (userRepository.findUserByUsername("member") == null) {
 			User user = new User();
-			user.setUsername("member@gmail.com");
+			user.setUsername("member");
 			user.setPassword(passwordEncoder.encode("123456"));
 			user.setEnabled(true);
 			HashSet<Role> roles = new HashSet<>();
