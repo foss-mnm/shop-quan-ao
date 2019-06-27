@@ -40,14 +40,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http.csrf().disable();
 
-		http.authorizeRequests().antMatchers("/", "login", "/index", "/register").permitAll();
-		http.authorizeRequests().antMatchers("/cart").hasRole("MEMBER");
-		http.authorizeRequests().antMatchers("/admin").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/", "/login", "/register","/api/**").permitAll();
+		http.authorizeRequests().antMatchers("/web/**").hasRole("MEMBER");
+		http.authorizeRequests().antMatchers("/admin/**").hasRole("ADMIN");
 		http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
 		http.authorizeRequests().and().formLogin()
 				.loginPage("/login")
-				.defaultSuccessUrl("/index")
+				.defaultSuccessUrl("/")
 				.failureUrl("/login?error=true")
 				.usernameParameter("your_name")
 				.passwordParameter("your_pass");

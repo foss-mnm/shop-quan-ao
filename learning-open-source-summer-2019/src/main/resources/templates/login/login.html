@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Đăng nhập</title>
+<title>Login</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet"
@@ -15,20 +15,23 @@
 <link rel="stylesheet" href="login/css/custom.css">
 </head>
 <body>
+
 	<div class="main">
-		<!-- Sign in  Form -->
+		<!-- Sing in  Form -->
 		<section class="sign-in">
 			<div class="container">
 				<div class="signin-content">
+
 					<div class="login-image">
 						<figure>
-							<img id="custom-shop-image" src="login/images/signup-image.jpg"
-								alt="sing up image">
+							<img id="custom-shop-image"
+								src="login/images/signin-image.jpg" alt="sign in image">
 						</figure>
 					</div>
+
 					<div class="signin-form">
-						<h2 class="form-title">Đăng Nhập</h2>
-						<form th:action="@{/login}" method="post" class="register-form"
+						<h2 class="form-title">Log in</h2>
+						<form th:action="@{/login}" method="POST" class="register-form"
 							id="login-form">
 							<div class="form-group">
 								<label for="your_name"><i
@@ -43,22 +46,25 @@
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
-									class="agree-term" /> <label for="remember-me"
-									class="label-agree-term" style="font-size: 15px"><span><span></span></span>Ghi nhớ</label>
+									class="agree-term" /> <label style="font-size: 15px;" for="remember-me"
+									class="label-agree-term"><span><span></span></span>Ghi
+									nhớ</label>
 							</div>
 							<div class="form-group form-button">
 								<input type="submit" name="signin" id="signin"
 									class="form-submit" value="Đăng nhập" /> <a
-									style="float: right; margin: 25px 20px 0 0"
-									th:href="@{/register}" class="signin-image-link">Đăng kí</a>
+									style="float: right; margin: 25px 20px 0 0;"
+									th:href="@{/register}" class="link">Đăng kí</a>
 							</div>
 							<p th:if="${param.error}"
-								style="color: red; font-size: 17px;font-style: italic;">Sai tên đăng nhập hoặc mật khẩu</p>
+								style="color: red; font-size: 17px; font-style: italic;">Sai
+								tên đăng nhập hoặc mật khẩu</p>
 						</form>
 					</div>
 				</div>
 			</div>
 		</section>
+
 	</div>
 </body>
 </html>

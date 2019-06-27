@@ -29,6 +29,97 @@ create table persistent_login(
     last_used timestamp not null,
     constraint persistent_login_pk primary key (series)
 );
+create table provider(
+	provider_id bigint,
+    name nvarchar(255) not null,
+    address varchar(125),
+    phone varchar(25),
+    email varchar(50),
+    constraint provider_pk primary key (provider_id)
+);
+create table import(
+	import_id bigint,
+    import_date date,
+    total_price  float,
+    constraint import_pk primary key (import_id)
+);
+create table user_info(
+	user_id bigint,
+    email varchar(50),
+    phone varchar(25),
+    first_name varchar(50),
+    lastname varchar(50),
+    image varchar(125),
+    constraint user_info_pk primary key (user_id),
+    constraint user_info_fk foreign key (user_id) references user (user_id)
+);
+create table cart(
+	cart_id bigint,
+    quantity int,
+    user_id bigint not null,
+    constraint cart_pk primary key (cart_id),
+    constraint cart_fk foreign key (user_id) references user(user_id)
+);
+create table method_payment(
+	method_payment_id bigint,
+    method varchar(50),
+    constraint method_payment_pk primary key (method_payment_id)
+);
+create table payment(
+	payment_id bigint,
+    total_price float,
+    date_payment date,
+    address_receive varchar(125),
+    quantity int,
+    postcode varchar(10),
+    user_id bigint,
+    method_payment_id bigint,
+    constraint payment_pk primary key (payment_id),
+    constraint payment_fk foreign key (user_id) references user(user_id),
+    constraint payment_fk2 foreign key (method_payment_id) references method_payment(method_payment_id)
+);
+create table category(
+	category_id bigint,
+    name varchar(125),
+    constraint category_pk primary key (category_id)
+);
+create table product(
+	product_id bigint,
+    name varchar(125) not null,
+    size varchar(25) not null,
+    price float(25) not null,
+    description varchar(1000),
+    discount_amount float,
+    image varchar(125),
+    provider_id bigint,
+    category_id bigint,
+    constraint product_pk primary key (product_id),
+    constraint product_fk1 foreign key (provider_id) references provider(provider_id),
+    constraint product_fk2 foreign key (category_id) references category(category_id)
+);
+create table import_product(
+	import_id bigint,
+    product_id bigint,
+    constraint import_product_pk primary key (import_id,product_id),
+    constraint import_product_fk foreign key (import_id) references import(import_id),
+    constraint import_product_fk2 foreign key (product_id) references product(product_id)
+);
+create table cart_product(
+	cart_id bigint,
+    product_id bigint,
+    constraint cart_product_pk primary key (cart_id,product_id),
+    constraint cart_product_fk foreign key (cart_id) references cart(cart_id),
+    constraint cart_product_fk2 foreign key (product_id) references product(product_id)
+);
+create table payment_product(
+	payment_id bigint,
+    product_id bigint,
+    constraint payment_product_pk primary key (payment_id,product_id),
+    constraint payment_product_fk foreign key (payment_id) references payment(payment_id),
+    constraint payment_product_fk2 foreign key (product_id) references product(product_id)
+);
+
+
 -- ==================================================
 delete from user_role;
 delete from role;
@@ -49,5 +140,4 @@ FROM
 -- ==================================================
 select * from persistent_logins;
 -- ==================================================
-select exists(select * from user where username = 'admin@gmail.com');
 
