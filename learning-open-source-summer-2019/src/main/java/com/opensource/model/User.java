@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -35,6 +36,9 @@ public class User implements Serializable{
 
 	@Column(name = "enabled",nullable = false)
 	private boolean enabled;
+	
+	@OneToOne(mappedBy = "user")
+	private UserInfo userInfo;
 	
 	@ManyToMany
 	@JoinTable(name = "user_role",

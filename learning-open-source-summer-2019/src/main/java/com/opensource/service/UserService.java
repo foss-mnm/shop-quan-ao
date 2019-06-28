@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.opensource.dto.UserDto;
 import com.opensource.model.Role;
 import com.opensource.model.User;
 import com.opensource.repository.RoleRepository;
@@ -38,6 +39,13 @@ public class UserService {
 		roles.add(roleRepository.findRoleByRoleName("ROLE_MEMBER"));
 		user.setRoles(roles);
 		userRepository.save(user);
+	}
+
+	public void updateAdminLoginInfo(UserDto userDto) {
+		long adminId = userRepository.getUserIdWithRoleAdmin();
+		userRepository.updateAdminLoginInfo(userDto.getUsername(), passwordEncoder.encode(userDto.getPassword()),
+				adminId);
+
 	}
 
 }

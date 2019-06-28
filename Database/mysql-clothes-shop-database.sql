@@ -129,15 +129,11 @@ select * from user;
 select * from user_role;
 select * from role;
 -- ==================================================
-SELECT 
-    username, password, role_name
-FROM
-    user u
-        JOIN
-    user_role ur ON u.user_id = ur.user_id
-        JOIN
-    role r ON ur.role_id = r.role_id;
+SELECT  u.user_id FROM user u JOIN user_role ur ON u.user_id = ur.user_id JOIN role r ON ur.role_id = r.role_id where role_name='ROLE_ADMIN';
 -- ==================================================
 select * from persistent_logins;
 -- ==================================================
+select * from user_info;
+delete from user_info;
+insert into user_info values(33,'phamdaiyb98@gmail.com','0325808383','Đại','Phạm','')
 
