@@ -43,7 +43,7 @@ public class MainController {
 		}
 	}
 	
-	@GetMapping({"/"})
+	@GetMapping({"/","/home"})
 	public String homePage() {
 		return "web/index";
 	}

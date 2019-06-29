@@ -7,9 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
 <link rel="stylesheet" href="web/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="web/css/animate.css">
@@ -65,7 +63,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Winkel</a>
+			<a class="navbar-brand" href="/">Winkel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +72,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a href="index.html"
+					<li class="nav-item active"><a href="/"
 						class="nav-link">Home</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#" id="dropdown04"
@@ -86,13 +84,16 @@
 								class="dropdown-item" href="checkout.html">Checkout</a>
 						</div></li>
 					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-					<li sec:authorize="hasRole('ROLE_MEMBER')" class="nav-item cta cta-colored"><a th:href="@{cart}"
+					<li sec:authorize="hasRole('ROLE_MEMBER')"
+						class="nav-item cta cta-colored"><a th:href="@{cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-					<li sec:authorize="!isAuthenticated()" class="nav-item"><a th:href="@{/login}" class="nav-link">Login</a></li>
-					<li sec:authorize="isAuthenticated()" class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a th:href="@{/admin/products}" class="nav-link">Admin</a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
+						th:href="@{/login}" class="nav-link">Login</a></li>
+					<li sec:authorize="isAuthenticated()" class="nav-item"><a
+						th:href="@{/logout}" class="nav-link">Logout</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -260,8 +261,7 @@
 				<div class="col-sm col-md-6 col-lg ftco-animate">
 					<div class="product">
 						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-1.jpg" alt="Colorlib Template"> <span
-							class="status">30%</span>
+							src="web/images/product-1.jpg" alt="Colorlib Template">
 							<div class="overlay"></div> </a>
 						<div class="text py-3 px-3">
 							<h3>
@@ -270,8 +270,7 @@
 							<div class="d-flex">
 								<div class="pricing">
 									<p class="price">
-										<span class="mr-2 price-dc">$120.00</span><span
-											class="price-sale">$80.00</span>
+										<span class="mr-2">$120.00</span>
 									</p>
 								</div>
 								<div class="rating">
@@ -403,7 +402,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 d-flex align-items-stretch">
-					<div class="img" style="background-image: url(web/images/about-1.jpg);"></div>
+					<div class="img"
+						style="background-image: url(web/images/about-1.jpg);"></div>
 				</div>
 				<div class="col-md-4 py-md-5 ftco-animate">
 					<div class="text py-3 py-md-5">
@@ -455,8 +455,7 @@
 				<div class="col-sm col-md-6 col-lg ftco-animate">
 					<div class="product">
 						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-5.jpg" alt="Colorlib Template"> <span
-							class="status">30%</span>
+							src="web/images/product-5.jpg" alt="Colorlib Template">
 							<div class="overlay"></div> </a>
 						<div class="text py-3 px-3">
 							<h3>
@@ -465,8 +464,7 @@
 							<div class="d-flex">
 								<div class="pricing">
 									<p class="price">
-										<span class="mr-2 price-dc">$120.00</span><span
-											class="price-sale">$80.00</span>
+										<span class="mr-2">$120.00</span>
 									</p>
 								</div>
 								<div class="rating">
@@ -559,7 +557,7 @@
 				<div class="col-sm col-md-6 col-lg ftco-animate">
 					<div class="product">
 						<a href="#" class="img-prod"><img class="img-fluid"
-							src="images/product-8.jpg" alt="Colorlib Template">
+							src="web/images/product-8.jpg" alt="Colorlib Template">
 							<div class="overlay"></div> </a>
 						<div class="text py-3 px-3">
 							<h3>
