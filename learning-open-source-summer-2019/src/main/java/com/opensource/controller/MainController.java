@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.opensource.service.UserService;
@@ -25,6 +26,11 @@ public class MainController {
 		return "login/register";
 	}
 	
+	@GetMapping({"/","/home"})
+	public String homePage() {
+		return "web/index";
+	}
+	
 	@GetMapping("/403")
 	public String errorPage() {
 		return "login/403";
@@ -43,8 +49,33 @@ public class MainController {
 		}
 	}
 	
-	@GetMapping({"/","/home"})
-	public String homePage() {
-		return "web/index";
+	@GetMapping("/shop")
+	public String shop() {
+		return "web/shop";
+	}
+	
+	@GetMapping("/product-single")
+	public String product_single() {
+		return "web/product-single";
+	}
+	
+	@GetMapping("/cart")
+	public String cart() {
+		return "web/cart";
+	}
+	
+	@GetMapping("/about")
+	public String about() {
+		return "web/about";
+	}
+	
+	@GetMapping("/checkout")
+	public String checkout() {
+		return "web/checkout";
+	}
+	
+	@GetMapping("/feedback")
+	public String feedback() {
+		return "web/contact";
 	}
 }
