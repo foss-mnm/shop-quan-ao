@@ -30,40 +30,31 @@
 </head>
 <body class="goto-here">
 	<div class="py-1 bg-black">
-		<div class="container">
-			<div
-				class="row no-gutters d-flex align-items-start align-items-center px-md-0">
-				<div class="col-lg-12 d-block">
-					<div class="row d-flex">
-						<div class="col-md pr-4 d-flex topper align-items-center">
-							<div
-								class="icon mr-2 d-flex justify-content-center align-items-center">
-								<span class="icon-phone2"></span>
-							</div>
-							<span class="text">+ 1235 2355 98</span>
-						</div>
-						<div class="col-md pr-4 d-flex topper align-items-center">
-							<div
-								class="icon mr-2 d-flex justify-content-center align-items-center">
-								<span class="icon-paper-plane"></span>
-							</div>
-							<span class="text">youremail@email.com</span>
-						</div>
-						<div
-							class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-							<span class="text">3-5 Business days delivery &amp; Free
-								Returns</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    	<div class="container">
+    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+	    		<div class="col-lg-12 d-block">
+		    		<div class="row d-flex">
+		    			<div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+						    <span class="text">+ 8433 3385 398</span>
+					    </div>
+					    <div class="col-md pr-4 d-flex topper align-items-center">
+					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+						    <span class="text">shopwinkel@gmail.com</span>
+					    </div>
+					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+						    <span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp; MIỄN PHÍ HOÀN TRẢ LẠI</span>
+					    </div>
+				    </div>
+			    </div>
+		    </div>
+		  </div>
+    </div>
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="/">Winkel</a>
+			<a class="navbar-brand" th:href="@{/}">Winkel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -73,25 +64,25 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a href="/"
-						class="nav-link">Home</a></li>
+						class="nav-link">Trang chủ</a></li>
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="/shop" id="dropdown04"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="/shop">Shop</a> <a
-								class="dropdown-item" href="/product-single">Single
-								Product</a> <a class="dropdown-item" href="cart.html">Cart</a> <a
-								class="dropdown-item" href="/checkout">Checkout</a>
+							<a class="dropdown-item" href="/shop">Cửa hàng</a> <a
+								class="dropdown-item" href="/product-single">Sản phẩm đơn</a> 
+							<a class="dropdown-item" href="cart.html">Giỏ hàng</a> <a
+								class="dropdown-item" href="/checkout">Thanh toán</a>
 						</div></li>
-					<li class="nav-item"><a href="/about" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
+					<li class="nav-item"><a href="/about" class="nav-link">Giới thiệu</a></li>
+					<li class="nav-item"><a href="/contact" class="nav-link">Phản hồi</a></li>
 					<li sec:authorize="hasRole('ROLE_MEMBER')"
 						class="nav-item cta cta-colored"><a th:href="@{cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
 						th:href="@{/login}" class="nav-link">Login</a></li>
 					<li sec:authorize="isAuthenticated()" class="nav-item"><a
-						th:href="@{/logout}" class="nav-link">Logout</a></li>
+						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
 						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 				</ul>
@@ -114,21 +105,18 @@
 							class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
-								<span class="subheading">Winkel eCommerce Shop</span>
+								<span class="subheading">Cửa hàng Winkel</span>
 								<div class="horizontal">
 									<h3 class="vr"
-										style="background-image: url(web/images/divider.jpg);">Stablished
-										Since 2000</h3>
+										style="background-image: url(web/images/divider.jpg);">Được thành lập từ năm 2000</h3>
 									<h1 class="mb-4 mt-3">
-										Catch Your Own <br> <span>Stylish &amp; Look</span>
+										Nắm Bắt <span>Phong Cách </span><br><span>&amp; Vẻ Ngoài</span> Của Riêng Bạn
 									</h1>
-									<p>A small river named Duden flows by their place and
-										supplies it with the necessary regelialia. It is a
-										paradisematic country.</p>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng và cung cấp cho nó sự hồi sinh cần thiết.
+									 Đó là một đất nước thiên đường.</p>
 
 									<p>
-										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Discover
-											Now</a>
+										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Khám Phá Ngay</a>
 									</p>
 								</div>
 							</div>
@@ -149,21 +137,18 @@
 							class="one-forth d-flex js-fullheight align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
-								<span class="subheading">Winkel eCommerce Shop</span>
+								<span class="subheading">Cửa hàng Winkel</span>
 								<div class="horizontal">
 									<h3 class="vr"
-										style="background-image: url(web/images/divider.jpg);">Best
-										eCommerce Online Shop</h3>
+										style="background-image: url(web/images/divider.jpg);">Cửa Hàng Trực Tuyến Tốt Nhất</h3>
 									<h1 class="mb-4 mt-3">
-										A Thouroughly <span>Modern</span> Woman
+										Một Người Phụ Nữ <span>Hiện Đại</span>
 									</h1>
-									<p>A small river named Duden flows by their place and
-										supplies it with the necessary regelialia. It is a
-										paradisematic country.</p>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng và cung cấp cho nó sự hồi sinh cần thiết.
+									 Đó là một đất nước thiên đường.</p>
 
 									<p>
-										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Shop
-											Now</a>
+										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
 									</p>
 								</div>
 							</div>
@@ -188,14 +173,13 @@
 				<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
 					<div class="heading-section-bold mb-4 mt-md-5">
 						<div class="ml-md-0">
-							<h2 class="mb-4">Better Way to Ship Your Products</h2>
+							<h2 class="mb-4">Cách tốt hơn để vận chuyển sản phẩm của bạn</h2>
 						</div>
 					</div>
 					<div class="pb-md-5">
-						<p>But nothing the copy said could convince her and so it
-							didn’t take long until a few insidious Copy Writers ambushed her,
-							made her drunk with Longe and Parole and dragged her into their
-							agency, where they abused her for their.</p>
+						<p>Nhưng không có gì mà bản sao nói có thể thuyết phục được cô và vì vậy, 
+						không mất nhiều thời gian cho đến khi một vài Nhà văn Sao chép quỷ quyệt phục kích cô, 
+						khiến cô say sưa với Longe và Parole và kéo cô vào công ty của họ, nơi họ lạm dụng cô vì mục đích của họ.</p>
 						<div class="row ftco-services">
 							<div
 								class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
@@ -205,7 +189,7 @@
 										<span class="flaticon-002-recommended"></span>
 									</div>
 									<div class="media-body">
-										<h3 class="heading">Refund Policy</h3>
+										<h3 class="heading">CHÍNH SÁCH HOÀN TIỀN</h3>
 										<p>Even the all-powerful Pointing has no control about the
 											blind texts it is an almost unorthographic.</p>
 									</div>
@@ -219,7 +203,7 @@
 										<span class="flaticon-001-box"></span>
 									</div>
 									<div class="media-body">
-										<h3 class="heading">Premium Packaging</h3>
+										<h3 class="heading">Bao Bì Cao Cấp</h3>
 										<p>Even the all-powerful Pointing has no control about the
 											blind texts it is an almost unorthographic.</p>
 									</div>
@@ -233,7 +217,7 @@
 										<span class="flaticon-003-medal"></span>
 									</div>
 									<div class="media-body">
-										<h3 class="heading">Superior Quality</h3>
+										<h3 class="heading">Chất Lượng Cao</h3>
 										<p>Even the all-powerful Pointing has no control about the
 											blind texts it is an almost unorthographic.</p>
 									</div>
@@ -250,7 +234,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-3">
 				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Best Sellers</h2>
+					<h2 class="mb-4">Bán Chạy Nhất</h2>
 					<p>Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia</p>
 				</div>
@@ -284,9 +268,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -318,9 +301,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -352,9 +334,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -386,9 +367,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -407,13 +387,13 @@
 				</div>
 				<div class="col-md-4 py-md-5 ftco-animate">
 					<div class="text py-3 py-md-5">
-						<h2 class="mb-4">New Women's Clothing Summer Collection 2019</h2>
+						<h2 class="mb-4">BỘ SƯU TẬP QUẦN ÁO NỮ MÙA HÈ 2019</h2>
 						<p>Far far away, behind the word mountains, far from the
 							countries Vokalia and Consonantia, there live the blind texts.
 							Separated they live in Bookmarksgrove right at the coast of the
 							Semantics, a large language ocean.</p>
 						<p>
-							<a href="/shop" class="btn btn-white px-4 py-3">Shop now</a>
+							<a href="/shop" class="btn btn-white px-4 py-3">Mua Ngay</a>
 						</p>
 					</div>
 				</div>
@@ -426,13 +406,13 @@
 				</div>
 				<div class="col-md-7 py-3 py-md-5 ftco-animate">
 					<div class="text text-2 py-md-5">
-						<h2 class="mb-4">New Men's Clothing Summer Collection 2019</h2>
+						<h2 class="mb-4">BỘ SƯU TẬP QUẦN ÁO NAM MÙA HÈ 2019</h2>
 						<p>Far far away, behind the word mountains, far from the
 							countries Vokalia and Consonantia, there live the blind texts.
 							Separated they live in Bookmarksgrove right at the coast of the
 							Semantics, a large language ocean.</p>
 						<p>
-							<a href="/shop" class="btn btn-white px-4 py-3">Shop now</a>
+							<a href="/shop" class="btn btn-white px-4 py-3">Mau Ngay</a>
 						</p>
 					</div>
 				</div>
@@ -444,7 +424,7 @@
 		<div class="container">
 			<div class="row justify-content-center mb-3 pb-3">
 				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Products</h2>
+					<h2 class="mb-4">Các Sản Phẩm</h2>
 					<p>Far far away, behind the word mountains, far from the
 						countries Vokalia and Consonantia</p>
 				</div>
@@ -478,9 +458,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -512,9 +491,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -546,9 +524,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -580,9 +557,8 @@
 								</div>
 							</div>
 							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add
-										to cart <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Buy now<span><i
+								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 										class="ion-ios-cart ml-1"></i></span></a>
 							</p>
 						</div>
@@ -602,8 +578,7 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="10000">0</strong> <span>Happy
-										Customers</span>
+									<strong class="number" data-number="10000">0</strong> <span>Khách Hàng Hài Lòng</span>
 								</div>
 							</div>
 						</div>
@@ -611,7 +586,7 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Branches</span>
+									<strong class="number" data-number="100">0</strong> <span>Chi Nhánh</span>
 								</div>
 							</div>
 						</div>
@@ -619,7 +594,7 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="1000">0</strong> <span>Partner</span>
+									<strong class="number" data-number="1000">0</strong> <span>Đối Tác</span>
 								</div>
 							</div>
 						</div>
@@ -627,7 +602,7 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Awards</span>
+									<strong class="number" data-number="100">0</strong> <span>Giải Thưởng</span>
 								</div>
 							</div>
 						</div>
@@ -644,14 +619,14 @@
 			<div class="container">
 				<div class="row d-flex justify-content-center py-5">
 					<div class="col-md-7 text-center heading-section ftco-animate">
-						<h2>Subcribe to our Newsletter</h2>
+						<h2>Đăng Ký Nhận Bản Tin Của Chúng Tôi</h2>
 						<div class="row d-flex justify-content-center mt-5">
 							<div class="col-md-8">
 								<form action="#" class="subscribe-form">
 									<div class="form-group d-flex">
 										<input type="text" class="form-control"
-											placeholder="Enter email address"> <input
-											type="submit" value="Subscribe" class="submit px-3">
+											placeholder="Nhập Địa Chỉ Email"> <input
+											type="submit" value="Đăng ký" class="submit px-3">
 									</div>
 								</form>
 							</div>
@@ -693,45 +668,43 @@
 					<div class="ftco-footer-widget mb-4 ml-md-5">
 						<h2 class="ftco-heading-2">Menu</h2>
 						<ul class="list-unstyled">
-							<li><a href="#" class="py-2 d-block">Shop</a></li>
-							<li><a href="#" class="py-2 d-block">About</a></li>
-							<li><a href="#" class="py-2 d-block">Journal</a></li>
-							<li><a href="#" class="py-2 d-block">Contact Us</a></li>
+							<li><a href="/shop" class="py-2 d-block">Cửa Hàng</a></li>
+							<li><a href="/about" class="py-2 d-block">Giới Thiệu</a></li>
+							<li><a href="/contact" class="py-2 d-block">Phản Hồi</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Help</h2>
+						<h2 class="ftco-heading-2">Trợ Giúp</h2>
 						<div class="d-flex">
 							<ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-								<li><a href="#" class="py-2 d-block">Shipping
-										Information</a></li>
-								<li><a href="#" class="py-2 d-block">Returns &amp;
-										Exchange</a></li>
-								<li><a href="#" class="py-2 d-block">Terms &amp;
-										Conditions</a></li>
-								<li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+								<li><a href="#" class="py-2 d-block">Thông Tin Vận Chuyển</a></li>
+								<li><a href="#" class="py-2 d-block">Trả Lại &amp;
+										Trao Đổi</a></li>
+								<li><a href="#" class="py-2 d-block">Điều Khoản &amp;
+										Điều Kiện</a></li>
+								<li><a href="#" class="py-2 d-block">Chính Sách Bảo Mật</a></li>
 							</ul>
 							<ul class="list-unstyled">
-								<li><a href="#" class="py-2 d-block">FAQs</a></li>
-								<li><a href="#" class="py-2 d-block">Contact</a></li>
+								<li><a href="#" class="py-2 d-block">Câu Hỏi Thường Gặp</a></li>
+								<li><a href="#" class="py-2 d-block">Liên Hệ</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
-						<h2 class="ftco-heading-2">Have a Questions?</h2>
+						<h2 class="ftco-heading-2">Có Câu Hỏi?</h2>
 						<div class="block-23 mb-3">
 							<ul>
 								<li><span class="icon icon-map-marker"></span><span
-									class="text">203 Fake St. Mountain View, San Francisco,
-										California, USA</span></li>
+									class="text">Minh Khai, Bắc Từ Liêm,
+										Hà Nội, Việt Nam</span></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
-										class="text">+2 392 3929 210</span></a></li>
+										class="text">+ 8433 3385 398</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span
-										class="text">info@yourdomain.com</span></a></li>
+										class="text">shopwinkel@gmail.com</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -742,13 +715,13 @@
 
 					<p>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						Copyright &copy;
+						Bản Quyền &copy;
 						<script>
 							document.write(new Date().getFullYear());
 						</script>
-						All rights reserved | This template is made with <i
-							class="icon-heart color-danger" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a>
+						Đã Đăng Ký Bản Quyền | Mẫu này được thực hiện <i
+							class="icon-heart color-danger" aria-hidden="true"></i> bởi <a
+							th:href="@{/}" target="_blank">Winkel</a>
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</p>
 				</div>
