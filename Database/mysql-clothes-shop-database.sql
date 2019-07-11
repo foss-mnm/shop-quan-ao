@@ -22,15 +22,15 @@ create table user_role(
     constraint user_role_fk1 foreign key (user_id) references user(user_id),
     constraint user_role_fk2 foreign key (role_id) references role(role_id)
 );
-create table persistent_login(
+create table persistent_logins(
 	series varchar(64),
     username varchar(64) not null,
     token varchar(64) not null,
     last_used timestamp not null,
-    constraint persistent_login_pk primary key (series)
+    constraint persistents_login_pk primary key (series)
 );
 create table provider(
-	provider_id bigint,
+	provider_id bigint auto_increment,
     name nvarchar(255) not null,
     address varchar(125),
     phone varchar(25),
@@ -38,9 +38,9 @@ create table provider(
     constraint provider_pk primary key (provider_id)
 );
 create table import(
-	import_id bigint,
-    import_date date,
-    total_price  float,
+	import_id bigint auto_increment,
+    import_date varchar(25),
+    total_price  varchar(10),
     constraint import_pk primary key (import_id)
 );
 create table user_info(
@@ -54,42 +54,35 @@ create table user_info(
     constraint user_info_fk foreign key (user_id) references user (user_id)
 );
 create table cart(
-	cart_id bigint,
-    quantity int,
+	cart_id bigint auto_increment,
+    quantity varchar(10),
     user_id bigint not null,
     constraint cart_pk primary key (cart_id),
     constraint cart_fk foreign key (user_id) references user(user_id)
 );
-create table method_payment(
-	method_payment_id bigint,
-    method varchar(50),
-    constraint method_payment_pk primary key (method_payment_id)
-);
 create table payment(
-	payment_id bigint,
+	payment_id bigint auto_increment,
     total_price float,
     date_payment date,
     address_receive varchar(125),
     quantity int,
     postcode varchar(10),
     user_id bigint,
-    method_payment_id bigint,
     constraint payment_pk primary key (payment_id),
-    constraint payment_fk foreign key (user_id) references user(user_id),
-    constraint payment_fk2 foreign key (method_payment_id) references method_payment(method_payment_id)
+    constraint payment_fk foreign key (user_id) references user(user_id)
 );
 create table category(
-	category_id bigint,
+	category_id bigint auto_increment,
     name varchar(125),
     constraint category_pk primary key (category_id)
 );
 create table product(
-	product_id bigint,
+	product_id bigint auto_increment,
     name varchar(125) not null,
     size varchar(25) not null,
     price float(25) not null,
     description varchar(1000),
-    discount_amount float,
+    quantity varchar(10),
     image varchar(125),
     provider_id bigint,
     category_id bigint,
@@ -97,6 +90,8 @@ create table product(
     constraint product_fk1 foreign key (provider_id) references provider(provider_id),
     constraint product_fk2 foreign key (category_id) references category(category_id)
 );
+insert into product(name,size,price,description,quantity,image,provider_id,category_id) 
+values ('Quần Jeans','30',300000,'Made in Vietnam',10,'',1,null);
 create table import_product(
 	import_id bigint,
     product_id bigint,
@@ -135,5 +130,11 @@ select * from persistent_logins;
 -- ==================================================
 select * from user_info;
 delete from user_info;
-insert into user_info values(33,'phamdaiyb98@gmail.com','0325808383','Đại','Phạm','')
+insert into user_info values(59,'phamdaiyb98@gmail.com','0325808383','Đại','Phạm','');
+insert into provider(name,address,phone,email) 
+values('Công ty TNHH Hải Thành','Hà Nội','0123456789','haithanh@gmail.com'),
+('Công ty TNHHMTV Nam Lan','Bắc Ninh','0838367467','namlan@yahoo.com.vn'),
+('Công ty may mặc và dày da Sài Gòn','TP. Hồ Chí Minh','0583658356','saigonmay@gmail.com'),
+('Tổng công ty may Hà Nội','Hà Nội','0547463836','hanoimay@yahoo.com.vn');
+select * from provider;
 

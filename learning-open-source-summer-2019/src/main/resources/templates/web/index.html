@@ -42,7 +42,7 @@
 					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
 						    <span class="text">shopwinkel@gmail.com</span>
 					    </div>
-					    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+					    <div class="col-md-6 pr-4 d-flex topper align-items-center text-lg-right">
 						    <span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp; MIỄN PHÍ HOÀN TRẢ LẠI</span>
 					    </div>
 				    </div>
@@ -70,12 +70,12 @@
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown04">
 							<a class="dropdown-item" href="/shop">Cửa hàng</a> <a
-								class="dropdown-item" href="/product-single">Sản phẩm đơn</a> 
+								class="dropdown-item" th:href="@{/product-single}">Sản phẩm đơn</a> 
 							<a class="dropdown-item" href="cart.html">Giỏ hàng</a> <a
 								class="dropdown-item" href="/checkout">Thanh toán</a>
 						</div></li>
 					<li class="nav-item"><a href="/about" class="nav-link">Giới thiệu</a></li>
-					<li class="nav-item"><a href="/contact" class="nav-link">Phản hồi</a></li>
+					<li class="nav-item"><a href="/feedback" class="nav-link">Phản hồi</a></li>
 					<li sec:authorize="hasRole('ROLE_MEMBER')"
 						class="nav-item cta cta-colored"><a th:href="@{cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>

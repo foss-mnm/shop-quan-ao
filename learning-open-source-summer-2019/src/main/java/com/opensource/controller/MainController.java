@@ -48,34 +48,4 @@ public class MainController {
 			return "redirect:/register";
 		}
 	}
-	
-	@GetMapping("/shop")
-	public String shop() {
-		return "web/shop";
-	}
-	
-	@GetMapping("/product-single")
-	public String product_single() {
-		return "web/product-single";
-	}
-	
-	@GetMapping("/cart")
-	public String cart() {
-		return "web/cart";
-	}
-	
-	@GetMapping("/about")
-	public String about() {
-		return "web/about";
-	}
-	
-	@GetMapping("/checkout")
-	public String checkout() {
-		return "web/checkout";
-	}
-	
-	@GetMapping("/feedback")
-	public String feedback() {
-		return "web/contact";
-	}
 }
