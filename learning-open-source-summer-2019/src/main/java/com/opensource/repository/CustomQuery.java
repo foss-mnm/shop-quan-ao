@@ -19,5 +19,4 @@ public interface CustomQuery {
 	
 	String USER_UPDATE_ADMIN_LOGIN_DATA = 
 			"update User set username=:username,password=:password where userID=:userID";
-	
 }

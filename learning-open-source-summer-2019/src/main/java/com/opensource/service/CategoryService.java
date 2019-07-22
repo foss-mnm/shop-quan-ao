@@ -6,5 +6,5 @@ import com.opensource.model.Category;
 
 public interface CategoryService {
 
-	List<Category> loadCategory();
+	List<Category> loadCategories();
 }
