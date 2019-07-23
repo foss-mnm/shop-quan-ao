@@ -4,32 +4,25 @@
 <head>
 <title>Winkel</title>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
 <link rel="stylesheet" href="web/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="web/css/animate.css">
-
 <link rel="stylesheet" href="web/css/owl.carousel.min.css">
 <link rel="stylesheet" href="web/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="web/css/magnific-popup.css">
-
 <link rel="stylesheet" href="web/css/aos.css">
-
 <link rel="stylesheet" href="web/css/ionicons.min.css">
-
 <link rel="stylesheet" href="web/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="web/css/jquery.timepicker.css">
-
-
 <link rel="stylesheet" href="web/css/flaticon.css">
 <link rel="stylesheet" href="web/css/icomoon.css">
 <link rel="stylesheet" href="web/css/style.css">
 </head>
 <body class="goto-here">
-	<div class="py-1 bg-black">
+	<div class="py-1 bg-black" th:fragment="web-header">
     	<div class="container">
     		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
 	    		<div class="col-lg-12 d-block">
@@ -43,16 +36,14 @@
 						    <span class="text">shopwinkel@gmail.com</span>
 					    </div>
 					    <div class="col-md-6 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp; MIỄN PHÍ HOÀN TRẢ LẠI</span>
+						    <span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp; MIỄN PHÍ KHI HOÀN TRẢ LẠI</span>
 					    </div>
 				    </div>
 			    </div>
 		    </div>
 		  </div>
     </div>
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
-		id="ftco-navbar">
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" th:fragment="web-nav">
 		<div class="container">
 			<a class="navbar-brand" th:href="@{/}">Winkel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -75,7 +66,7 @@
 								class="dropdown-item" href="/checkout">Thanh toán</a>
 						</div></li>
 					<li class="nav-item"><a href="/about" class="nav-link">Giới thiệu</a></li>
-					<li class="nav-item"><a href="/feedback" class="nav-link">Phản hồi</a></li>
+					<li class="nav-item"><a th:href="@{/feedback}" class="nav-link">Phản hồi</a></li>
 					<li sec:authorize="hasRole('ROLE_MEMBER')"
 						class="nav-item cta cta-colored"><a th:href="@{/cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
@@ -159,7 +150,7 @@
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light" th:fragment="web-better-way-to-ship">
 		<div class="container">
 			<div class="row">
 				<div
@@ -636,7 +627,9 @@
 			</div>
 		</div>
 	</section>
-	<footer class="ftco-footer bg-light ftco-section">
+	
+	<!-- Footer -->
+	<footer class="ftco-footer bg-light ftco-section" th:fragment="web-footer">
 		<div class="container">
 			<div class="row">
 				<div class="mouse">
@@ -653,15 +646,6 @@
 						<h2 class="ftco-heading-2">Winkel</h2>
 						<p>Far far away, behind the word mountains, far from the
 							countries Vokalia and Consonantia.</p>
-						<ul
-							class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-twitter"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-facebook"></span></a></li>
-							<li class="ftco-animate"><a href="#"><span
-									class="icon-instagram"></span></a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-md">
@@ -714,7 +698,6 @@
 				<div class="col-md-12 text-center">
 
 					<p>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Bản Quyền &copy;
 						<script>
 							document.write(new Date().getFullYear());
@@ -722,7 +705,6 @@
 						Đã Đăng Ký Bản Quyền | Mẫu này được thực hiện <i
 							class="icon-heart color-danger" aria-hidden="true"></i> bởi <a
 							th:href="@{/}" target="_blank">Winkel</a>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</p>
 				</div>
 			</div>

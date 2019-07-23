@@ -25,8 +25,10 @@ public class CategoryController {
 	@GetMapping("/shop")
 	public String loadCatergories(Model model,
 			@RequestParam(name="page", defaultValue="0")Integer page) {
+		
 		model.addAttribute("category_name", categoryService.loadCategories());
 		
+		//Pagination
 		Pageable pages=PageRequest.of(page, 12);
 		Page<Product> pageProduct=productService.loadProducts(pages);
 		model.addAttribute("page_product", pageProduct);
@@ -36,21 +38,21 @@ public class CategoryController {
 		long totalElement = pageProduct.getTotalElements();
 		long begin = 1;
 		long end = 1;
-		if (current > 5 && total > 6) {
+		if (current > 3 && total > 4) {
 			begin = Math.max(1, current);
 		}
 		if (total != 0) {
-			end = Math.min(begin + 4, total);
+			end = Math.min(begin + 2, total);
 		}
-		if (current == total - 5) {
+		if (current == total - 3) {
 			end = total;
 		}
 		boolean extra = false;
 		boolean checkLast = false;
-		if (total > 5 && current < total - 5) {
+		if (total > 3 && current < total - 3) {
 			extra = true;
 		}
-		if (total > 6 && current < total - 5) {
+		if (total > 4 && current < total - 3) {
 			checkLast = true;
 		}
 		String baseUrl = "/shop?page=";
@@ -64,6 +66,7 @@ public class CategoryController {
 		model.addAttribute("chambers", pages);
 		model.addAttribute("extra", extra);
 		model.addAttribute("checkLast", checkLast);
+		//End Pagination
 		
 		return "web/shop";
 	}
