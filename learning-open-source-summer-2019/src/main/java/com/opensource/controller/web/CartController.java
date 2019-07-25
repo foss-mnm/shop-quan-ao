@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.opensource.model.Product;
 import com.opensource.service.ProductService;
 
 @Controller
@@ -20,7 +19,7 @@ public class CartController {
 		
 		
 		model.addAttribute("selected_product", productService.loadProducts());
-		model.addAttribute("total", String.valueOf(price*quantity));
+//		model.addAttribute("total", String.valueOf(price*quantity));
 		
 		return "web/cart";
 	}
