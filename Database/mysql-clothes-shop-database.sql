@@ -82,8 +82,10 @@ create table product(
     size varchar(25) not null,
     price float(25) not null,
     description varchar(1000),
+<<<<<<< HEAD
     discount_amount float,
 =======
+>>>>>>> 08cad6b1b3a8ea9cc7ec4a0e7e2cde560ba8864e
     quantity varchar(10),
     image varchar(125),
     provider_id bigint,
