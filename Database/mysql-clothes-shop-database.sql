@@ -83,6 +83,7 @@ create table product(
     price float(25) not null,
     description varchar(1000),
     discount_amount float,
+=======
     quantity varchar(10),
     image varchar(125),
     provider_id bigint,
