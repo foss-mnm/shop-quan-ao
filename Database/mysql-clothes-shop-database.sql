@@ -91,6 +91,8 @@ create table product(
     constraint product_fk1 foreign key (provider_id) references provider(provider_id),
     constraint product_fk2 foreign key (category_id) references category(category_id)
 );
+insert into product(name,size,price,description,quantity,image,provider_id,category_id) 
+values ('Quần Jeans','30',300000,'Made in Vietnam',10,'',1,null);
 create table import_product(
 	import_id bigint,
     product_id bigint,
