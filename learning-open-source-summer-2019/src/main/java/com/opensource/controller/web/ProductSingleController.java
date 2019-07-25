@@ -35,6 +35,7 @@ public class ProductSingleController {
 		model.addAttribute("product_description", description);
 		model.addAttribute("product_size", size);
 		model.addAttribute("product_quantity", quantity);
+		model.addAttribute("product_img", product.getImage());
 		
 		// Load Others
 		Pageable pages=PageRequest.of(page, 4);

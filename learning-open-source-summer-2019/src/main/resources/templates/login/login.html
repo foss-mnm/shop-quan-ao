@@ -56,8 +56,10 @@
 									style="float: right; margin: 25px 20px 0 0;"
 									th:href="@{/register}" class="link">Đăng kí</a>
 							</div>
-							<p th:if="${param.error}"
-								style="color: red; font-size: 17px; font-style: italic;">Sai
+							<div class="form-group">
+								<a style="float: left;color:chocolate;font-size:17px;" th:href="@{/}">Trang chủ</a>
+							</div>
+							<p th:if="${param.error}" style="color: red; font-size: 17px; font-style: italic;">Sai
 								tên đăng nhập hoặc mật khẩu</p>
 						</form>
 					</div>

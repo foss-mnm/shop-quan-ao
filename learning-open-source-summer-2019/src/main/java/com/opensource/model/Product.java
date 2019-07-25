@@ -1,21 +1,23 @@
 package com.opensource.model;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "product")
+@JsonIgnoreProperties("category")
 public class Product implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -41,7 +43,13 @@ public class Product implements Serializable {
 	@Column(name="image",nullable=false)
 	private String image;
 	
-	//category_id, provider_id
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="category_id")
+	private Category category;
+	
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name="provider_id")
+//	private Provider provider;
 	
 	public Product() {}
 

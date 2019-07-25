@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Winkel</title>
+    <title>Winkel - Cửa Hàng</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -29,7 +29,7 @@
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/}">Home</a></span> <span>Products</span></p>
+          	<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/}">Home</a></span><span>Products</span></p>
             <h1 class="mb-0 bread">Collection Products</h1>
           </div>
         </div>
@@ -45,10 +45,10 @@
 			    			<div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
 			    				<p th:utext="${product_id}"></p>
 			    				<div class="product">
-			    					<a th:href="@{/product-single(id=${item.productId})}" class="img-prod">
-			    						<img class="img-fluid" src="web/images/product-1.jpg" alt="Colorlib Template">
+			    					<a th:href="@{/product-single(id=${item.productId})}" class="img-prod" style="width:288px;height:430px;background:#e9ecef">
+			    						<img class="img-fluid" th:src="${item.image}" th:alt="${item.name}">
 			    						<div class="overlay"></div>
-			    					</a>
+			    					</a> 
 			    					<div class="text py-3 px-3">
 			    						<a href="#"><h3 th:utext="${item.name}"></h3></a>
 			    						<div class="d-flex">

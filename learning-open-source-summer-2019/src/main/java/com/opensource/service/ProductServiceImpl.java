@@ -1,5 +1,7 @@
 package com.opensource.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,5 +24,10 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product findOne(long id) {
 		return productRepository.getOne(id);
+	}
+
+	@Override
+	public List<Product> loadProducts() {
+		return productRepository.findAll();
 	}
 }

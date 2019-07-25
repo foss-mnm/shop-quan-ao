@@ -9,19 +9,13 @@
 
     <link rel="stylesheet" href="web/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="web/css/animate.css">
-    
     <link rel="stylesheet" href="web/css/owl.carousel.min.css">
     <link rel="stylesheet" href="web/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="web/css/magnific-popup.css">
-
     <link rel="stylesheet" href="web/css/aos.css">
-
     <link rel="stylesheet" href="web/css/ionicons.min.css">
-
     <link rel="stylesheet" href="web/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="web/css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="web/css/flaticon.css">
     <link rel="stylesheet" href="web/css/icomoon.css">
     <link rel="stylesheet" href="web/css/style.css">
@@ -59,47 +53,23 @@
 						      </tr>
 						    </thead>
 						    <tbody>
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(web/images/product-3.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Young Woman Wearing Dress</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$4.90</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$4.90</td>
-						      </tr><!-- END TR-->
-
-						      <tr class="text-center">
-						        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-						        
-						        <td class="image-prod"><div class="img" style="background-image:url(web/images/product-4.jpg);"></div></td>
-						        
-						        <td class="product-name">
-						        	<h3>Young Woman Wearing Dress</h3>
-						        	<p>Far far away, behind the word mountains, far from the countries</p>
-						        </td>
-						        
-						        <td class="price">$15.70</td>
-						        
-						        <td class="quantity">
-						        	<div class="input-group mb-3">
-					             	<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-					          	</div>
-					          </td>
-						        
-						        <td class="total">$15.70</td>
-						      </tr><!-- END TR-->
+							    <th:block th:each="item:${selected_product}">
+							      <tr class="text-center">
+							        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+							        <td class="image-prod"><div class="img" th:style="'background-image:url('+ ${item.image}+');'"></div></td>
+							        <td class="product-name">
+							        	<h3 th:utext=${item.name}>Young Woman Wearing Dress</h3>
+							        	<p th:utext=${item.description}>Far far away, behind the word mountains, far from the countries</p>
+							        </td>
+							        <td class="price" th:utext=${item.price}>$4.90</td>
+							        <td class="quantity">
+							        	<div class="input-group mb-3">
+						             		<input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
+						          		</div>
+						          	</td>
+							        <td class="total" th:utext="${total}">$4.90</td>
+							      </tr><!-- END TR-->
+							    </th:block>
 						    </tbody>
 						  </table>
 					  </div>

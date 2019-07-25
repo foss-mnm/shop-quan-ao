@@ -60,22 +60,27 @@
 						class="nav-link dropdown-toggle" href="/shop" id="dropdown04"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
 						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="/shop">Cửa hàng</a> <a
-								class="dropdown-item" th:href="@{/product-single}">Sản phẩm đơn</a> 
-							<a class="dropdown-item" th:href="@{/cart}">Giỏ hàng</a> <a
-								class="dropdown-item" href="/checkout">Thanh toán</a>
-						</div></li>
+							<a class="dropdown-item" href="/shop">Cửa hàng</a> 
+							<a class="dropdown-item" th:href="@{/product-single}">Sản phẩm đơn</a> 
+							<a class="dropdown-item" th:href="@{/cart}">Giỏ hàng</a> 
+							<a class="dropdown-item" href="/checkout">Thanh toán</a>
+						</div>
+					</li>
 					<li class="nav-item"><a href="/about" class="nav-link">Giới thiệu</a></li>
 					<li class="nav-item"><a th:href="@{/feedback}" class="nav-link">Phản hồi</a></li>
-					<li sec:authorize="hasRole('ROLE_MEMBER')"
-						class="nav-item cta cta-colored"><a th:href="@{/cart}"
-						class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
-						th:href="@{/login}" class="nav-link">Login</a></li>
-					<li sec:authorize="isAuthenticated()" class="nav-item"><a
-						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
+					<li sec:authorize="hasRole('ROLE_MEMBER')" class="nav-item cta cta-colored">
+						<a th:href="@{/cart}" class="nav-link">
+							<span class="icon-shopping_cart"></span>[0]</a>
+					</li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item">
+						<a th:href="@{/login}" class="nav-link">Login</a>
+					</li>
+					<li sec:authorize="isAuthenticated()" class="nav-item">
+						<a th:href="@{/logout}" class="nav-link">Đăng xuất</a>
+					</li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+						<a th:href="@{/admin/products}" class="nav-link">Admin</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -105,7 +110,6 @@
 									</h1>
 									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng và cung cấp cho nó sự hồi sinh cần thiết.
 									 Đó là một đất nước thiên đường.</p>
-
 									<p>
 										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Khám Phá Ngay</a>
 									</p>
@@ -156,7 +160,7 @@
 				<div
 					class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
 					style="background-image: url(web/images/about.jpg);">
-					<a href="#"
+					<a href="https://www.youtube.com/watch?v=Pkh8UtuejGw"
 						class="icon popup-vimeo d-flex justify-content-center align-items-center">
 						<span class="icon-play"></span>
 					</a>
@@ -233,138 +237,41 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-1.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span class="mr-2">$120.00</span>
-									</p>
+				<th:block th:each="item:${four_products}">
+					<div class="col-sm col-md-6 col-lg ftco-animate">
+						<div class="product">
+							<a th:href="@{/product-single(id=${item.productId})}" class="img-prod"><img class="img-fluid"
+								th:src="${item.image}" th:alt="${item.name}">
+								<div class="overlay"></div> </a>
+							<div class="text py-3 px-3">
+								<h3>
+									<a th:href="@{/product-single(id=${item.productId})}" th:utext="${item.name}"></a>
+								</h3>
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price">
+											<span class="mr-2" th:utext="${item.price}"></span><span> VND</span>
+										</p>
+									</div>
+									<div class="rating">
+										<p class="text-right">
+											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a>
+										</p>
+									</div>
 								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
+								<p class="bottom-area d-flex px-3">
+									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
+											class="ion-ios-cart ml-1"></i></span></a>
+								</p>
 							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-2.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-3.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-4.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
+				</th:block>
 			</div>
 		</div>
 	</section>
@@ -423,138 +330,41 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-5.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span class="mr-2">$120.00</span>
-									</p>
+				<th:block th:each="item:${four_products}">
+					<div class="col-sm col-md-6 col-lg ftco-animate">
+						<div class="product">
+							<a th:href="@{/product-single(id=${item.productId})}" class="img-prod"><img class="img-fluid"
+								th:src="${item.image}" th:alt="${item.name}">
+								<div class="overlay"></div> </a>
+							<div class="text py-3 px-3">
+								<h3>
+									<a th:href="@{/product-single(id=${item.productId})}" th:utext="${item.name}"></a>
+								</h3>
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price">
+											<span class="mr-2" th:utext="${item.price}"></span><span> VND</span>
+										</p>
+									</div>
+									<div class="rating">
+										<p class="text-right">
+											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a>
+										</p>
+									</div>
 								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
+								<p class="bottom-area d-flex px-3">
+									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
+											class="ion-ios-cart ml-1"></i></span></a>
+								</p>
 							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
 						</div>
 					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-6.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-7.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-sm col-md-6 col-lg ftco-animate">
-					<div class="product">
-						<a href="#" class="img-prod"><img class="img-fluid"
-							src="web/images/product-8.jpg" alt="Colorlib Template">
-							<div class="overlay"></div> </a>
-						<div class="text py-3 px-3">
-							<h3>
-								<a href="#">Floral Jackquard Pullover</a>
-							</h3>
-							<div class="d-flex">
-								<div class="pricing">
-									<p class="price">
-										<span>$120.00</span>
-									</p>
-								</div>
-								<div class="rating">
-									<p class="text-right">
-										<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a> <a
-											href="#"><span class="ion-ios-star-outline"></span></a>
-									</p>
-								</div>
-							</div>
-							<p class="bottom-area d-flex px-3">
-								<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-								</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-										class="ion-ios-cart ml-1"></i></span></a>
-							</p>
-						</div>
-					</div>
-				</div>
+				</th:block>	
 			</div>
 		</div>
 	</section>
@@ -672,7 +482,7 @@
 							</ul>
 							<ul class="list-unstyled">
 								<li><a href="#" class="py-2 d-block">Câu Hỏi Thường Gặp</a></li>
-								<li><a href="#" class="py-2 d-block">Liên Hệ</a></li>
+								<li><a th:href="@{/feedback}" class="py-2 d-block">Liên Hệ</a></li>
 							</ul>
 						</div>
 					</div>
