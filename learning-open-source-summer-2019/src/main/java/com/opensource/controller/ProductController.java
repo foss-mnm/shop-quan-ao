@@ -1,6 +1,7 @@
 package com.opensource.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -8,18 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/admin")
 public class ProductController {
 	
+//	@Autowired
+//	private ProductService productService;
+	
 //	Controller quan ly san pham, nha cung cap, loai san pham, nhap hang, ban hang
 	
 	//Xem danh sach san pham
 	@GetMapping("/products")
-	public String loadListProducts() {
+	public String loadListProducts(Model model) {
+//		model.addAttribute("", productService.showAll());
 		return "admin/products";
-	}
-	
-	//Xem danh sach nha cung cap
-	@GetMapping("/providers")
-	public String loadListProviders() {
-		return "admin/providers";
 	}
 	
 	//Xem danh sach loai san pham

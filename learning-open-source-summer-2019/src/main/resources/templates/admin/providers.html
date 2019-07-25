@@ -11,25 +11,32 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Nhà cung cấp <small>advanced tables</small>
+					Nhà cung cấp <small>thông tin các nhà cung cấp</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fab fa-elementor"></i> Home</a></li>
-					<li><a href="#">Tables</a></li>
-					<li class="active">Data tables</li>
+					<li><a href="#">Nhà cung cấp</a></li>
 				</ol>
 			</section>
 
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
+					<a class="btn btn-block btn-primary" data-toggle="modal"
+						data-target="#modal-default"
+						style="width: 100px; margin: 20px 0 15px 50px;">Thêm</a>
+				</div>
+				<div class="row">
 					<div class="col-xs-12">
 						<div class="box">
 							<div class="box-header">
-								<h3 class="box-title">Responsive Hover Table</h3>
+								<h3 class="box-title"
+									style="font-style: italic; margin-left: 30px;">Danh sách
+									nhà cung cấp</h3>
 
 								<div class="box-tools">
-									<div class="input-group input-group-sm" style="width: 150px;">
+									<div class="input-group input-group-sm"
+										style="width: 300px; margin-left: -100px;">
 										<input type="text" name="table_search"
 											class="form-control pull-right" placeholder="Search">
 
@@ -45,44 +52,28 @@
 							<div class="box-body table-responsive no-padding">
 								<table class="table table-hover">
 									<tr>
-										<th>ID</th>
-										<th>User</th>
-										<th>Date</th>
-										<th>Status</th>
-										<th>Reason</th>
+										<th>Stt</th>
+										<th>Nhà cung cấp</th>
+										<th>Địa chỉ</th>
+										<th>Số điện thoại</th>
+										<th>Email</th>
+										<th style="text-align: center;">Sửa</th>
+										<th style="text-align: center;">Xóa</th>
 									</tr>
-									<tr>
-										<td>183</td>
-										<td>John Doe</td>
-										<td>11-7-2014</td>
-										<td><span class="label label-success">Approved</span></td>
-										<td>Bacon ipsum dolor sit amet salami venison chicken
-											flank fatback doner.</td>
-									</tr>
-									<tr>
-										<td>219</td>
-										<td>Alexander Pierce</td>
-										<td>11-7-2014</td>
-										<td><span class="label label-warning">Pending</span></td>
-										<td>Bacon ipsum dolor sit amet salami venison chicken
-											flank fatback doner.</td>
-									</tr>
-									<tr>
-										<td>657</td>
-										<td>Bob Doe</td>
-										<td>11-7-2014</td>
-										<td><span class="label label-primary">Approved</span></td>
-										<td>Bacon ipsum dolor sit amet salami venison chicken
-											flank fatback doner.</td>
-									</tr>
-									<tr>
-										<td>175</td>
-										<td>Mike Doe</td>
-										<td>11-7-2014</td>
-										<td><span class="label label-danger">Denied</span></td>
-										<td>Bacon ipsum dolor sit amet salami venison chicken
-											flank fatback doner.</td>
-									</tr>
+									<th:block th:each="provider,item:${providers}">
+										<tr>
+											<td th:utext="${item.count}"></td>
+											<td th:utext="${provider.name}"></td>
+											<td th:utext="${provider.address}"></td>
+											<td th:utext="${provider.phone}"></td>
+											<td th:utext="${provider.email}"></td>
+											<td><a class="btn btn-block btn-primary"
+												data-toggle="modal" data-target="#modal-default"><i
+													class="fa fa-fw fa-paint-brush"></i></a></td>
+											<td><a class="btn btn-block btn-danger"><i
+													class="fa fa-fw fa-trash"></i></a></td>
+										</tr>
+									</th:block>
 								</table>
 							</div>
 							<!-- /.box-body -->
@@ -92,6 +83,64 @@
 				</div>
 			</section>
 			<!-- /.content -->
+
+			<div class="modal fade" id="modal-default">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form class="form-horizontal">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title">Cập nhật dữ liệu</h4>
+							</div>
+							<div class="modal-body">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Provider</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="name" name="name"
+											placeholder="Nhà cung cấp">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="address" class="col-sm-2 control-label">Address</label>
+
+									<div class="col-sm-10">
+										<input type="text" class="form-control"
+											id="address" placeholder="Địa chỉ" name="address">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="phone" class="col-sm-2 control-label">Phone</label>
+
+									<div class="col-sm-10">
+										<input type="tel" class="form-control"
+											id="phone" placeholder="Số điện thoại" name="phone">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="email" class="col-sm-2 control-label">Email</label>
+
+									<div class="col-sm-10">
+										<input type="email" class="form-control"
+											id="email" placeholder="Email" name="email">
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Hủy</button>
+								<button type="button" class="btn btn-primary">Lưu</button>
+							</div>
+						</form>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+
 		</div>
 
 		<div th:replace="~{admin/starter :: footer}"></div>
