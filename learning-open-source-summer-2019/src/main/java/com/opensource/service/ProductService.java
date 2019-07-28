@@ -13,4 +13,8 @@ public interface ProductService {
 	List<Product> loadProducts();
 
 	Product findOne(long id);
+	
+	void saveProduct(Product product);
+	
+	void deleteProduct(Long id);
 }
