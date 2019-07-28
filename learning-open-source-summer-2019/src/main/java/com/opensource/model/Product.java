@@ -47,9 +47,9 @@ public class Product implements Serializable {
 	@JoinColumn(name="category_id")
 	private Category category;
 	
-//	@ManyToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name="provider_id")
-//	private Provider provider;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="provider_id")
+	private Provider provider;
 	
 	public Product() {}
 

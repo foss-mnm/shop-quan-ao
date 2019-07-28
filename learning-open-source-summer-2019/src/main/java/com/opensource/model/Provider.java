@@ -1,15 +1,20 @@
 package com.opensource.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "provider")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Provider implements Serializable{
 	
 	/**
@@ -25,6 +30,14 @@ public class Provider implements Serializable{
 
 	public Provider() {
 		super();
+	}
+
+	public Provider(String name, String address, String phone, String email) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
 	}
 
 	public Provider(long providerId, String name, String address, String phone, String email) {
@@ -75,6 +88,9 @@ public class Provider implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@OneToMany(mappedBy = "provider")
+	private Set<Product> products;
 
 	@Id
 	@GeneratedValue

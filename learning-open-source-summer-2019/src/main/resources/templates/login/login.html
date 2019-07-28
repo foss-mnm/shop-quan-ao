@@ -30,19 +30,19 @@
 					</div>
 
 					<div class="signin-form">
-						<h2 class="form-title">Log in</h2>
+						<h2 class="form-title" style="font-family: initial;">Đăng nhập</h2>
 						<form th:action="@{/login}" method="POST" class="register-form"
 							id="login-form">
 							<div class="form-group">
 								<label for="your_name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="your_name" id="your_name"
-									placeholder="Tên đăng nhập" />
+									placeholder="Tên đăng nhập" style="font-family: initial;"/>
 							</div>
 							<div class="form-group">
 								<label for="your_pass"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="your_pass" id="your_pass"
-									placeholder="Mật khẩu" />
+									placeholder="Mật khẩu" style="font-family: initial;" />
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
@@ -55,9 +55,6 @@
 									class="form-submit" value="Đăng nhập" /> <a
 									style="float: right; margin: 25px 20px 0 0;"
 									th:href="@{/register}" class="link">Đăng kí</a>
-							</div>
-							<div class="form-group">
-								<a style="float: left;color:chocolate;font-size:17px;" th:href="@{/}">Trang chủ</a>
 							</div>
 							<p th:if="${param.error}" style="color: red; font-size: 17px; font-style: italic;">Sai
 								tên đăng nhập hoặc mật khẩu</p>

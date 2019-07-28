@@ -1,25 +1,50 @@
 package com.opensource.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.opensource.model.Product;
+import com.opensource.service.ProductService;
 
 @Controller
 @RequestMapping("/admin")
 public class ProductController {
 	
-//	@Autowired
-//	private ProductService productService;
-	
 //	Controller quan ly san pham, nha cung cap, loai san pham, nhap hang, ban hang
+	
+	@Autowired
+	private ProductService productService;
 	
 	//Xem danh sach san pham
 	@GetMapping("/products")
 	public String loadListProducts(Model model) {
-//		model.addAttribute("", productService.showAll());
+		model.addAttribute("products", productService.loadProducts());
 		return "admin/products";
 	}
+	
+	@GetMapping("/find-product")
+	@ResponseBody
+	public Product findProduct(Long id) {
+		return productService.findOne(id);
+	}
+	
+	@PostMapping("/save-product")
+	public String saveProduct() {
+		
+		return "redirect:/admin/products";
+	}
+	
+	@GetMapping("/delete-product")
+	public String deleteProduct() {
+		
+		return "redirect:/admin/products";
+	}
+	
 	
 	//Xem danh sach loai san pham
 	@GetMapping("/categories")

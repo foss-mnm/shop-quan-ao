@@ -22,8 +22,7 @@
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-					<a class="btn btn-block btn-primary" data-toggle="modal"
-						data-target="#modal-default"
+					<a class="btn btn-block btn-primary aBtn"
 						style="width: 100px; margin: 20px 0 15px 50px;">Thêm</a>
 				</div>
 				<div class="row">
@@ -67,10 +66,11 @@
 											<td th:utext="${provider.address}"></td>
 											<td th:utext="${provider.phone}"></td>
 											<td th:utext="${provider.email}"></td>
-											<td><a class="btn btn-block btn-primary"
-												data-toggle="modal" data-target="#modal-default"><i
+											<td><a class="btn btn-block btn-primary eBtn"
+												th:href="@{/admin/find-provider(id=${provider.providerId})}"><i
 													class="fa fa-fw fa-paint-brush"></i></a></td>
-											<td><a class="btn btn-block btn-danger"><i
+											<td><a class="btn btn-block btn-danger dBtn"
+												th:href="@{/admin/find-provider(id=${provider.providerId})}"><i
 													class="fa fa-fw fa-trash"></i></a></td>
 										</tr>
 									</th:block>
@@ -87,7 +87,7 @@
 			<div class="modal fade" id="modal-default">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<form class="form-horizontal">
+						<form class="form-horizontal" th:action="@{/admin/save-provider}" method="post">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal"
 									aria-label="Close">
@@ -96,42 +96,44 @@
 								<h4 class="modal-title">Cập nhật dữ liệu</h4>
 							</div>
 							<div class="modal-body">
+								<input type="text" id="id" name="id" style="display: none;">
 								<div class="form-group">
-									<label for="name" class="col-sm-2 control-label">Provider</label>
+									<label for="name" class="col-sm-2 control-label">Tên
+										NCC</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="name" name="name"
 											placeholder="Nhà cung cấp">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="address" class="col-sm-2 control-label">Address</label>
-
+									<label for="address" class="col-sm-2 control-label">Địa
+										chỉ</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control"
-											id="address" placeholder="Địa chỉ" name="address">
+										<input type="text" class="form-control" id="address"
+											placeholder="Địa chỉ" name="address">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="phone" class="col-sm-2 control-label">Phone</label>
+									<label for="phone" class="col-sm-2 control-label">SĐT</label>
 
 									<div class="col-sm-10">
-										<input type="tel" class="form-control"
-											id="phone" placeholder="Số điện thoại" name="phone">
+										<input type="tel" class="form-control" id="phone"
+											placeholder="Số điện thoại" name="phone">
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="email" class="col-sm-2 control-label">Email</label>
 
 									<div class="col-sm-10">
-										<input type="email" class="form-control"
-											id="email" placeholder="Email" name="email">
+										<input type="email" class="form-control" id="email"
+											placeholder="Email" name="email">
 									</div>
 								</div>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Hủy</button>
-								<button type="button" class="btn btn-primary">Lưu</button>
+								<button type="submit" class="btn btn-primary" id="save">Lưu</button>
 							</div>
 						</form>
 					</div>
@@ -140,6 +142,35 @@
 				<!-- /.modal-dialog -->
 			</div>
 			<!-- /.modal -->
+			<div class="modal fade" tabindex="-1" id="deleteModal" role="dialog">
+				<div class="modal-dialog" role="document" style="margin-top: 100px">
+					<form th:action="@{/admin/delete-provider}" method="get">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Xác nhận xóa</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+									<i class="fas fa-exclamation-triangle text-warning"
+										style="margin-right: 5px"></i>Bạn có chắc chắn muốn xóa dịch
+									vụ này không? <input type="text" name="idService"
+										id="idService" style="display: none;">
+									<input type="text" id="delete-id" name="id" style="display: none;">
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success"
+									data-dismiss="modal">Hủy</button>
+								<button type="submit" class="btn btn-danger">Xóa</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 
 		</div>
 
@@ -147,5 +178,41 @@
 		<div th:replace="~{admin/starter :: setting-bar}"></div>
 	</div>
 	<div th:replace="~{admin/starter :: script}"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('.eBtn,.aBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				var text = $(this).text();
+				if (text == '') {
+					$.get(href, function(provider, status) {
+						$('#id').val(provider.providerId);
+						$('#name').val(provider.name);
+						$('#address').val(provider.address);
+						$('#phone').val(provider.phone);
+						$('#email').val(provider.email);
+					});
+					$('#modal-default').modal();
+				} else {
+					$('#id').val('-1');
+					$('#name').val('');
+					$('#address').val('');
+					$('#phone').val('');
+					$('#email').val('');
+					$('#modal-default').modal();
+				}
+			});		
+			
+			$('.dBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');;
+				$.get(href, function(provider, status) {
+					$('#delete-id').val(provider.providerId);
+				});
+				$('#deleteModal').modal();
+			});
+		});
+	</script>
 </body>
 </html>

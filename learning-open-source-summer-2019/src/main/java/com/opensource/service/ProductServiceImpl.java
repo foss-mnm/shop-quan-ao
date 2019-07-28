@@ -30,4 +30,16 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> loadProducts() {
 		return productRepository.findAll();
 	}
+
+	@Override
+	public void saveProduct(Product product) {
+		// TODO Auto-generated method stub
+		productRepository.save(product);
+	}
+
+	@Override
+	public void deleteProduct(Long id) {
+		// TODO Auto-generated method stub
+		productRepository.deleteById(id);
+	}
 }

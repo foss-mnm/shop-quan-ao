@@ -46,6 +46,13 @@ public class MainController {
 		return "web/index";
 	}
 	
+	//Xem danh sach san pham
+	@GetMapping("/products")
+	public String loadListProducts(Model model) {
+		model.addAttribute("products", productService.loadProducts());
+		return "admin/products";
+	}
+	
 	@GetMapping("/403")
 	public String errorPage() {
 		return "login/403";

@@ -82,10 +82,6 @@ create table product(
     size varchar(25) not null,
     price float(25) not null,
     description varchar(1000),
-<<<<<<< HEAD
-    discount_amount float,
-=======
->>>>>>> 08cad6b1b3a8ea9cc7ec4a0e7e2cde560ba8864e
     quantity varchar(10),
     image varchar(125),
     provider_id bigint,
@@ -134,11 +130,17 @@ select * from persistent_logins;
 -- ==================================================
 select * from user_info;
 delete from user_info;
-insert into user_info values(59,'phamdaiyb98@gmail.com','0325808383','Đại','Phạm','');
+delete from provider;
 insert into provider(name,address,phone,email) 
 values('Công ty TNHH Hải Thành','Hà Nội','0123456789','haithanh@gmail.com'),
 ('Công ty TNHHMTV Nam Lan','Bắc Ninh','0838367467','namlan@yahoo.com.vn'),
 ('Công ty may mặc và dày da Sài Gòn','TP. Hồ Chí Minh','0583658356','saigonmay@gmail.com'),
 ('Tổng công ty may Hà Nội','Hà Nội','0547463836','hanoimay@yahoo.com.vn');
 select * from provider;
+select * from category;
+insert into category(name) values('Quần âu'),('Sơ mi nữ'),('Quần jean'),('Đồ bơi'),('Sơ mi nam');
+select * from product;
+insert into product(name,size,price,description,quantity,image,provider_id,category_id) values
+('Quần âu loại 1','small',200000,'','20','',6,1)
+
 
