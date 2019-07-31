@@ -34,28 +34,36 @@
 								<table id="example1" class="table table-bordered table-striped">
 									<thead>
 										<tr>
-											<th style="text-align: center;">Ảnh</th>
-											<th style="text-align: center;">Tên</th>
-											<th style="text-align: center;">Cỡ</th>
-											<th style="text-align: center;">Giá</th>
-											<th style="text-align: center;">Số lượng</th>
-											<th style="text-align: center;">Miêu tả</th>
-											<th style="text-align: center;">Sửa</th>
-											<th style="text-align: center;">Xóa</th>
+											<th>Ảnh</th>
+											<th>Tên</th>
+											<th>Cỡ</th>
+											<th>Giá</th>
+											<th>Số lượng</th>
+											<th>Miêu tả</th>
+											<th>Sửa</th>
+											<th>Xóa</th>
 										</tr>
 									</thead>
 									<tbody>
 										<th:block th:each="item:${products}">
 											<tr>
-												<td style="text-align: center;"><img alt="Ảnh sản phẩm"
-													src="images/about_1.jpg" width="100px" height="100px"></td>
+												<td><img alt="No Images Found"
+													src="web/images/about_1.jpg" width="100px" height="100px"></td>
 												<td th:utext="${item.name}"></td>
 												<td th:utext="${item.size}"></td>
 												<td th:utext="${item.price}"></td>
 												<td th:utext="${item.quantity}"></td>
 												<td th:utext="${item.description}"></td>
-												<td></td>
-												<td></td>
+												<td>
+													<a class="btn btn-block btn-primary eBtn" th:href="@{/admin/find-product(id=item.productId)}">
+														<i class="fa fa-fw fa-paint-brush"></i>
+													</a>
+												</td>
+												<td>
+													<a class="btn btn-block btn-danger dBtn" th:href="@{/admin/find-product(id=item.productId)}}">
+														<i class="fa fa-fw fa-trash"></i>
+													</a>
+												</td>
 											</tr>
 										</th:block>
 									</tbody>
@@ -82,6 +90,65 @@
 				<!-- /.row -->
 			</section>
 			<!-- /.content -->
+			
+			<div class="modal fade" id="modal-default">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form class="form-horizontal" th:action="@{/admin/save-product}" method="post">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title">Cập nhật dữ liệu</h4>
+							</div>
+							<div class="modal-body">
+								<input type="text" id="id" name="id" style="display: none;">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Tên
+										sản phẩm</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="name" name="name"
+											placeholder="Tên
+										sản phẩm" th:utext=${name}>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="address" class="col-sm-2 control-label">Địa
+										chỉ</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="address"
+											placeholder="Địa chỉ" name="address" th:utext=${address}>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="phone" class="col-sm-2 control-label">SĐT</label>
+
+									<div class="col-sm-10">
+										<input type="tel" class="form-control" id="phone"
+											placeholder="Số điện thoại" name="phone" th:utext=${phone}>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="email" class="col-sm-2 control-label">Email</label>
+
+									<div class="col-sm-10">
+										<input type="email" class="form-control" id="email"
+											placeholder="Email" name="email" th:utext=${email}>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Hủy</button>
+								<button type="submit" class="btn btn-primary" id="save">Lưu</button>
+							</div>
+						</form>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
 		</div>
 
 		<div th:replace="~{admin/starter :: footer}"></div>

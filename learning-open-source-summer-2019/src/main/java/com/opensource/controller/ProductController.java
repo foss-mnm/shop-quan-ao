@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.opensource.model.Product;
@@ -34,14 +35,15 @@ public class ProductController {
 	}
 	
 	@PostMapping("/save-product")
-	public String saveProduct() {
+	public String saveProduct(@RequestParam(name="id")Long id,
+			@RequestParam(name="name")String name) {
 		
 		return "redirect:/admin/products";
 	}
 	
 	@GetMapping("/delete-product")
-	public String deleteProduct() {
-		
+	public String deleteProduct(@RequestParam(name="id")Long id) {
+		productService.deleteProduct(id);
 		return "redirect:/admin/products";
 	}
 	

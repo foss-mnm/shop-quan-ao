@@ -16,25 +16,21 @@ public class ProviderServiceImpl implements ProviderService{
 	
 	@Override
 	public List<Provider> loadProviders() {
-		// TODO Auto-generated method stub
 		return providerRepository.findAll();
 	}
 
 	@Override
 	public Provider getProvider(Long id) {
-		// TODO Auto-generated method stub
 		return providerRepository.getOne(id);
 	}
 
 	@Override
 	public void saveProvider(Provider provider) {
-		// TODO Auto-generated method stub
 		providerRepository.save(provider);
 	}
 
 	@Override
 	public void deleteProvider(Long id) {
-		// TODO Auto-generated method stub
 		providerRepository.deleteById(id);;
 	}
 

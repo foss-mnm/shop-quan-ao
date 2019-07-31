@@ -56,8 +56,8 @@
 										<th>Địa chỉ</th>
 										<th>Số điện thoại</th>
 										<th>Email</th>
-										<th style="text-align: center;">Sửa</th>
-										<th style="text-align: center;">Xóa</th>
+										<th>Sửa</th>
+										<th>Xóa</th>
 									</tr>
 									<th:block th:each="provider,item:${providers}">
 										<tr>
@@ -102,7 +102,7 @@
 										NCC</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Nhà cung cấp">
+											placeholder="Nhà cung cấp" th:utext=${name}>
 									</div>
 								</div>
 								<div class="form-group">
@@ -110,7 +110,7 @@
 										chỉ</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="address"
-											placeholder="Địa chỉ" name="address">
+											placeholder="Địa chỉ" name="address" th:utext=${address}>
 									</div>
 								</div>
 								<div class="form-group">
@@ -118,7 +118,7 @@
 
 									<div class="col-sm-10">
 										<input type="tel" class="form-control" id="phone"
-											placeholder="Số điện thoại" name="phone">
+											placeholder="Số điện thoại" name="phone" th:utext=${phone}>
 									</div>
 								</div>
 								<div class="form-group">
@@ -126,7 +126,7 @@
 
 									<div class="col-sm-10">
 										<input type="email" class="form-control" id="email"
-											placeholder="Email" name="email">
+											placeholder="Email" name="email" th:utext=${email}>
 									</div>
 								</div>
 							</div>
@@ -156,8 +156,7 @@
 							<div class="modal-body">
 								<p>
 									<i class="fas fa-exclamation-triangle text-warning"
-										style="margin-right: 5px"></i>Bạn có chắc chắn muốn xóa dịch
-									vụ này không? <input type="text" name="idService"
+										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa nhà cung cấp này? <input type="text" name="idService"
 										id="idService" style="display: none;">
 									<input type="text" id="delete-id" name="id" style="display: none;">
 								</p>
