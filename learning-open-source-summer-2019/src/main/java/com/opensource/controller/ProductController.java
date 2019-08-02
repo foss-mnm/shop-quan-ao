@@ -35,8 +35,19 @@ public class ProductController {
 	}
 	
 	@PostMapping("/save-product")
-	public String saveProduct(@RequestParam(name="id")Long id,
-			@RequestParam(name="name")String name) {
+	public String saveProduct(@RequestParam(name="productId")Long id,
+			@RequestParam(name="image") String image,
+			@RequestParam(name="name") String name,
+			@RequestParam(name="size") String size,
+			@RequestParam(name="price") float price,
+			@RequestParam(name="quantity") String quantity,
+			@RequestParam(name="description") String description) {
+		
+		if(id==-1) {
+			productService.saveProduct(new Product(name, size, price, description, quantity, image));
+		} else {
+			productService.saveProduct(new Product(id, name, size, price, description, quantity, image));
+		}
 		
 		return "redirect:/admin/products";
 	}
@@ -46,7 +57,6 @@ public class ProductController {
 		productService.deleteProduct(id);
 		return "redirect:/admin/products";
 	}
-	
 	
 	//Xem danh sach loai san pham
 	@GetMapping("/categories")

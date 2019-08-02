@@ -98,11 +98,10 @@
 							<div class="modal-body">
 								<input type="text" id="id" name="id" style="display: none;">
 								<div class="form-group">
-									<label for="name" class="col-sm-2 control-label">Tên
-										NCC</label>
+									<label for="name" class="col-sm-2 control-label">Tên NCC</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Nhà cung cấp" th:utext=${name}>
+											placeholder="Nhà cung cấp">
 									</div>
 								</div>
 								<div class="form-group">
@@ -110,7 +109,7 @@
 										chỉ</label>
 									<div class="col-sm-10">
 										<input type="text" class="form-control" id="address"
-											placeholder="Địa chỉ" name="address" th:utext=${address}>
+											placeholder="Địa chỉ" name="address">
 									</div>
 								</div>
 								<div class="form-group">
@@ -118,7 +117,7 @@
 
 									<div class="col-sm-10">
 										<input type="tel" class="form-control" id="phone"
-											placeholder="Số điện thoại" name="phone" th:utext=${phone}>
+											placeholder="Số điện thoại" name="phone"/>
 									</div>
 								</div>
 								<div class="form-group">
@@ -126,7 +125,7 @@
 
 									<div class="col-sm-10">
 										<input type="email" class="form-control" id="email"
-											placeholder="Email" name="email" th:utext=${email}>
+											placeholder="Email" name="email">
 									</div>
 								</div>
 							</div>
@@ -156,8 +155,8 @@
 							<div class="modal-body">
 								<p>
 									<i class="fas fa-exclamation-triangle text-warning"
-										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa nhà cung cấp này? <input type="text" name="idService"
-										id="idService" style="display: none;">
+										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa nhà cung cấp này? 
+									<input type="text" name="idService" id="idService" style="display: none;">
 									<input type="text" id="delete-id" name="id" style="display: none;">
 								</p>
 							</div>
@@ -205,7 +204,7 @@
 			
 			$('.dBtn').click(function(e) {
 				e.preventDefault();
-				var href = $(this).attr('href');;
+				var href = $(this).attr('href');
 				$.get(href, function(provider, status) {
 					$('#delete-id').val(provider.providerId);
 				});

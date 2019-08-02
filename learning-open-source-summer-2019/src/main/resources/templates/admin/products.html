@@ -3,8 +3,7 @@
 <head th:replace="~{admin/starter :: head('Danh sách sản phẩm')}"></head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
-		<div
-			th:replace="~{admin/starter :: header('Lily','LiLy - Animal Trainer','lily0209@gmail.com')}"></div>
+		<div th:replace="~{admin/starter :: header('Lily','LiLy - Animal Trainer','lily0209@gmail.com')}"></div>
 		<div th:replace="~{admin/starter :: main-sidebar('LiLy')}"></div>
 
 		<div class="content-wrapper">
@@ -24,57 +23,57 @@
 			<section class="content">
 				<div class="row">
 					<div class="col-xs-12">
-
 						<div class="box">
 							<div class="box-header">
 								<h3 class="box-title">Danh sách sản phẩm</h3>
 							</div>
 							<!-- /.box-header -->
 							<div class="box-body">
-								<table id="example1" class="table table-bordered table-striped">
+								<table id="example1" class="table table-bordered">
 									<thead>
 										<tr>
+											<th>STT</th>
 											<th>Ảnh</th>
 											<th>Tên</th>
 											<th>Cỡ</th>
 											<th>Giá</th>
 											<th>Số lượng</th>
-											<th>Miêu tả</th>
+											<th>Mô tả</th>
 											<th>Sửa</th>
 											<th>Xóa</th>
 										</tr>
 									</thead>
 									<tbody>
-										<th:block th:each="item:${products}">
+										<th:block th:each="product,item:${products}">
 											<tr>
+												<td th:utext="${item.count}"></td>
 												<td><img alt="No Images Found"
-													src="web/images/about_1.jpg" width="100px" height="100px"></td>
-												<td th:utext="${item.name}"></td>
-												<td th:utext="${item.size}"></td>
-												<td th:utext="${item.price}"></td>
-												<td th:utext="${item.quantity}"></td>
-												<td th:utext="${item.description}"></td>
-												<td>
-													<a class="btn btn-block btn-primary eBtn" th:href="@{/admin/find-product(id=item.productId)}">
+													th:src="${product.image}" width="100px" height="100px"></td>
+												<td th:utext="${product.name}"></td>
+												<td th:utext="${product.size}"></td>
+												<td th:utext="${product.price}"></td>
+												<td th:utext="${product.quantity}"></td>
+												<td th:utext="${product.description}"></td>
+												<td><a class="btn btn-block btn-primary eBtn"
+													th:href="@{/admin/find-product(id=${product.productId})}">
 														<i class="fa fa-fw fa-paint-brush"></i>
-													</a>
-												</td>
-												<td>
-													<a class="btn btn-block btn-danger dBtn" th:href="@{/admin/find-product(id=item.productId)}}">
+												</a></td>
+												<td><a class="btn btn-block btn-danger dBtn"
+													th:href="@{/admin/find-product(id=${product.productId})}">
 														<i class="fa fa-fw fa-trash"></i>
-													</a>
-												</td>
+												</a></td>
 											</tr>
 										</th:block>
 									</tbody>
 									<tfoot>
 										<tr>
+											<th>STT</th>
 											<th>Ảnh</th>
 											<th>Tên</th>
 											<th>Cỡ</th>
 											<th>Giá</th>
 											<th>Số lượng</th>
-											<th>Miêu tả</th>
+											<th>Mô tả</th>
 											<th>Sửa</th>
 											<th>Xóa</th>
 										</tr>
@@ -90,51 +89,60 @@
 				<!-- /.row -->
 			</section>
 			<!-- /.content -->
-			
+
 			<div class="modal fade" id="modal-default">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<form class="form-horizontal" th:action="@{/admin/save-product}" method="post">
+						<form class="form-horizontal" th:action="@{/admin/save-product}"
+							method="post">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 								<h4 class="modal-title">Cập nhật dữ liệu</h4>
 							</div>
 							<div class="modal-body">
-								<input type="text" id="id" name="id" style="display: none;">
+								<input type="text" id="product-id" name="productId"/>
 								<div class="form-group">
-									<label for="name" class="col-sm-2 control-label">Tên
-										sản phẩm</label>
+									<label for="name" class="col-sm-2 control-label">Ảnh sản phẩm</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="name" name="name"
-											placeholder="Tên
-										sản phẩm" th:utext=${name}>
+										<input type="image" class="form-control" src="static/images/product-1.jpg"
+											id="product-img" name="image" placeholder="Ảnh sản phẩm" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="address" class="col-sm-2 control-label">Địa
-										chỉ</label>
+									<label for="name" class="col-sm-2 control-label">Tên sản phẩm</label>
 									<div class="col-sm-10">
-										<input type="text" class="form-control" id="address"
-											placeholder="Địa chỉ" name="address" th:utext=${address}>
+										<input type="text" class="form-control"
+											id="product-name" name="name" placeholder="Tên sản phẩm" />
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="phone" class="col-sm-2 control-label">SĐT</label>
-
+									<label for="size" class="col-sm-2 control-label">Cỡ</label>
 									<div class="col-sm-10">
-										<input type="tel" class="form-control" id="phone"
-											placeholder="Số điện thoại" name="phone" th:utext=${phone}>
+										<input type="text" class="form-control" id="product-size"
+											placeholder="Kích cỡ" name="size">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="email" class="col-sm-2 control-label">Email</label>
-
+									<label for="price" class="col-sm-2 control-label">Giá</label>
 									<div class="col-sm-10">
-										<input type="email" class="form-control" id="email"
-											placeholder="Email" name="email" th:utext=${email}>
+										<input type="number" class="form-control" id="product-price"
+											placeholder="Giá" name="price">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="quantity" class="col-sm-2 control-label">Số lượng</label>
+									<div class="col-sm-10">
+										<input type="number" class="form-control" id="product-quantity"
+											placeholder="Số lượng" name="quantity">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="description" class="col-sm-2 control-label">Mô tả</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="product-description"
+											placeholder="Mô tả" name="description">
 									</div>
 								</div>
 							</div>
@@ -149,11 +157,78 @@
 				</div>
 				<!-- /.modal-dialog -->
 			</div>
+			<!-- /.modal -->
+			<div class="modal fade" tabindex="-1" id="deleteModal" role="dialog">
+				<div class="modal-dialog" role="document" style="margin-top: 100px">
+					<form th:action="@{/admin/delete-product}" method="get">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Xác nhận xóa</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+									<i class="fas fa-exclamation-triangle text-warning"
+										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa sản phẩm này?
+								</p>
+								<input type="text" id="delProductId" name="id"/>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success"
+									data-dismiss="modal">Hủy</button>
+								<button type="submit" class="btn btn-danger">Xóa</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
 
 		<div th:replace="~{admin/starter :: footer}"></div>
 		<div th:replace="~{admin/starter :: setting-bar}"></div>
 	</div>
 	<div th:replace="~{admin/starter :: script}"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('.eBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				var text = $(this).text();
+				if (text == '') {
+					$.get(href, function(product, status) {
+						$('#product-id').val(product.productId);
+						$('#product-name').val(product.name);
+						$('#product-size').val(product.size);
+						$('#product-price').val(product.price);
+						$('#product-quantity').val(product.quantity);
+						$('#product-description').val(product.description);
+						$('#product-img').val(product.image);
+					});
+					$('#modal-default').modal();
+				} else {
+					$('#product-id').val('-1');
+					$('#product-name').val('');
+					$('#product-size').val('');
+					$('#product-price').val('');
+					$('#product-quantity').val('');
+					$('#product-description').val('');
+					$('#product-modal-default').modal();
+				}
+			});
+
+			$('.dBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				$.get(href, function(product, status) {
+					$('#delProductId').val(product.productId);
+				});
+				$('#deleteModal').modal();
+			});
+		});
+	</script>
 </body>
 </html>
