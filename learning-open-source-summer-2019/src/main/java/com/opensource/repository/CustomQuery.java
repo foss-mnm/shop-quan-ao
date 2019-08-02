@@ -19,4 +19,7 @@ public interface CustomQuery {
 	
 	String USER_UPDATE_ADMIN_LOGIN_DATA = 
 			"update User set username=:username,password=:password where userID=:userID";
+	
+	String PRODUCT_LOAD_BY_CATEGORY = 
+			"select * from product p join category c on c.category_id = p.category_id where c.category_id = :id";
 }

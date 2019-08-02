@@ -1,220 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Winkel - Free Bootstrap 4 Template by Colorlib</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Winkel shop</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="web/css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="web/css/animate.css">
-    
-    <link rel="stylesheet" href="web/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="web/css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="web/css/magnific-popup.css">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
 
-    <link rel="stylesheet" href="web/css/aos.css">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
 
-    <link rel="stylesheet" href="web/css/ionicons.min.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
 
-    <link rel="stylesheet" href="web/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="web/css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/aos.css">
 
-    
-    <link rel="stylesheet" href="web/css/flaticon.css">
-    <link rel="stylesheet" href="web/css/icomoon.css">
-    <link rel="stylesheet" href="web/css/style.css">
-  </head>
-  <body class="goto-here">
+<link rel="stylesheet" href="css/ionicons.min.css">
+
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="goto-here">
 	<div th:insert="~{web/index :: web-header}"></div>
-    <nav th:insert="~{web/index :: web-nav}"></nav>
-    <!-- END nav -->
+	<nav th:insert="~{web/index :: web-nav}"></nav>
+	<!-- END nav -->
 
-    <div class="hero-wrap hero-bread" style="background-image: url('web/images/bg_6.jpg');">
-      <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-          <div class="col-md-9 ftco-animate text-center">
-          	<p class="breadcrumbs"><span class="mr-2"><a th:href="@{/}">Home</a></span> <span>Checkout</span></p>
-            <h1 class="mb-0 bread">Checkout</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+	<div class="hero-wrap hero-bread"
+		style="background-image: url('images/bg_6.jpg');">
+		<div class="container">
+			<div
+				class="row no-gutters slider-text align-items-center justify-content-center">
+				<div class="col-md-9 ftco-animate text-center">
+					<h1 class="mb-0 bread">Thanh toán</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-8 ftco-animate">
-						<form action="#" class="billing-form">
-							<h3 class="mb-4 billing-heading">Billing Details</h3>
-	          	<div class="row align-items-end">
-	          		<div class="col-md-6">
-	                <div class="form-group">
-	                	<label for="firstname">Firt Name</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-	              </div>
-	              <div class="col-md-6">
-	                <div class="form-group">
-	                	<label for="lastname">Last Name</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-                </div>
-                <div class="w-100"></div>
-		            <div class="col-md-12">
-		            	<div class="form-group">
-		            		<label for="country">State / Country</label>
-		            		<div class="select-wrap">
-		                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-		                  <select name="" id="" class="form-control">
-		                  	<option value="">France</option>
-		                    <option value="">Italy</option>
-		                    <option value="">Philippines</option>
-		                    <option value="">South Korea</option>
-		                    <option value="">Hongkong</option>
-		                    <option value="">Japan</option>
-		                  </select>
-		                </div>
-		            	</div>
-		            </div>
-		            <div class="w-100"></div>
-		            <div class="col-md-6">
-		            	<div class="form-group">
-	                	<label for="streetaddress">Street Address</label>
-	                  <input type="text" class="form-control" placeholder="House number and street name">
-	                </div>
-		            </div>
-		            <div class="col-md-6">
-		            	<div class="form-group">
-	                  <input type="text" class="form-control" placeholder="Appartment, suite, unit etc: (optional)">
-	                </div>
-		            </div>
-		            <div class="w-100"></div>
-		            <div class="col-md-6">
-		            	<div class="form-group">
-	                	<label for="towncity">Town / City</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-		            </div>
-		            <div class="col-md-6">
-		            	<div class="form-group">
-		            		<label for="postcodezip">Postcode / ZIP *</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-		            </div>
-		            <div class="w-100"></div>
-		            <div class="col-md-6">
-	                <div class="form-group">
-	                	<label for="phone">Phone</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-	              </div>
-	              <div class="col-md-6">
-	                <div class="form-group">
-	                	<label for="emailaddress">Email Address</label>
-	                  <input type="text" class="form-control" placeholder="">
-	                </div>
-                </div>
-                <div class="w-100"></div>
-                <div class="col-md-12">
-                	<div class="form-group mt-4">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-xl-8 ftco-animate">
+					<form th:action="@{/payment/payment}" class="billing-form"
+						method="post" id="pay-form">
+						<h3 class="mb-4 billing-heading">Thông tin thanh toán</h3>
+						<div class="row align-items-end">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="firstname">Họ</label> <input type="text"
+										class="form-control" placeholder="" name="fname" id="1">
+									<input type="text" th:attr="value = ${productId}" name="id"
+										style="display: none;">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="lastname">Tên</label> <input type="text"
+										class="form-control" placeholder="" name="lname" id="2">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="streetaddress">Địa chỉ</label> <input type="text"
+										class="form-control" name="address" id="3">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="postcodezip">Postcode / ZIP *</label> <input
+										type="text" class="form-control" name="zip" id="4">
+								</div>
+							</div>
+							<div class="w-100"></div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="phone">Số điện thoại</label> <input type="text"
+										class="form-control" placeholder="" name="phone" id="5">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="emailaddress">Email</label> <input type="text"
+										class="form-control" placeholder="" name="email" id="6">
+								</div>
+							</div>
+							<div class="w-100"></div>
+						</div>
+					</form>
+					<!-- END -->
+
+
+
+					<div class="row mt-5 pt-3 d-flex">
+						<div class="col-md-6 d-flex">
+							<div class="cart-detail cart-total bg-light p-3 p-md-4">
+								<h3 class="billing-heading mb-4">Tổng tiền</h3>
+								<p class="d-flex">
+									<span>Tổng</span> <span th:utext="${price}"></span>
+								</p>
+								<p class="d-flex">
+									<span>Phí</span> <span th:utext="${plus}"></span>
+								</p>
+								<hr>
+								<p class="d-flex total-price">
+									<span>Tổng thanh toán</span> <span th:utext="${total}"></span>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="cart-detail bg-light p-3 p-md-4">
+								<h3 class="billing-heading mb-4">Hình thức Thanh toán</h3>
+								<div class="form-group">
+									<div class="col-md-12">
 										<div class="radio">
-										  <label class="mr-3"><input type="radio" name="optradio"> Create an Account? </label>
-										  <label><input type="radio" name="optradio"> Ship to different address</label>
+											<label><input type="radio" name="optradio"
+												class="mr-2" checked="checked"> Tiền mặt</label>
 										</div>
 									</div>
-                </div>
-	            </div>
-	          </form><!-- END -->
-
-
-
-	          <div class="row mt-5 pt-3 d-flex">
-	          	<div class="col-md-6 d-flex">
-	          		<div class="cart-detail cart-total bg-light p-3 p-md-4">
-	          			<h3 class="billing-heading mb-4">Cart Total</h3>
-	          			<p class="d-flex">
-		    						<span>Subtotal</span>
-		    						<span>$20.60</span>
-		    					</p>
-		    					<p class="d-flex">
-		    						<span>Delivery</span>
-		    						<span>$0.00</span>
-		    					</p>
-		    					<p class="d-flex">
-		    						<span>Discount</span>
-		    						<span>$3.00</span>
-		    					</p>
-		    					<hr>
-		    					<p class="d-flex total-price">
-		    						<span>Total</span>
-		    						<span>$17.60</span>
-		    					</p>
 								</div>
-	          	</div>
-	          	<div class="col-md-6">
-	          		<div class="cart-detail bg-light p-3 p-md-4">
-	          			<h3 class="billing-heading mb-4">Payment Method</h3>
-									<div class="form-group">
-										<div class="col-md-12">
-											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Direct Bank Tranfer</label>
-											</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="radio">
+											<label><input type="radio" name="optradio"
+												class="mr-2"> Chuyển khoản</label>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-md-12">
-											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Check Payment</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-md-12">
-											<div class="radio">
-											   <label><input type="radio" name="optradio" class="mr-2"> Paypal</label>
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="col-md-12">
-											<div class="checkbox">
-											   <label><input type="checkbox" value="" class="mr-2"> I have read and accept the terms and conditions</label>
-											</div>
-										</div>
-									</div>
-									<p><a href="#"class="btn btn-primary py-3 px-4">Place an order</a></p>
 								</div>
-	          	</div>
-	          </div>
-          </div> <!-- .col-md-8 -->
-        </div>
-      </div>
-    </section> <!-- .section -->
+								<div class="form-group">
+									<div class="col-md-12">
+										<div class="radio">
+											<label><input type="radio" name="optradio"
+												class="mr-2"> Paypal</label>
+										</div>
+									</div>
+								</div>
+								<p>
+									<button id="pay" class="btn btn-primary py-3 px-4">Đặt
+										hàng</button>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- .col-md-8 -->
+			</div>
+		</div>
+	</section>
+	<!-- .section -->
 
-    <footer th:insert="~{web/index :: web-footer}"></footer>
+	<footer th:insert="~{web/index :: web-footer}"></footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#pay').click(function(e) {
+				if ($('#1').val() != "" &&
+						$('#2').val() != "" &&
+							$('#3').val() != "" &&
+								$('#4').val() != "" &&
+									$('#5').val() != "" &&
+										$('#6').val() != "") {
+					alert('Đặt hàng thành công!');
+					$('#pay-form').submit();
+				} else {
+					alert('Vui lòng nhập đầy đủ thông tin');
+				}
+			});
+		});
+	</script>
 
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-
-  <script src="web/js/jquery.min.js"></script>
-  <script src="web/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="web/js/popper.min.js"></script>
-  <script src="web/js/bootstrap.min.js"></script>
-  <script src="web/js/jquery.easing.1.3.js"></script>
-  <script src="web/js/jquery.waypoints.min.js"></script>
-  <script src="web/js/jquery.stellar.min.js"></script>
-  <script src="web/js/owl.carousel.min.js"></script>
-  <script src="web/js/jquery.magnific-popup.min.js"></script>
-  <script src="web/js/aos.js"></script>
-  <script src="web/js/jquery.animateNumber.min.js"></script>
-  <script src="web/js/bootstrap-datepicker.js"></script>
-  <script src="web/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="web/js/google-map.js"></script>
-  <script src="web/js/main.js"></script>
-    
-  </body>
+</body>
 </html>

@@ -1,5 +1,7 @@
 package com.opensource.controller.web;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.opensource.model.Category;
 import com.opensource.model.Product;
 import com.opensource.service.CategoryService;
 import com.opensource.service.ProductService;
@@ -24,13 +27,19 @@ public class CategoryController {
 	
 	@GetMapping("/shop")
 	public String loadCatergories(Model model,
-			@RequestParam(name="page", defaultValue="0")Integer page) {
+			@RequestParam(name="page", defaultValue="0")Integer page,
+			@RequestParam(name="id", defaultValue="0")Long categoryId) {
 		
-		model.addAttribute("category_name", categoryService.loadCategories());
+		List<Category> listCategory = categoryService.loadCategories();
+		if(categoryId==0) {
+			categoryId = listCategory.get(0).getCategoryId();
+		}
+		
+		model.addAttribute("category_name", listCategory);
 		
 		//Pagination
-		Pageable pages=PageRequest.of(page, 12);
-		Page<Product> pageProduct=productService.loadProducts(pages);
+		Pageable pages=PageRequest.of(page, 9);
+		Page<Product> pageProduct=productService.loadProducts(pages,categoryId);
 		model.addAttribute("page_product", pageProduct);
 		
 		int current = pageProduct.getNumber() + 1;

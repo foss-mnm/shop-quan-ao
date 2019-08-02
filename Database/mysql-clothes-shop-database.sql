@@ -128,7 +128,10 @@ SELECT  u.user_id FROM user u JOIN user_role ur ON u.user_id = ur.user_id JOIN r
 -- ==================================================
 select * from persistent_logins;
 -- ==================================================
-select * from user_info;
+select * from user_role
+;
+select * from role;
+delete from user_role where id = 2;
 delete from user_info;
 delete from provider;
 insert into provider(name,address,phone,email) 
@@ -138,9 +141,30 @@ values('Công ty TNHH Hải Thành','Hà Nội','0123456789','haithanh@gmail.com
 ('Tổng công ty may Hà Nội','Hà Nội','0547463836','hanoimay@yahoo.com.vn');
 select * from provider;
 select * from category;
+select * from product p join category c on c.category_id = p.category_id where c.category_id = 1;
 insert into category(name) values('Quần âu'),('Sơ mi nữ'),('Quần jean'),('Đồ bơi'),('Sơ mi nam');
 select * from product;
+delete from product where product.product_id=67;
+
 insert into product(name,size,price,description,quantity,image,provider_id,category_id) values
-('Quần âu loại 1','small',200000,'','20','',6,1)
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
+('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1);
+
 
 

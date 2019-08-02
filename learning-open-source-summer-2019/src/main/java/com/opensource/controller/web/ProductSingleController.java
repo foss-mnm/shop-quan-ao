@@ -39,7 +39,7 @@ public class ProductSingleController {
 		
 		// Load Others
 		Pageable pages=PageRequest.of(page, 4);
-		Page<Product> pageProduct=productService.loadProducts(pages);
+		Page<Product> pageProduct=productService.loadProducts(pages,1L);
 		
 		model.addAttribute("four_products", pageProduct);
 		

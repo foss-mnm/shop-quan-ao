@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.opensource.dto.UserDto;
 import com.opensource.model.Role;
 import com.opensource.model.User;
+import com.opensource.model.UserInfo;
 import com.opensource.repository.RoleRepository;
 import com.opensource.repository.UserRepository;
 
@@ -47,5 +48,11 @@ public class UserService {
 				adminId);
 
 	}
+
+	public void save(UserInfo uf) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

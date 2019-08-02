@@ -18,6 +18,13 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties("category")
 public class Product implements Serializable {
 
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", name=" + name + ", size=" + size + ", price=" + price
+				+ ", description=" + description + ", quantity=" + quantity + ", image=" + image + ", category="
+				+ category + ", provider=" + provider + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id

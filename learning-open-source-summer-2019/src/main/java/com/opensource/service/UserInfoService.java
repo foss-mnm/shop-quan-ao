@@ -39,4 +39,8 @@ public class UserInfoService {
 		UserInfo userInfo = userInfoRepository.getOne(adminId);
 		return new UserInfoDto(userInfo);
 	}
+	
+	public void save(UserInfo u) {
+		
+	}
 }

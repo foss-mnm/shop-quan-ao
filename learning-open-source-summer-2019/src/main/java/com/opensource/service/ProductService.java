@@ -9,7 +9,8 @@ import com.opensource.model.Product;
 
 public interface ProductService {
 
-	Page<Product> loadProducts(Pageable pages);
+	Page<Product> loadProducts(Pageable pages,Long id);
+	
 	List<Product> loadProducts();
 
 	Product findOne(long id);

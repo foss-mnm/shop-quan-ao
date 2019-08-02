@@ -19,6 +19,17 @@ public class UserInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public UserInfo(String lastName, String firstName, String email, String phone, String image,
+			User user) {
+		super();
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.phone = phone;
+		this.image = image;
+		this.user = user;
+	}
+	  
 	public UserInfo(long userId, String lastName, String firstName, String email, String phone, String image,
 			User user) {
 		super();
@@ -30,7 +41,7 @@ public class UserInfo implements Serializable{
 		this.image = image;
 		this.user = user;
 	}
-	  
+
 	@Id
 	@Column(name="user_id")
 	private long userId;

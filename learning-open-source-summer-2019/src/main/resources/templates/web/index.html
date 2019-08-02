@@ -2,11 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-<title>Winkel</title>
+<title>Winkel shop</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
 
 <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="css/animate.css">
@@ -23,27 +26,38 @@
 </head>
 <body class="goto-here">
 	<div class="py-1 bg-black" th:fragment="web-header">
-    	<div class="container">
-    		<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
-	    		<div class="col-lg-12 d-block">
-		    		<div class="row d-flex">
-		    			<div class="col-md pr-4 d-flex topper align-items-center">
-					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-						    <span class="text">+ 8433 3385 398</span>
-					    </div>
-					    <div class="col-md pr-4 d-flex topper align-items-center">
-					    	<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-						    <span class="text">shopwinkel@gmail.com</span>
-					    </div>
-					    <div class="col-md-6 pr-4 d-flex topper align-items-center text-lg-right">
-						    <span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp; MIỄN PHÍ KHI HOÀN TRẢ LẠI</span>
-					    </div>
-				    </div>
-			    </div>
-		    </div>
-		  </div>
-    </div>
-	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" th:fragment="web-nav">
+		<div class="container">
+			<div
+				class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+				<div class="col-lg-12 d-block">
+					<div class="row d-flex">
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">+ 8433 3385 398</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-paper-plane"></span>
+							</div>
+							<span class="text">shopwinkel@gmail.com</span>
+						</div>
+						<div
+							class="col-md-6 pr-4 d-flex topper align-items-center text-lg-right">
+							<span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp;
+								MIỄN PHÍ KHI HOÀN TRẢ LẠI</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar" th:fragment="web-nav">
 		<div class="container">
 			<a class="navbar-brand" th:href="@{/}">Winkel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -54,33 +68,23 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a th:href="@{/}"
-						class="nav-link">Trang chủ</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="/shop" id="dropdown04"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="/shop">Cửa hàng</a> 
-							<a class="dropdown-item" th:href="@{/product-single}">Sản phẩm đơn</a> 
-							<a class="dropdown-item" th:href="@{/cart}">Giỏ hàng</a> 
-							<a class="dropdown-item" href="/checkout">Thanh toán</a>
-						</div>
-					</li>
-					<li class="nav-item"><a href="/about" class="nav-link">Giới thiệu</a></li>
-					<li class="nav-item"><a th:href="@{/feedback}" class="nav-link">Phản hồi</a></li>
-					<li sec:authorize="hasRole('ROLE_MEMBER')" class="nav-item cta cta-colored">
-						<a th:href="@{/cart}" class="nav-link">
-							<span class="icon-shopping_cart"></span>[0]</a>
-					</li>
-					<li sec:authorize="!isAuthenticated()" class="nav-item">
-						<a th:href="@{/login}" class="nav-link">Login</a>
-					</li>
-					<li sec:authorize="isAuthenticated()" class="nav-item">
-						<a th:href="@{/logout}" class="nav-link">Đăng xuất</a>
-					</li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-						<a th:href="@{/admin/products}" class="nav-link">Admin</a>
-					</li>
+					<li class="nav-item"><a th:href="@{/}" class="nav-link">Trang
+							chủ</a></li>
+					<li class="nav-item"><a th:href="@{/shop}"
+						class="nav-link">Cửa hàng</a></li>
+					<li class="nav-item"><a href="/about" class="nav-link">Giới
+							thiệu</a></li>
+					<li class="nav-item"><a th:href="@{/feedback}"
+						class="nav-link">Phản hồi</a></li>
+					<li sec:authorize="hasRole('ROLE_MEMBER')"
+						class="nav-item cta cta-colored"><a th:href="@{/cart}"
+						class="nav-link"><span class="icon-shopping_cart"></span>[0] </a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
+						th:href="@{/login}" class="nav-link">Login</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
+					<li sec:authorize="isAuthenticated()" class="nav-item"><a
+						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
 				</ul>
 			</div>
 		</div>
@@ -104,14 +108,18 @@
 								<span class="subheading">Cửa hàng Winkel</span>
 								<div class="horizontal">
 									<h3 class="vr"
-										style="background-image: url(images/divider.jpg);">Được thành lập từ năm 2000</h3>
+										style="background-image: url(images/divider.jpg);">Được
+										thành lập từ năm 2000</h3>
 									<h1 class="mb-4 mt-3">
-										Nắm Bắt <span>Phong Cách </span><br><span>&amp; Vẻ Ngoài</span> Của Riêng Bạn
+										Nắm Bắt <span>Phong Cách </span><br> <span>&amp;
+											Vẻ Ngoài</span> Của Riêng Bạn
 									</h1>
-									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng và cung cấp cho nó sự hồi sinh cần thiết.
-									 Đó là một đất nước thiên đường.</p>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng
+										và cung cấp cho nó sự hồi sinh cần thiết. Đó là một đất nước
+										thiên đường.</p>
 									<p>
-										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Khám Phá Ngay</a>
+										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Khám
+											Phá Ngay</a>
 									</p>
 								</div>
 							</div>
@@ -135,15 +143,18 @@
 								<span class="subheading">Cửa hàng Winkel</span>
 								<div class="horizontal">
 									<h3 class="vr"
-										style="background-image: url(images/divider.jpg);">Cửa Hàng Trực Tuyến Tốt Nhất</h3>
+										style="background-image: url(images/divider.jpg);">Cửa
+										Hàng Trực Tuyến Tốt Nhất</h3>
 									<h1 class="mb-4 mt-3">
 										Một Người Phụ Nữ <span>Hiện Đại</span>
 									</h1>
-									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng và cung cấp cho nó sự hồi sinh cần thiết.
-									 Đó là một đất nước thiên đường.</p>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng
+										và cung cấp cho nó sự hồi sinh cần thiết. Đó là một đất nước
+										thiên đường.</p>
 
 									<p>
-										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
+										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Mua
+											Ngay</a>
 									</p>
 								</div>
 							</div>
@@ -154,7 +165,8 @@
 		</div>
 	</section>
 
-	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light" th:fragment="web-better-way-to-ship">
+	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light"
+		th:fragment="web-better-way-to-ship">
 		<div class="container">
 			<div class="row">
 				<div
@@ -172,9 +184,11 @@
 						</div>
 					</div>
 					<div class="pb-md-5">
-						<p>Nhưng không có gì mà bản sao nói có thể thuyết phục được cô và vì vậy, 
-						không mất nhiều thời gian cho đến khi một vài Nhà văn Sao chép quỷ quyệt phục kích cô, 
-						khiến cô say sưa với Longe và Parole và kéo cô vào công ty của họ, nơi họ lạm dụng cô vì mục đích của họ.</p>
+						<p>Nhưng không có gì mà bản sao nói có thể thuyết phục được cô
+							và vì vậy, không mất nhiều thời gian cho đến khi một vài Nhà văn
+							Sao chép quỷ quyệt phục kích cô, khiến cô say sưa với Longe và
+							Parole và kéo cô vào công ty của họ, nơi họ lạm dụng cô vì mục
+							đích của họ.</p>
 						<div class="row ftco-services">
 							<div
 								class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
@@ -185,8 +199,8 @@
 									</div>
 									<div class="media-body">
 										<h3 class="heading">CHÍNH SÁCH HOÀN TIỀN</h3>
-										<p>Even the all-powerful Pointing has no control about the
-											blind texts it is an almost unorthographic.</p>
+										<p>Hoàn lại 100% tiền quý khách đã mua hàng mà không vừa
+											ý, hoặc do lỗi của cửa hàng.</p>
 									</div>
 								</div>
 							</div>
@@ -199,8 +213,8 @@
 									</div>
 									<div class="media-body">
 										<h3 class="heading">Bao Bì Cao Cấp</h3>
-										<p>Even the all-powerful Pointing has no control about the
-											blind texts it is an almost unorthographic.</p>
+										<p>Mỗi sản phẩm được đóng gói cẩn thận, có vẻ ngoài ưa
+											nhìn và lịch lãm.</p>
 									</div>
 								</div>
 							</div>
@@ -213,8 +227,8 @@
 									</div>
 									<div class="media-body">
 										<h3 class="heading">Chất Lượng Cao</h3>
-										<p>Even the all-powerful Pointing has no control about the
-											blind texts it is an almost unorthographic.</p>
+										<p>Các sản phẩm của cửa hàng đảm bảo chất lượng tuyệt đối,
+											không nhập hàng trôi nổi trên thị trường.</p>
 									</div>
 								</div>
 							</div>
@@ -230,8 +244,7 @@
 			<div class="row justify-content-center mb-3 pb-3">
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<h2 class="mb-4">Bán Chạy Nhất</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia</p>
+					<p>Những sản phẩm được khách hàng tin dùng nhất!</p>
 				</div>
 			</div>
 		</div>
@@ -240,17 +253,19 @@
 				<th:block th:each="item:${four_products}">
 					<div class="col-sm col-md-6 col-lg ftco-animate">
 						<div class="product">
-							<a th:href="@{/product-single(id=${item.productId})}" class="img-prod"><img class="img-fluid"
-								th:src="${item.image}" th:alt="${item.name}">
-								<div class="overlay"></div> </a>
+							<a th:href="@{/product-single(id=${item.productId})}"
+								class="img-prod"><img class="img-fluid"
+								th:src="${item.image}" th:alt="${item.name}"> </a>
 							<div class="text py-3 px-3">
 								<h3>
-									<a th:href="@{/product-single(id=${item.productId})}" th:utext="${item.name}"></a>
+									<a th:href="@{/product-single(id=${item.productId})}"
+										th:utext="${item.name}"></a>
 								</h3>
 								<div class="d-flex">
 									<div class="pricing">
 										<p class="price">
-											<span class="mr-2" th:utext="${item.price}"></span><span> VND</span>
+											<span class="mr-2" th:utext="${item.price}"></span><span>
+												VND</span>
 										</p>
 									</div>
 									<div class="rating">
@@ -264,7 +279,8 @@
 									</div>
 								</div>
 								<p class="bottom-area d-flex px-3">
-									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
+									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm
+											Vào Giỏ <i class="ion-ios-add ml-1"></i>
 									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
 											class="ion-ios-cart ml-1"></i></span></a>
 								</p>
@@ -275,100 +291,6 @@
 			</div>
 		</div>
 	</section>
-
-	<section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 d-flex align-items-stretch">
-					<div class="img"
-						style="background-image: url(images/about-1.jpg);"></div>
-				</div>
-				<div class="col-md-4 py-md-5 ftco-animate">
-					<div class="text py-3 py-md-5">
-						<h2 class="mb-4">BỘ SƯU TẬP QUẦN ÁO NỮ MÙA HÈ 2019</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in Bookmarksgrove right at the coast of the
-							Semantics, a large language ocean.</p>
-						<p>
-							<a href="/shop" class="btn btn-white px-4 py-3">Mua Ngay</a>
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-5 order-md-last d-flex align-items-stretch">
-					<div class="img img-2"
-						style="background-image: url(images/about-2.jpg);"></div>
-				</div>
-				<div class="col-md-7 py-3 py-md-5 ftco-animate">
-					<div class="text text-2 py-md-5">
-						<h2 class="mb-4">BỘ SƯU TẬP QUẦN ÁO NAM MÙA HÈ 2019</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia, there live the blind texts.
-							Separated they live in Bookmarksgrove right at the coast of the
-							Semantics, a large language ocean.</p>
-						<p>
-							<a href="/shop" class="btn btn-white px-4 py-3">Mua Ngay</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Các Sản Phẩm</h2>
-					<p>Far far away, behind the word mountains, far from the
-						countries Vokalia and Consonantia</p>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<th:block th:each="item:${four_products}">
-					<div class="col-sm col-md-6 col-lg ftco-animate">
-						<div class="product">
-							<a th:href="@{/product-single(id=${item.productId})}" class="img-prod"><img class="img-fluid"
-								th:src="${item.image}" th:alt="${item.name}">
-								<div class="overlay"></div> </a>
-							<div class="text py-3 px-3">
-								<h3>
-									<a th:href="@{/product-single(id=${item.productId})}" th:utext="${item.name}"></a>
-								</h3>
-								<div class="d-flex">
-									<div class="pricing">
-										<p class="price">
-											<span class="mr-2" th:utext="${item.price}"></span><span> VND</span>
-										</p>
-									</div>
-									<div class="rating">
-										<p class="text-right">
-											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a>
-										</p>
-									</div>
-								</div>
-								<p class="bottom-area d-flex px-3">
-									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-											class="ion-ios-cart ml-1"></i></span></a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</th:block>	
-			</div>
-		</div>
-	</section>
-
 	<section class="ftco-section ftco-counter img" id="section-counter"
 		style="background-image: url(images/bg_4.jpg);">
 		<div class="container">
@@ -379,7 +301,8 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="10000">0</strong> <span>Khách Hàng Hài Lòng</span>
+									<strong class="number" data-number="10000">0</strong> <span>Khách
+										Hàng Hài Lòng</span>
 								</div>
 							</div>
 						</div>
@@ -387,7 +310,8 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Chi Nhánh</span>
+									<strong class="number" data-number="100">0</strong> <span>Chi
+										Nhánh</span>
 								</div>
 							</div>
 						</div>
@@ -395,7 +319,8 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="1000">0</strong> <span>Đối Tác</span>
+									<strong class="number" data-number="1000">0</strong> <span>Đối
+										Tác</span>
 								</div>
 							</div>
 						</div>
@@ -403,7 +328,8 @@
 							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 							<div class="block-18 text-center">
 								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Giải Thưởng</span>
+									<strong class="number" data-number="100">0</strong> <span>Giải
+										Thưởng</span>
 								</div>
 							</div>
 						</div>
@@ -437,9 +363,10 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Footer -->
-	<footer class="ftco-footer bg-light ftco-section" th:fragment="web-footer">
+	<footer class="ftco-footer bg-light ftco-section"
+		th:fragment="web-footer">
 		<div class="container">
 			<div class="row">
 				<div class="mouse">
@@ -473,16 +400,18 @@
 						<h2 class="ftco-heading-2">Trợ Giúp</h2>
 						<div class="d-flex">
 							<ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
-								<li><a href="#" class="py-2 d-block">Thông Tin Vận Chuyển</a></li>
-								<li><a href="#" class="py-2 d-block">Trả Lại &amp;
-										Trao Đổi</a></li>
+								<li><a href="#" class="py-2 d-block">Thông Tin Vận
+										Chuyển</a></li>
+								<li><a href="#" class="py-2 d-block">Trả Lại &amp; Trao
+										Đổi</a></li>
 								<li><a href="#" class="py-2 d-block">Điều Khoản &amp;
 										Điều Kiện</a></li>
 								<li><a href="#" class="py-2 d-block">Chính Sách Bảo Mật</a></li>
 							</ul>
 							<ul class="list-unstyled">
 								<li><a href="#" class="py-2 d-block">Câu Hỏi Thường Gặp</a></li>
-								<li><a th:href="@{/feedback}" class="py-2 d-block">Liên Hệ</a></li>
+								<li><a th:href="@{/feedback}" class="py-2 d-block">Liên
+										Hệ</a></li>
 							</ul>
 						</div>
 					</div>
@@ -493,8 +422,7 @@
 						<div class="block-23 mb-3">
 							<ul>
 								<li><span class="icon icon-map-marker"></span><span
-									class="text">Minh Khai, Bắc Từ Liêm,
-										Hà Nội, Việt Nam</span></li>
+									class="text">Minh Khai, Bắc Từ Liêm, Hà Nội, Việt Nam</span></li>
 								<li><a href="#"><span class="icon icon-phone"></span><span
 										class="text">+ 8433 3385 398</span></a></li>
 								<li><a href="#"><span class="icon icon-envelope"></span><span

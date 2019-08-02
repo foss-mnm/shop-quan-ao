@@ -17,8 +17,8 @@ public class ProductServiceImpl implements ProductService{
 	private ProductRepository productRepository;
 	
 	@Override
-	public Page<Product> loadProducts(Pageable pages) {
-		return productRepository.findAll(pages);
+	public Page<Product> loadProducts(Pageable pagable,Long id) {	
+		return productRepository.loadProducts(pagable, id);
 	}
 
 	@Override
