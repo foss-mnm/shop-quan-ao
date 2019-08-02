@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public Product findOne(long id) {
+	public Product findOne(Long id) {
 		return productRepository.getOne(id);
 	}
 
@@ -33,13 +33,11 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public void saveProduct(Product product) {
-		// TODO Auto-generated method stub
 		productRepository.save(product);
 	}
 
 	@Override
 	public void deleteProduct(Long id) {
-		// TODO Auto-generated method stub
 		productRepository.deleteById(id);
 	}
 }

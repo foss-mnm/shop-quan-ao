@@ -1,4 +1,4 @@
-create database clothes_shop;
+﻿create database clothes_shop;
 use clothes_shop;
 create table user(
 	user_id bigint auto_increment,
@@ -82,6 +82,7 @@ create table product(
     size varchar(25) not null,
     price float(25) not null,
     description varchar(1000),
+    discount_amount float,
     quantity varchar(10),
     image varchar(125),
     provider_id bigint,

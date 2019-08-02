@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "product")
-@JsonIgnoreProperties("category")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Product implements Serializable {
 
 	@Override
@@ -32,33 +32,57 @@ public class Product implements Serializable {
 	@Column(name = "product_id", nullable = false)
 	private long productId;
 
-	@Column(name="name",nullable=false)
+	@Column(name = "name", nullable = false)
 	private String name;
-	
-	@Column(name="size",nullable=false)
+
+	@Column(name = "size", nullable = false)
 	private String size;
-	
-	@Column(name="price",nullable=false)
+
+	@Column(name = "price", nullable = false)
 	private float price;
-	
-	@Column(name="description")
+
+	@Column(name = "description")
 	private String description;
-	
-	@Column(name="quantity",nullable=false)
+
+	@Column(name = "quantity", nullable = false)
 	private String quantity;
-	
-	@Column(name="image",nullable=false)
+
+	@Column(name = "image", nullable = false)
 	private String image;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="category_id")
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category_id")
 	private Category category;
-	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="provider_id")
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "provider_id")
 	private Provider provider;
-	
-	public Product() {}
+
+	public Product() {
+		super();
+	}
+
+	public Product(String name, String size, float price, String description, String quantity, String image) {
+		super();
+		this.name = name;
+		this.size = size;
+		this.price = price;
+		this.description = description;
+		this.quantity = quantity;
+		this.image = image;
+	}
+
+	public Product(long productId, String name, String size, float price, String description, String quantity,
+			String image) {
+		super();
+		this.productId = productId;
+		this.name = name;
+		this.size = size;
+		this.price = price;
+		this.description = description;
+		this.quantity = quantity;
+		this.image = image;
+	}
 
 	public long getProductId() {
 		return productId;
@@ -115,5 +139,5 @@ public class Product implements Serializable {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+
 }
