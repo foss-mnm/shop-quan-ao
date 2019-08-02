@@ -68,6 +68,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
+<<<<<<< HEAD
 					<li class="nav-item"><a th:href="@{/}" class="nav-link">Trang
 							chủ</a></li>
 					<li class="nav-item"><a th:href="@{/shop}"
@@ -85,6 +86,7 @@
 						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 					<li sec:authorize="isAuthenticated()" class="nav-item"><a
 						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
+=======
 					<li class="nav-item active"><a th:href="@{/}"
 						class="nav-link">Trang chủ</a></li>
 					<li class="nav-item dropdown"><a
@@ -112,6 +114,7 @@
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
 						<a th:href="@{/admin/products}" class="nav-link">Admin</a>
 					</li>
+>>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
 				</ul>
 			</div>
 		</div>
@@ -180,8 +183,12 @@
 										thiên đường.</p>
 
 									<p>
+<<<<<<< HEAD
 										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Mua
 											Ngay</a>
+=======
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
+>>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
 									</p>
 								</div>
 							</div>
@@ -306,11 +313,14 @@
 									</div>
 								</div>
 								<p class="bottom-area d-flex px-3">
+<<<<<<< HEAD
 									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm
 											Vào Giỏ <i class="ion-ios-add ml-1"></i>
 									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
+=======
 									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
 									</span></a> <a th:href="@{/product-single(id=${item.productId})}" class="buy-now text-center py-2">Mua Ngay<span><i
+>>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
 											class="ion-ios-cart ml-1"></i></span></a>
 								</p>
 							</div>
