@@ -68,53 +68,25 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-<<<<<<< HEAD
 					<li class="nav-item"><a th:href="@{/}" class="nav-link">Trang
 							chủ</a></li>
-					<li class="nav-item"><a th:href="@{/shop}"
-						class="nav-link">Cửa hàng</a></li>
+					<li class="nav-item"><a th:href="@{/shop}" class="nav-link">Cửa
+							hàng</a></li>
 					<li class="nav-item"><a href="/about" class="nav-link">Giới
 							thiệu</a></li>
-					<li class="nav-item"><a th:href="@{/feedback}"
-						class="nav-link">Phản hồi</a></li>
 					<li sec:authorize="hasRole('ROLE_MEMBER')"
 						class="nav-item cta cta-colored"><a th:href="@{/cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0] </a></li>
+					<li class="nav-item"><a th:href="@{/feedback}"
+						class="nav-link">Liên hệ</a></li>
 					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
 						th:href="@{/login}" class="nav-link">Login</a></li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
 						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 					<li sec:authorize="isAuthenticated()" class="nav-item"><a
 						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
-=======
-					<li class="nav-item active"><a th:href="@{/}"
-						class="nav-link">Trang chủ</a></li>
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="/shop" id="dropdown04"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cửa hàng</a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" th:href="@{/shop}">Cửa hàng</a> 
-							<a class="dropdown-item" th:href="@{/product-single}">Sản phẩm đơn</a> 
-							<a class="dropdown-item" th:href="@{/cart}">Giỏ hàng</a> 
-							<a class="dropdown-item" th:href="@{/checkout}">Thanh toán</a>
-						</div>
-					</li>
-					<li class="nav-item"><a th:href="@{/about}" class="nav-link">Giới thiệu</a></li>
-					<li class="nav-item"><a th:href="@{/feedback}" class="nav-link">Phản hồi</a></li>
-					<li sec:authorize="hasRole('ROLE_MEMBER')" class="nav-item cta cta-colored">
-						<a th:href="@{/cart}" class="nav-link">
-						<span class="icon-shopping_cart"></span>[0]</a>
-					</li>
-					<li sec:authorize="!isAuthenticated()" class="nav-item">
-						<a th:href="@{/login}" class="nav-link">Login</a>
-					</li>
-					<li sec:authorize="isAuthenticated()" class="nav-item">
-						<a th:href="@{/logout}" class="nav-link">Đăng xuất</a>
-					</li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-						<a th:href="@{/admin/products}" class="nav-link">Admin</a>
-					</li>
->>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -183,12 +155,8 @@
 										thiên đường.</p>
 
 									<p>
-<<<<<<< HEAD
-										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Mua
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua
 											Ngay</a>
-=======
-										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
->>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
 									</p>
 								</div>
 							</div>
@@ -273,110 +241,6 @@
 		</div>
 	</section>
 
-	<section class="ftco-section bg-light">
-		<div class="container">
-			<div class="row justify-content-center mb-3 pb-3">
-				<div class="col-md-12 heading-section text-center ftco-animate">
-					<h2 class="mb-4">Bán Chạy Nhất</h2>
-					<p>Những sản phẩm được khách hàng tin dùng nhất!</p>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<th:block th:each="item:${four_products}">
-					<div class="col-sm col-md-6 col-lg ftco-animate">
-						<div class="product">
-							<a th:href="@{/product-single(id=${item.productId})}"
-								class="img-prod"><img class="img-fluid"
-								th:src="${item.image}" th:alt="${item.name}"> </a>
-							<div class="text py-3 px-3">
-								<h3>
-									<a th:href="@{/product-single(id=${item.productId})}"
-										th:utext="${item.name}"></a>
-								</h3>
-								<div class="d-flex">
-									<div class="pricing">
-										<p class="price">
-											<span class="mr-2" th:utext="${item.price}"></span><span>
-												VND</span>
-										</p>
-									</div>
-									<div class="rating">
-										<p class="text-right">
-											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a> <a
-												href="#"><span class="ion-ios-star-outline"></span></a>
-										</p>
-									</div>
-								</div>
-								<p class="bottom-area d-flex px-3">
-<<<<<<< HEAD
-									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm
-											Vào Giỏ <i class="ion-ios-add ml-1"></i>
-									</span></a> <a href="#" class="buy-now text-center py-2">Mua Ngay<span><i
-=======
-									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i>
-									</span></a> <a th:href="@{/product-single(id=${item.productId})}" class="buy-now text-center py-2">Mua Ngay<span><i
->>>>>>> a51d013a6e865b3af512c6961eb757e587f26fbc
-											class="ion-ios-cart ml-1"></i></span></a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</th:block>
-			</div>
-		</div>
-	</section>
-	<section class="ftco-section ftco-counter img" id="section-counter"
-		style="background-image: url(images/bg_4.jpg);">
-		<div class="container">
-			<div class="row justify-content-center py-5">
-				<div class="col-md-10">
-					<div class="row">
-						<div
-							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18 text-center">
-								<div class="text">
-									<strong class="number" data-number="10000">0</strong> <span>Khách
-										Hàng Hài Lòng</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18 text-center">
-								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Chi
-										Nhánh</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18 text-center">
-								<div class="text">
-									<strong class="number" data-number="1000">0</strong> <span>Đối
-										Tác</span>
-								</div>
-							</div>
-						</div>
-						<div
-							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-							<div class="block-18 text-center">
-								<div class="text">
-									<strong class="number" data-number="100">0</strong> <span>Giải
-										Thưởng</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<hr>
 
@@ -388,7 +252,7 @@
 						<h2>Đăng Ký Nhận Bản Tin Của Chúng Tôi</h2>
 						<div class="row d-flex justify-content-center mt-5">
 							<div class="col-md-8">
-								<form action="#" class="subscribe-form">
+								<form action="" class="subscribe-form">
 									<div class="form-group d-flex">
 										<input type="text" class="form-control"
 											placeholder="Nhập Địa Chỉ Email"> <input
@@ -420,8 +284,7 @@
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Winkel</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia.</p>
+						<p>Hãy đến với chúng tôi để trải nghiệm sự tinh tế, lịch lãm,</p>
 					</div>
 				</div>
 				<div class="col-md">
@@ -513,7 +376,8 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/scrollax.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
 

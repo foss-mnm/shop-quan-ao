@@ -21,12 +21,19 @@ public class PaymentController {
 	private UserService u;
 
 	@GetMapping("/payment")
-	public String checkOut(@RequestParam("id") Long productId,Model model) {
+	public String checkOut(@RequestParam(name = "id",defaultValue = "-1") Long productId,Model model,
+			@RequestParam(name = "subTotal",defaultValue = "-1") int subTotal) {
 		
 		model.addAttribute("productId", productId);
-		model.addAttribute("price", p.getOne(productId).getPrice());
-		model.addAttribute("plus",p.getOne(productId).getPrice()*0.1);
-		model.addAttribute("total",p.getOne(productId).getPrice()*0.9);
+		if(subTotal!=-1) {
+			model.addAttribute("price", subTotal);
+			model.addAttribute("plus",(int)subTotal*0.1);
+			model.addAttribute("total",(int)subTotal*0.9);
+		}else {
+			model.addAttribute("price", p.getOne(productId).getPrice());
+			model.addAttribute("plus",(int)p.getOne(productId).getPrice()*0.1);
+			model.addAttribute("total",(int)p.getOne(productId).getPrice()*0.9);
+		}
 		return "web/checkout";
 	}
 	
