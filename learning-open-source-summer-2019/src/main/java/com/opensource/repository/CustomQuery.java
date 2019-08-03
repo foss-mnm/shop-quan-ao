@@ -36,4 +36,5 @@ public interface CustomQuery {
 	String CART_GET_CART = 
 			"select c from Cart c join c.user  u where u.username =:username";
 	
+	String USER_IS_CUSTOMER="select u.username, u.password from user u join user_role u1 on u.user_id=u1.user_id where role_id <> 1";
 }
