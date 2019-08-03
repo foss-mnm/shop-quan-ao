@@ -70,21 +70,23 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a th:href="@{/}" class="nav-link">Trang
 							chủ</a></li>
-					<li class="nav-item"><a th:href="@{/shop}"
-						class="nav-link">Cửa hàng</a></li>
+					<li class="nav-item"><a th:href="@{/shop}" class="nav-link">Cửa
+							hàng</a></li>
 					<li class="nav-item"><a href="/about" class="nav-link">Giới
 							thiệu</a></li>
-					<li class="nav-item"><a th:href="@{/feedback}"
-						class="nav-link">Phản hồi</a></li>
 					<li sec:authorize="hasRole('ROLE_MEMBER')"
 						class="nav-item cta cta-colored"><a th:href="@{/cart}"
 						class="nav-link"><span class="icon-shopping_cart"></span>[0] </a></li>
+					<li class="nav-item"><a th:href="@{/feedback}"
+						class="nav-link">Liên hệ</a></li>
 					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
 						th:href="@{/login}" class="nav-link">Login</a></li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
 						th:href="@{/admin/providers}" class="nav-link">Admin</a></li>
 					<li sec:authorize="isAuthenticated()" class="nav-item"><a
 						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
 				</ul>
 			</div>
 		</div>
@@ -154,6 +156,8 @@
 
 									<p>
 										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua
+											Ngay</a>
 									</p>
 								</div>
 							</div>
@@ -347,7 +351,7 @@
 						<h2>Đăng Ký Nhận Bản Tin Của Chúng Tôi</h2>
 						<div class="row d-flex justify-content-center mt-5">
 							<div class="col-md-8">
-								<form action="#" class="subscribe-form">
+								<form action="" class="subscribe-form">
 									<div class="form-group d-flex">
 										<input type="text" class="form-control"
 											placeholder="Nhập Địa Chỉ Email"> <input
@@ -379,8 +383,7 @@
 				<div class="col-md">
 					<div class="ftco-footer-widget mb-4">
 						<h2 class="ftco-heading-2">Winkel</h2>
-						<p>Far far away, behind the word mountains, far from the
-							countries Vokalia and Consonantia.</p>
+						<p>Hãy đến với chúng tôi để trải nghiệm sự tinh tế, lịch lãm,</p>
 					</div>
 				</div>
 				<div class="col-md">
@@ -472,7 +475,8 @@
 	<script src="js/jquery.animateNumber.min.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/scrollax.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="js/google-map.js"></script>
 	<script src="js/main.js"></script>
 

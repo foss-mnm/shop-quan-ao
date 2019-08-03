@@ -91,8 +91,6 @@ create table product(
     constraint product_fk1 foreign key (provider_id) references provider(provider_id),
     constraint product_fk2 foreign key (category_id) references category(category_id)
 );
-insert into product(name,size,price,description,quantity,image,provider_id,category_id) 
-values ('Quần Jeans','30',300000,'Made in Vietnam',10,'',1,null);
 create table import_product(
 	import_id bigint,
     product_id bigint,
@@ -101,12 +99,14 @@ create table import_product(
     constraint import_product_fk2 foreign key (product_id) references product(product_id)
 );
 create table cart_product(
+	cart_product_id bigint auto_increment,
 	cart_id bigint,
     product_id bigint,
-    constraint cart_product_pk primary key (cart_id,product_id),
+    constraint cart_product_pk primary key (cart_product_id),
     constraint cart_product_fk foreign key (cart_id) references cart(cart_id),
     constraint cart_product_fk2 foreign key (product_id) references product(product_id)
 );
+alter table cart_product add column quantity varchar(10);
 create table payment_product(
 	payment_id bigint,
     product_id bigint,
@@ -114,7 +114,6 @@ create table payment_product(
     constraint payment_product_fk foreign key (payment_id) references payment(payment_id),
     constraint payment_product_fk2 foreign key (product_id) references product(product_id)
 );
-
 
 -- ==================================================
 delete from user_role;
@@ -166,6 +165,15 @@ insert into product(name,size,price,description,quantity,image,provider_id,categ
 ('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
 ('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
 ('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1);
+select * from user;
+select * from cart;
+select * from product;
+insert into cart(user_id) value(4);-- 66 -83
+insert into cart_product(cart_product_id,cart_id,product_id,quantity) values 
+(1,1,2,"3"),(2,1,3,"4"),(3,1,4,"2");
+delete from cart_product;
+select * from  cart_product;
+update cart_product set quantity = quantity + 1 where cart_product_id = 7;
 
 
 

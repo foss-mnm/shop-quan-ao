@@ -7,9 +7,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.opensource.dto.UserDto;
+import com.opensource.model.Cart;
 import com.opensource.model.Role;
 import com.opensource.model.User;
 import com.opensource.model.UserInfo;
+import com.opensource.repository.CartRepository;
 import com.opensource.repository.RoleRepository;
 import com.opensource.repository.UserRepository;
 
@@ -24,6 +26,9 @@ public class UserService {
 
 	@Autowired
 	private RoleRepository roleRepository;
+	
+	@Autowired
+	private CartRepository cartRepo;
 
 	public boolean checkUsername(String username) {
 		if (userRepository.findUserByUsername(username) == null)
@@ -40,6 +45,11 @@ public class UserService {
 		roles.add(roleRepository.findRoleByRoleName("ROLE_MEMBER"));
 		user.setRoles(roles);
 		userRepository.save(user);
+		
+		Cart userCart = new Cart();
+		userCart.setUser(user);
+		cartRepo.save(userCart);
+		
 	}
 
 	public void updateAdminLoginInfo(UserDto userDto) {

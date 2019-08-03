@@ -29,7 +29,8 @@ public class ProductSingleController {
 		String description=product.getDescription();
 		String size=product.getSize();
 		String quantity=product.getQuantity();
-		
+
+		model.addAttribute("id", product.getProductId());
 		model.addAttribute("product_name", name);
 		model.addAttribute("product_price", price);
 		model.addAttribute("product_description", description);

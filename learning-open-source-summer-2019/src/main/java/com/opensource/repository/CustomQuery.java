@@ -20,6 +20,20 @@ public interface CustomQuery {
 	String USER_UPDATE_ADMIN_LOGIN_DATA = 
 			"update User set username=:username,password=:password where userID=:userID";
 	
+	//native
 	String PRODUCT_LOAD_BY_CATEGORY = 
 			"select * from product p join category c on c.category_id = p.category_id where c.category_id = :id";
+	
+	String CART_LOAD_LIST_PRODUCT = 
+			"select cp from CartProduct cp join cp.product p join cp.cart c join c.user u where u.username =:username";
+	
+	String CART_CHECK_EXISTED_PRODUCT = 
+			"select cp from CartProduct cp join cp.cart c join c.user u where cp.product.productId = :id and u.username =:username";
+	
+	String CART_UPDATE_QUANTITY = 
+			"update CartProduct set quantity = (quantity + 1) where cartProductId = :id";
+	
+	String CART_GET_CART = 
+			"select c from Cart c join c.user  u where u.username =:username";
+	
 }

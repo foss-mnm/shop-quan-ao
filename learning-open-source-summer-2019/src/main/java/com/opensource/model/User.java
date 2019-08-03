@@ -88,5 +88,8 @@ public class User implements Serializable{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	
+	@OneToOne(mappedBy = "user")
+	private Cart cart;
 
 }

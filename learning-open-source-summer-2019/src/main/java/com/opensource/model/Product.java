@@ -1,6 +1,8 @@
 package com.opensource.model;
 
 import java.io.Serializable;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -57,9 +60,36 @@ public class Product implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "provider_id")
 	private Provider provider;
+	
+	@OneToMany(mappedBy = "product")
+	private Set<CartProduct> cartProducts;
 
 	public Product() {
 		super();
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+
+	public Set<CartProduct> getCartProducts() {
+		return cartProducts;
+	}
+
+	public void setCartProducts(Set<CartProduct> cartProducts) {
+		this.cartProducts = cartProducts;
 	}
 
 	public Product(String name, String size, float price, String description, String quantity, String image) {

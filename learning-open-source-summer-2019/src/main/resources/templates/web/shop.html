@@ -22,6 +22,54 @@
     <link rel="stylesheet" href="css/mystyle.css">
   </head>
   <body class="goto-here">
+<head>
+<title>Winkel shop</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body class="goto-here">
+<head>
+<title>Winkel - Cửa Hàng</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body class="goto-here">
 	<div th:insert="~{web/index :: web-header}"></div>
 	<nav th:insert="~{web/index :: web-nav}"></nav>
 	<!-- END nav -->
@@ -72,10 +120,11 @@
 											</div>
 										</div>
 										<p class="bottom-area d-flex px-3">
-											<a th:href="@{/cart(id=${item.productId})}"
+											<a th:href="@{/cart/add-product(id=${item.productId})}"
 												class="add-to-cart text-center py-2 mr-1"><span>Thêm
 													vào giỏ <i class="ion-ios-add ml-1"></i>
-											</span></a><a th:href="@{/payment(id=${item.productId})}" class="buy-now text-center py-2">Mua hàng<span><i
+											</span></a><a th:href="@{/payment(id=${item.productId})}"
+												class="buy-now text-center py-2">Mua ngay<span><i
 													class="ion-ios-cart ml-1"></i></span></a>
 										</p>
 									</div>
@@ -207,7 +256,8 @@
 						<div class="sidebar-box-2 force-overflow"
 							style="margin-top: 30px;">
 							<a class="heading mb-4" th:utext="${item.name}"
-								style="font-weight: bold; color: black" th:href="@{/shop(page=0,id=${item.categoryId})}"></a>
+								style="font-weight: bold; color: black"
+								th:href="@{/shop(page=0,id=${item.categoryId})}"></a>
 						</div>
 					</th:block>
 				</div>
@@ -217,7 +267,6 @@
 
 	<!-- Footer -->
 	<footer th:insert="~{web/index :: web-footer}"></footer>
-
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="js/popper.min.js"></script>
