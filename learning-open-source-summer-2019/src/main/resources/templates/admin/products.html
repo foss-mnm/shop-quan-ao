@@ -10,7 +10,7 @@
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
 				<h1>
-					Danh sách sản phẩm <small>advanced tables</small>
+					Danh sách sản phẩm <small>thông tin sản phẩm</small>
 				</h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fab fa-elementor"></i> Home</a></li>
@@ -21,6 +21,10 @@
 
 			<!-- Main content -->
 			<section class="content">
+				<div class="row">
+					<a class="btn btn-block btn-primary addBtn"
+						style="width: 100px; margin: 20px 0 15px 50px;">Thêm</a>
+				</div>
 				<div class="row">
 					<div class="col-xs-12">
 						<div class="box">
@@ -47,8 +51,7 @@
 										<th:block th:each="product,item:${products}">
 											<tr>
 												<td th:utext="${item.count}"></td>
-												<td><img alt="No Images Found"
-													th:src="${product.image}" width="100px" height="100px"></td>
+												<td><img th:alt="${product.name}" th:src="${product.image}" width="100px" height="100px"></td>
 												<td th:utext="${product.name}"></td>
 												<td th:utext="${product.size}"></td>
 												<td th:utext="${product.price}"></td>
@@ -102,11 +105,11 @@
 								<h4 class="modal-title">Cập nhật dữ liệu</h4>
 							</div>
 							<div class="modal-body">
-								<input type="text" id="product-id" name="productId"/>
-								<div class="form-group">
+								<input type="text" id="product-id" name="productId" style="display:none;"/>
+								<div class="form-group" style="display:none;">
 									<label for="name" class="col-sm-2 control-label">Ảnh sản phẩm</label>
 									<div class="col-sm-10">
-										<input type="image" class="form-control" src="images/product-1.jpg"
+										<input type="text" class="form-control"
 											id="product-img" name="image" placeholder="Ảnh sản phẩm" />
 									</div>
 								</div>
@@ -174,7 +177,7 @@
 									<i class="fas fa-exclamation-triangle text-warning"
 										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa sản phẩm này?
 								</p>
-								<input type="text" id="delProductId" name="id"/>
+								<input type="text" id="delProductId" name="id" style="display:none;"/>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-success"
@@ -191,13 +194,15 @@
 		<div th:replace="~{admin/starter :: setting-bar}"></div>
 	</div>
 	<div th:replace="~{admin/starter :: script}"></div>
+	
 	<script type="text/javascript">
 		$(document).ready(function() {
 
 			$('.eBtn').click(function(e) {
 				e.preventDefault();
 				var href = $(this).attr('href');
-				var text = $(this).text();
+				var text = $(this).text().trim();
+				console.log(href+' || '+text+' || '+this);
 				if (text == '') {
 					$.get(href, function(product, status) {
 						$('#product-id').val(product.productId);
@@ -217,6 +222,34 @@
 					$('#product-quantity').val('');
 					$('#product-description').val('');
 					$('#product-modal-default').modal();
+				}
+			});
+			
+			$('.addBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				var text = $(this).text().trim();
+				console.log(href+' || '+text+' || '+this);
+				if (text != '') {
+					$('#product-id').val('-1');
+					$('#product-name').val('');
+					$('#product-size').val('');
+					$('#product-price').val('');
+					$('#product-quantity').val('');
+					$('#product-description').val('');
+					$('#product-modal-default').modal();
+					
+					$('#modal-default').modal();
+				} else {
+					$.get(href, function(product, status) {
+						$('#product-id').val(product.productId);
+						$('#product-name').val(product.name);
+						$('#product-size').val(product.size);
+						$('#product-price').val(product.price);
+						$('#product-quantity').val(product.quantity);
+						$('#product-description').val(product.description);
+						$('#product-img').val('image/product-1.jpg');
+					});
 				}
 			});
 

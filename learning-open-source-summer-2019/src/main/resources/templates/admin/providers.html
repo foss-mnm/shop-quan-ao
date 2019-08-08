@@ -183,6 +183,7 @@
 				e.preventDefault();
 				var href = $(this).attr('href');
 				var text = $(this).text();
+				console.log(href+' || '+text+' || '+this);
 				if (text == '') {
 					$.get(href, function(provider, status) {
 						$('#id').val(provider.providerId);
