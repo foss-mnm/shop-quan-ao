@@ -1,5 +1,7 @@
 package com.opensource.repository;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -30,5 +32,8 @@ public interface UserRepository extends CrudRepository<User,Long>{
 	
 	@Query(value = CustomQuery.USER_CHECK_EXISTED_OTHER_ADMIN,nativeQuery = true)
 	int checkAdminName();
+	
+	@Query(value = CustomQuery.USER_LOAD_USER_INFO,nativeQuery = true)
+	List<User> loadUserInfo();
 	
 }

@@ -1,4 +1,4 @@
-﻿create database clothes_shop;
+create database clothes_shop;
 use clothes_shop;
 create table user(
 	user_id bigint auto_increment,
@@ -142,32 +142,21 @@ values('Công ty TNHH Hải Thành','Hà Nội','0123456789','haithanh@gmail.com
 select * from provider;
 select * from category;
 select * from product p join category c on c.category_id = p.category_id where c.category_id = 1;
-insert into category(name) values('Quần âu'),('Sơ mi nữ'),('Quần jean'),('Đồ bơi'),('Sơ mi nam');
+insert into category(name) values('Quần âu'),('Sơ mi nữ'),('Quần jean'),('Sơ mi nam');
 select * from product;
-delete from product where product.product_id=67;
+delete from product where product.product_id=10;
+delete from product where product.product_id=11;
+delete from product where product.product_id=12;
 
 insert into product(name,size,price,description,quantity,image,provider_id,category_id) values
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'abcXYZ','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1),
-('Quần âu loại 1','small',200000,'','20','images/product-6.jpg',1,1);
+('Quần jean loại 1','small',150000,'Mẫu quần jean mới nhất','20','images/jean1.jpg',1,3),
+('Quần jean loại 2','small',2500000,'Mẫu quần jean mới nhất','20','images/jean2.jpg',1,3),
+('Quần jean loại 3','small',450000,'Mẫu quần jean mới nhất','20','images/jean3.jpg',1,3);
 select * from user;
 select * from cart;
 select * from product;
+delete from product;
+delete from category;
 insert into cart(user_id) value(4);-- 66 -83
 insert into cart_product(cart_product_id,cart_id,product_id,quantity) values 
 (1,1,2,"3"),(2,1,3,"4"),(3,1,4,"2");

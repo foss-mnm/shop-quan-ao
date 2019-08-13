@@ -30,6 +30,16 @@ public class UserInfo implements Serializable{
 		this.user = user;
 	}
 	  
+	public UserInfo(long userId, String lastName, String firstName, String email, String phone, User user) {
+		super();
+		this.userId = userId;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		this.email = email;
+		this.phone = phone;
+		this.user = user;
+	}
+
 	public UserInfo(long userId, String lastName, String firstName, String email, String phone, String image,
 			User user) {
 		super();

@@ -18,6 +18,12 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User implements Serializable{
 	
+	@Override
+	public String toString() {
+		return "User [userID=" + userID + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", userInfo=" + userInfo + ", roles=" + roles + ", cart=" + cart + "]";
+	}
+
 	/**
 	 * 
 	 */
@@ -31,6 +37,22 @@ public class User implements Serializable{
 	@Column(name = "username",nullable = false,unique = true)
 	private String username;
 	
+	public UserInfo getUserInfo() {
+		return userInfo;
+	}
+
+	public void setUserInfo(UserInfo userInfo) {
+		this.userInfo = userInfo;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+
 	@Column(name = "password",nullable = false)
 	private  String password;
 
