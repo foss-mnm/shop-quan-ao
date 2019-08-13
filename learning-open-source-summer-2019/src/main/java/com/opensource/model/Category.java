@@ -10,8 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "category")
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Category implements Serializable {
 
 	private static final long serialVersionUID = 1L;

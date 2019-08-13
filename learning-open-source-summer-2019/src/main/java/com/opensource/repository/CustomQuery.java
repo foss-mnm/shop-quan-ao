@@ -39,4 +39,5 @@ public interface CustomQuery {
 	String USER_LOAD_USER_INFO = 
 			"SELECT  * FROM user u JOIN user_role ur ON u.user_id = ur.user_id JOIN role r ON ur.role_id = r.role_id where role_name='ROLE_MEMBER'";
 	
+	String USER_IS_CUSTOMER="select u.username, u.password from user u join user_role u1 on u.user_id=u1.user_id where role_id <> 1";
 }

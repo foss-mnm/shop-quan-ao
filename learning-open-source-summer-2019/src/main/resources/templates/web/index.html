@@ -81,8 +81,8 @@
 						class="nav-link">Liên hệ</a></li>
 					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
 						th:href="@{/login}" class="nav-link">Login</a></li>
-					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
-						th:href="@{/admin/products}" class="nav-link">Admin</a></li>
+					<!-- <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/providers}" class="nav-link">Admin</a></li> -->
 					<li sec:authorize="isAuthenticated()" class="nav-item"><a
 						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
 					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
@@ -155,6 +155,7 @@
 										thiên đường.</p>
 
 									<p>
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
 										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua
 											Ngay</a>
 									</p>
@@ -241,6 +242,104 @@
 		</div>
 	</section>
 
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-3 pb-3">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<h2 class="mb-4">Bán Chạy Nhất</h2>
+					<p>Những sản phẩm được khách hàng tin dùng nhất!</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<th:block th:each="item:${four_products}">
+					<div class="col-sm col-md-6 col-lg ftco-animate">
+						<div class="product">
+							<a th:href="@{/product-single(id=${item.productId})}"
+								class="img-prod"><img class="img-fluid"
+								th:src="${item.image}" th:alt="${item.name}"> </a>
+							<div class="text py-3 px-3">
+								<h3>
+									<a th:href="@{/product-single(id=${item.productId})}"
+										th:utext="${item.name}"></a>
+								</h3>
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price">
+											<span class="mr-2" th:utext="${item.price}"></span><span>
+												VND</span>
+										</p>
+									</div>
+									<div class="rating">
+										<p class="text-right">
+											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a>
+										</p>
+									</div>
+								</div>
+								<p class="bottom-area d-flex px-3">
+									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i></span></a> 
+									<a th:href="@{/product-single(id=${item.productId})}" class="buy-now text-center py-2">Mua Ngay<span><i>
+											class="ion-ios-cart ml-1"></i></span></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</th:block>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-counter img" id="section-counter"
+		style="background-image: url(images/bg_4.jpg);">
+		<div class="container">
+			<div class="row justify-content-center py-5">
+				<div class="col-md-10">
+					<div class="row">
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="10000">0</strong> <span>Khách
+										Hàng Hài Lòng</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="100">0</strong> <span>Chi
+										Nhánh</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="1000">0</strong> <span>Đối
+										Tác</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="100">0</strong> <span>Giải
+										Thưởng</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<hr>
 

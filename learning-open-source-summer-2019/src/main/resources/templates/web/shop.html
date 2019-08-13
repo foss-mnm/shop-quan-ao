@@ -1,53 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-<title>Winkel shop</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-	rel="stylesheet">
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/aos.css">
-<link rel="stylesheet" href="css/ionicons.min.css">
-<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css">
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/mystyle.css">
-</head>
-<body class="goto-here">
-<head>
-<title>Winkel - Cửa Hàng</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<link
-	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
-	rel="stylesheet">
-<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/owl.theme.default.min.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/aos.css">
-<link rel="stylesheet" href="css/ionicons.min.css">
-<link rel="stylesheet" href="css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="css/jquery.timepicker.css">
-<link rel="stylesheet" href="css/flaticon.css">
-<link rel="stylesheet" href="css/icomoon.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/mystyle.css">
-</head>
+  <head>
+    <title>Winkel - Cửa Hàng</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mystyle.css">
+  </head>
 <body class="goto-here">
 	<div th:insert="~{web/index :: web-header}"></div>
 	<nav th:insert="~{web/index :: web-nav}"></nav>
@@ -145,7 +118,6 @@
 						</div>
 					</div>
 				</div>
-
 				<!-- Categories -->
 				<div class="col-md-4 col-lg-2 sidebar scrollbar" id="style-1">
 					<th:block th:each="item:${category_name}">
@@ -157,10 +129,7 @@
 						</div>
 					</th:block>
 				</div>
-			</div>
-		</div>
-	</section>
-
+    <section class="ftco-section bg-light">
 	<!-- Footer -->
 	<footer th:insert="~{web/index :: web-footer}"></footer>
 	<script src="js/jquery.min.js"></script>
