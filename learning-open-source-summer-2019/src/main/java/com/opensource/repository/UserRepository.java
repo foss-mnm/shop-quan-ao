@@ -33,6 +33,9 @@ public interface UserRepository extends CrudRepository<User,Long>{
 	@Query(value = CustomQuery.USER_CHECK_EXISTED_OTHER_ADMIN,nativeQuery = true)
 	int checkAdminName();
 	
+	@Query(value = CustomQuery.USER_LOAD_USER_INFO,nativeQuery = true)
+	List<User> loadUserInfo();
+	
 	@Query(value=CustomQuery.USER_IS_CUSTOMER,nativeQuery=true)
 	List<User> customer();
 	

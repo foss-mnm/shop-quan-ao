@@ -11,7 +11,6 @@ import com.opensource.dto.UserDto;
 import com.opensource.model.Cart;
 import com.opensource.model.Role;
 import com.opensource.model.User;
-import com.opensource.model.UserInfo;
 import com.opensource.repository.CartRepository;
 import com.opensource.repository.RoleRepository;
 import com.opensource.repository.UserRepository;
@@ -60,9 +59,9 @@ public class UserService {
 
 	}
 
-	public void save(UserInfo uf) {
-		// TODO Auto-generated method stub
-		
+	
+	public User loadUserByUsername(String username) {
+		return userRepository.findUserByUsername(username);
 	}
 
 	public List<User> customer(){

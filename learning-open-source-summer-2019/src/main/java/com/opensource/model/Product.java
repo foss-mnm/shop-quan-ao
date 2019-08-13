@@ -63,6 +63,9 @@ public class Product implements Serializable {
 	
 	@OneToMany(mappedBy = "product")
 	private Set<CartProduct> cartProducts;
+	
+	@OneToMany(mappedBy = "product")
+	private Set<PaymentProduct> paymentProducts;
 
 	public Product() {
 		super();

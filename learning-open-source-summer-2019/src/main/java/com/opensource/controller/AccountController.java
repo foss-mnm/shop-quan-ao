@@ -1,5 +1,8 @@
 package com.opensource.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.opensource.dto.UserAccountDto;
 import com.opensource.dto.UserDto;
 import com.opensource.dto.UserInfoDto;
+import com.opensource.model.User;
+import com.opensource.repository.UserRepository;
 import com.opensource.service.UserInfoService;
 import com.opensource.service.UserService;
 
@@ -24,6 +30,9 @@ public class AccountController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserRepository user;
 
 	private boolean usernameError = false;
 	
@@ -59,7 +68,16 @@ public class AccountController {
 	}
 
 	@GetMapping("/user")
-	public String showUsersInfo() {
+	public String showUsersInfo(Model model) {
+		List<UserAccountDto> rsList = new ArrayList<UserAccountDto>();
+		List<User> list = user.loadUserInfo();
+		list.forEach((item)->{
+			rsList.add(new UserAccountDto(item));
+		});
+		list.forEach((item)->{
+			System.err.println(item);
+		});
+		model.addAttribute("accounts",rsList);
 		return "admin/user-info";
 	}
 }
