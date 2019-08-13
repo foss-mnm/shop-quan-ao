@@ -68,4 +68,8 @@ public class UserService {
 	public List<User> customer(){
 		return userRepository.customer();
 	}
+	
+	public List<?> infoPayment(){
+		return userRepository.infoPayment();
+	}
 }

@@ -71,6 +71,9 @@ create table payment(
     constraint payment_pk primary key (payment_id),
     constraint payment_fk foreign key (user_id) references user(user_id)
 );
+alter table payment drop column quantity;
+alter table payment add column status int;
+
 create table category(
 	category_id bigint auto_increment,
     name varchar(125),

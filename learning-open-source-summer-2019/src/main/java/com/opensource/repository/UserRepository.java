@@ -35,4 +35,7 @@ public interface UserRepository extends CrudRepository<User,Long>{
 	
 	@Query(value=CustomQuery.USER_IS_CUSTOMER,nativeQuery=true)
 	List<User> customer();
+	
+	@Query(value=CustomQuery.INFORMATION_PAYMENT)
+	List<?> infoPayment();
 }
