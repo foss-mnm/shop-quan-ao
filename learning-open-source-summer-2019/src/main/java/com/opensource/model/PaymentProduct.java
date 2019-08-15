@@ -31,6 +31,18 @@ public class PaymentProduct implements Serializable{
 	@JoinColumn(name = "payment_id")
 	private Payment payment;
 
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	public Product getProduct() {
 		return product;
 	}

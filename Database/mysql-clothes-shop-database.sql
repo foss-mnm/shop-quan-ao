@@ -111,9 +111,10 @@ create table cart_product(
 );
 alter table cart_product add column quantity varchar(10);
 create table payment_product(
+	id bigint auto_increment,
 	payment_id bigint,
     product_id bigint,
-    constraint payment_product_pk primary key (payment_id,product_id),
+    constraint payment_product_pk primary key (id),
     constraint payment_product_fk foreign key (payment_id) references payment(payment_id),
     constraint payment_product_fk2 foreign key (product_id) references product(product_id)
 );

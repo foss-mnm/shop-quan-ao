@@ -81,9 +81,9 @@ public class PaymentController {
 		Payment payment = new Payment(total, date.toString(), address, zip, user);
 		PaymentProduct pp = new PaymentProduct(product, payment);
 		
-		userInfoRepo.save(userInfo);
-		paymentRepo.save(payment);
-		ppRepo.save(pp);
+//		userInfoRepo.save(userInfo);
+//		paymentRepo.save(payment);
+//		ppRepo.save(pp);
 		
 		return "redirect:/shop";
 	}
