@@ -18,15 +18,6 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User implements Serializable{
 	
-	@Override
-	public String toString() {
-		return "User [userID=" + userID + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", userInfo=" + userInfo + ", roles=" + roles + ", cart=" + cart + "]";
-	}
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id

@@ -39,7 +39,10 @@ public class CategoryController {
 		
 		//Pagination
 		Pageable pages=PageRequest.of(page, 9);
-		Page<Product> pageProduct=productService.loadProducts(pages,categoryId);
+		Page<Product> pageProduct= productService.loadProducts(pages,categoryId);
+		pageProduct.getContent().forEach(item ->{
+			System.err.println(item);
+		});
 		model.addAttribute("page_product", pageProduct);
 		
 		int current = pageProduct.getNumber() + 1;

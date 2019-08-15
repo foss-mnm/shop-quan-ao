@@ -15,7 +15,8 @@ import com.opensource.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User,Long>{
 
-	User findUserByUsername(String username);
+	@Query(value = "select * from user where username = :username",nativeQuery = true)
+	User findUserByUsername(@Param("username")String username);
 	
 	@Query(value = CustomQuery.USER_CHECKDUPLICATE_USERNAME,nativeQuery = true)
 	boolean checkUsername(@Param("username")String username);
@@ -39,6 +40,6 @@ public interface UserRepository extends CrudRepository<User,Long>{
 	@Query(value=CustomQuery.USER_IS_CUSTOMER,nativeQuery=true)
 	List<User> customer();
 	
-	@Query(value=CustomQuery.INFORMATION_PAYMENT)
-	List<?> infoPayment();
+//	@Query(value=CustomQuery.INFORMATION_PAYMENT)
+//	List<?> infoPayment();
 }

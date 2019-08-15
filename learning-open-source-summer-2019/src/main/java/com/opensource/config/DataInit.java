@@ -40,7 +40,7 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 		if (userRepository.findUserByUsername("admin")== null && userRepository.checkAdminName()==0) {
 			User admin = new User();
 			admin.setUsername("admin");
-			admin.setPassword(passwordEncoder.encode("1"));
+			admin.setPassword(passwordEncoder.encode("123456"));
 			admin.setEnabled(true);
 			HashSet<Role> roles = new HashSet<>();
 			roles.add(roleRepository.findRoleByRoleName("ROLE_ADMIN"));
@@ -53,7 +53,7 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 		if (userRepository.findUserByUsername("member") == null) {
 			User user = new User();
 			user.setUsername("member");
-			user.setPassword(passwordEncoder.encode("1"));
+			user.setPassword(passwordEncoder.encode("123456"));
 			user.setEnabled(true);
 			HashSet<Role> roles = new HashSet<>();
 			roles.add(roleRepository.findRoleByRoleName("ROLE_MEMBER"));
