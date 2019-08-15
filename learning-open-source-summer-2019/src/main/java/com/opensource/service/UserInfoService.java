@@ -40,7 +40,4 @@ public class UserInfoService {
 		return new UserInfoDto(userInfo);
 	}
 	
-	public void save(UserInfo u) {
-		
-	}
 }

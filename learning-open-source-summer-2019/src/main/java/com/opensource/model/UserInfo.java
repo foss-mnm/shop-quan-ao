@@ -30,6 +30,12 @@ public class UserInfo implements Serializable{
 		this.user = user;
 	}
 	  
+	@Override
+	public String toString() {
+		return "UserInfo [userId=" + userId + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
+				+ ", phone=" + phone + ", image=" + image + ", user=" + user + "]";
+	}
+
 	public UserInfo(long userId, String lastName, String firstName, String email, String phone, User user) {
 		super();
 		this.userId = userId;

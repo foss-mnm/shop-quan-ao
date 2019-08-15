@@ -1,6 +1,7 @@
 package com.opensource.model;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -24,27 +25,29 @@ public class Payment implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "payment_id")
 	private long id;
 	
 	@Column(name = "total_price")
 	private String total;
 	
 	@Column(name = "date_payment")
-	private String date;
+	private Date date;
 	
 	public long getId() {
 		return id;
 	}
 
-	public Payment(String total, String date, String address, String postcode, User user) {
+	public Payment(String total, Date date, String address, String postcode, int status, User user) {
 		super();
 		this.total = total;
 		this.date = date;
 		this.address = address;
 		this.postcode = postcode;
-		this.status = 0;
+		this.status = status;
 		this.user = user;
 	}
+
 
 	public Payment() {
 		super();
@@ -62,11 +65,11 @@ public class Payment implements Serializable{
 		this.total = total;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
