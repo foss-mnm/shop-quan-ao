@@ -32,7 +32,8 @@ public class UserInfo implements Serializable{
 	  
 	@Override
 	public String toString() {
-		return "LOLL";
+		return "UserInfo [userId=" + userId + ", lastName=" + lastName + ", firstName=" + firstName + ", email=" + email
+				+ ", phone=" + phone + ", image=" + image + ", user=" + user + "]";
 	}
 
 	public UserInfo(long userId, String lastName, String firstName, String email, String phone, User user) {
