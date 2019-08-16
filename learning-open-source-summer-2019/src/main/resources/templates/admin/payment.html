@@ -45,32 +45,24 @@
 										</tr>
 									</thead>
 									<tbody>
+										<th:block th:each="item,index:${payment}">
 											<tr>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td ></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td><a class="btn btn-danger" href="#">
-														<span>Chưa xác nhận</span>
+												<td th:utext="${index.count}"></td>
+												<td th:utext="${item.productName}"></td>
+												<td th:utext="${item.customerName}"></td>
+												<td th:utext="${item.phone}"></td>
+												<td th:utext="${item.address}"></td>
+												<td th:utext="${item.postcode}"></td>
+												<td th:utext="${item.date}"></td>
+												<td th:utext="${item.total}"></td>
+												<td ><a th:href="@{/admin/save-payment(paymentId=${item.paymentId})}"
+												th:attr="disabled=${item.status == 1 ? 'true' :'false'}"
+												th:class="${item.status == 0 ? 'confirmBtn btn btn-danger' :'confirmBtn btn btn-success' }">
+														<span th:if="${item.status}">Đã xác nhận</span>
+														<span th:unless="${item.status}">Xác nhận</span>
 												</a></td>
 											</tr>
-											<tr>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td ></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td></td>
-												<td><a class="btn btn-success" href="#">
-														<span>Đã xác nhận</span>
-												</a></td>
-											</tr>
+										</th:block>
 									</tbody>
 									<tfoot>
 										<tr>

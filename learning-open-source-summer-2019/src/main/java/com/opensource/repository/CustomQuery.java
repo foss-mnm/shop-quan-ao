@@ -41,11 +41,5 @@ public interface CustomQuery {
 	
 	String USER_IS_CUSTOMER="select u.username, u.password from user u join user_role u1 on u.user_id=u1.user_id where role_id <> 1";
 	
-//	String INFORMATION_PAYMENT="select pr.name,ui.first_name,ui.lastname,ui.phone,p.address_receive,p.postcode,p.date_payment,p.total_price,p.status " + 
-//			"from payment p join user u on p.user_id=u.user_id " + 
-//			"join user_info ui on ui.user_id=u.user_id " + 
-//			"join payment_product pp on pp.payment_id=p.payment_id " + 
-//			"join product pr on pr.product_id=pp.product_id " + 
-//			"join user_role ur on ur.user_id=u.user_id " + 
-//			"where ur.role_id=2";
+	String UPDATE_PAYMENT_STATUS="update Payment set status = 1 where paymentId =: paymentId";
 }

@@ -30,6 +30,11 @@ public class UserInfo implements Serializable{
 		this.user = user;
 	}
 	  
+	@Override
+	public String toString() {
+		return "LOLL";
+	}
+
 	public UserInfo(long userId, String lastName, String firstName, String email, String phone, User user) {
 		super();
 		this.userId = userId;

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{admin/starter :: head('Danh sách sản phẩm')}"></head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<div
+			th:replace="~{admin/starter :: header('Lily','LiLy - Animal Trainer','lily0209@gmail.com')}"></div>
+		<div th:replace="~{admin/starter :: main-sidebar('LiLy')}"></div>
+
+		<div class="content-wrapper">
+			<!-- Content Header (Page header) -->
+			<section class="content-header">
+				<h1>
+					Nhà cung cấp <small>thông tin các nhà cung cấp</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="#"><i class="fab fa-elementor"></i> Home</a></li>
+					<li><a href="#">Nhà cung cấp</a></li>
+				</ol>
+			</section>
+
+			<!-- Main content -->
+			<section class="content">
+				<div class="row">
+					<a class="btn btn-block btn-primary aBtn"
+						style="width: 100px; margin: 20px 0 15px 50px;">Thêm</a>
+				</div>
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="box">
+							<div class="box-header">
+								<h3 class="box-title"
+									style="font-style: italic; margin-left: 30px;">Danh sách
+									nhà cung cấp</h3>
+
+								<div class="box-tools">
+									<div class="input-group input-group-sm"
+										style="width: 300px; margin-left: -100px;">
+										<input type="text" name="table_search"
+											class="form-control pull-right" placeholder="Search">
+
+										<div class="input-group-btn">
+											<button type="submit" class="btn btn-default">
+												<i class="fa fa-search"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body table-responsive no-padding">
+								<table class="table table-hover">
+									<tr>
+										<th>Stt</th>
+										<th>Nhà cung cấp</th>
+										<th>Địa chỉ</th>
+										<th>Số điện thoại</th>
+										<th>Email</th>
+										<th>Sửa</th>
+										<th>Xóa</th>
+									</tr>
+									<th:block th:each="provider,item:${providers}">
+										<tr>
+											<td th:utext="${item.count}"></td>
+											<td th:utext="${provider.name}"></td>
+											<td th:utext="${provider.address}"></td>
+											<td th:utext="${provider.phone}"></td>
+											<td th:utext="${provider.email}"></td>
+											<td><a class="btn btn-block btn-primary eBtn"
+												th:href="@{/admin/find-provider(id=${provider.providerId})}"><i
+													class="fa fa-fw fa-paint-brush"></i></a></td>
+											<td><a class="btn btn-block btn-danger dBtn"
+												th:href="@{/admin/find-provider(id=${provider.providerId})}"><i
+													class="fa fa-fw fa-trash"></i></a></td>
+										</tr>
+									</th:block>
+								</table>
+							</div>
+							<!-- /.box-body -->
+						</div>
+						<!-- /.box -->
+					</div>
+				</div>
+			</section>
+			<!-- /.content -->
+
+			<div class="modal fade" id="modal-default">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<form class="form-horizontal" th:action="@{/admin/save-provider}" method="post">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+								<h4 class="modal-title">Cập nhật dữ liệu</h4>
+							</div>
+							<div class="modal-body">
+								<input type="text" id="id" name="id" style="display: none;">
+								<div class="form-group">
+									<label for="name" class="col-sm-2 control-label">Tên NCC</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="name" name="name"
+											placeholder="Nhà cung cấp">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="address" class="col-sm-2 control-label">Địa
+										chỉ</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="address"
+											placeholder="Địa chỉ" name="address">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="phone" class="col-sm-2 control-label">SĐT</label>
+
+									<div class="col-sm-10">
+										<input type="tel" class="form-control" id="phone"
+											placeholder="Số điện thoại" name="phone"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="email" class="col-sm-2 control-label">Email</label>
+
+									<div class="col-sm-10">
+										<input type="email" class="form-control" id="email"
+											placeholder="Email" name="email">
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Hủy</button>
+								<button type="submit" class="btn btn-primary" id="save">Lưu</button>
+							</div>
+						</form>
+					</div>
+					<!-- /.modal-content -->
+				</div>
+				<!-- /.modal-dialog -->
+			</div>
+			<!-- /.modal -->
+			<div class="modal fade" tabindex="-1" id="deleteModal" role="dialog">
+				<div class="modal-dialog" role="document" style="margin-top: 100px">
+					<form th:action="@{/admin/delete-provider}" method="get">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Xác nhận xóa</h5>
+								<button type="button" class="close" data-dismiss="modal"
+									aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<p>
+									<i class="fas fa-exclamation-triangle text-warning"
+										style="margin-right: 5px"></i>Bạn chắc chắn muốn xóa nhà cung cấp này? 
+									<input type="text" name="idService" id="idService" style="display: none;">
+									<input type="text" id="delete-id" name="id" style="display: none;">
+								</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-success"
+									data-dismiss="modal">Hủy</button>
+								<button type="submit" class="btn btn-danger">Xóa</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+		<div th:replace="~{admin/starter :: footer}"></div>
+		<div th:replace="~{admin/starter :: setting-bar}"></div>
+	</div>
+	<div th:replace="~{admin/starter :: script}"></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('.eBtn,.aBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				var text = $(this).text();
+				console.log(href+' || '+text+' || '+this);
+				if (text == '') {
+					$.get(href, function(provider, status) {
+						$('#id').val(provider.providerId);
+						$('#name').val(provider.name);
+						$('#address').val(provider.address);
+						$('#phone').val(provider.phone);
+						$('#email').val(provider.email);
+					});
+					$('#modal-default').modal();
+				} else {
+					$('#id').val('-1');
+					$('#name').val('');
+					$('#address').val('');
+					$('#phone').val('');
+					$('#email').val('');
+					$('#modal-default').modal();
+				}
+			});		
+			
+			$('.dBtn').click(function(e) {
+				e.preventDefault();
+				var href = $(this).attr('href');
+				$.get(href, function(provider, status) {
+					$('#delete-id').val(provider.providerId);
+				});
+				$('#deleteModal').modal();
+			});
+		});
+	</script>
+</body>
+</html>

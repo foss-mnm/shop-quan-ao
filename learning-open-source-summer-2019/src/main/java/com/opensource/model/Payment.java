@@ -24,6 +24,7 @@ public class Payment implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="payment_id")
 	private long id;
 	
 	@Column(name = "total_price")
@@ -86,6 +87,12 @@ public class Payment implements Serializable{
 		this.postcode = postcode;
 	}
 
+	@Override
+	public String toString() {
+		return "Payment [id=" + id + ", total=" + total + ", date=" + date + ", address=" + address + ", postcode="
+				+ postcode + ", status=" + status + ", user=" + user + ", paymentProduct=" + paymentProduct + "]";
+	}
+
 	public int getStatus() {
 		return status;
 	}
@@ -117,5 +124,13 @@ public class Payment implements Serializable{
 	
 	@OneToMany(mappedBy = "payment")
 	private Set<PaymentProduct> paymentProduct;
+
+	public Set<PaymentProduct> getPaymentProduct() {
+		return paymentProduct;
+	}
+
+	public void setPaymentProduct(Set<PaymentProduct> paymentProduct) {
+		this.paymentProduct = paymentProduct;
+	}
 
 }

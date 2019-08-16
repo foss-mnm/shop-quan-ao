@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Winkel shop</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet" href="css/aos.css">
+<link rel="stylesheet" href="css/ionicons.min.css">
+<link rel="stylesheet" href="css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="css/jquery.timepicker.css">
+<link rel="stylesheet" href="css/flaticon.css">
+<link rel="stylesheet" href="css/icomoon.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="goto-here">
+	<div class="py-1 bg-black" th:fragment="web-header">
+		<div class="container">
+			<div
+				class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+				<div class="col-lg-12 d-block">
+					<div class="row d-flex">
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-phone2"></span>
+							</div>
+							<span class="text">+ 8433 3385 398</span>
+						</div>
+						<div class="col-md pr-4 d-flex topper align-items-center">
+							<div
+								class="icon mr-2 d-flex justify-content-center align-items-center">
+								<span class="icon-paper-plane"></span>
+							</div>
+							<span class="text">shopwinkel@gmail.com</span>
+						</div>
+						<div
+							class="col-md-6 pr-4 d-flex topper align-items-center text-lg-right">
+							<span class="text">GIAO HÀNG TRONG VÒNG TỪ 3-5 NGÀY &amp;
+								MIỄN PHÍ KHI HOÀN TRẢ LẠI</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<nav
+		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+		id="ftco-navbar" th:fragment="web-nav">
+		<div class="container">
+			<a class="navbar-brand" th:href="@{/}">Winkel</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a th:href="@{/}" class="nav-link">Trang
+							chủ</a></li>
+					<li class="nav-item"><a th:href="@{/shop}" class="nav-link">Cửa
+							hàng</a></li>
+					<li class="nav-item"><a href="/about" class="nav-link">Giới
+							thiệu</a></li>
+					<li sec:authorize="hasRole('ROLE_MEMBER')"
+						class="nav-item cta cta-colored"><a th:href="@{/cart}"
+						class="nav-link"><span class="icon-shopping_cart"></span>[0] </a></li>
+					<li class="nav-item"><a th:href="@{/feedback}"
+						class="nav-link">Liên hệ</a></li>
+					<li sec:authorize="!isAuthenticated()" class="nav-item"><a
+						th:href="@{/login}" class="nav-link">Login</a></li>
+					<!-- <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/providers}" class="nav-link">Admin</a></li> -->
+					<li sec:authorize="isAuthenticated()" class="nav-item"><a
+						th:href="@{/logout}" class="nav-link">Đăng xuất</a></li>
+					<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a
+						th:href="@{/admin/providers}" class="nav-link">Admin</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- END nav -->
+
+	<section id="home-section" class="hero">
+		<div class="home-slider js-fullheight owl-carousel">
+			<div class="slider-item js-fullheight">
+				<div class="overlay"></div>
+				<div class="container-fluid p-0">
+					<div
+						class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+						data-scrollax-parent="true">
+						<div class="one-third order-md-last img js-fullheight"
+							style="background-image: url(images/bg_1.jpg);"></div>
+						<div
+							class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+							data-scrollax=" properties: { translateY: '70%' }">
+							<div class="text">
+								<span class="subheading">Cửa hàng Winkel</span>
+								<div class="horizontal">
+									<h3 class="vr"
+										style="background-image: url(images/divider.jpg);">Được
+										thành lập từ năm 2000</h3>
+									<h1 class="mb-4 mt-3">
+										Nắm Bắt <span>Phong Cách </span><br> <span>&amp;
+											Vẻ Ngoài</span> Của Riêng Bạn
+									</h1>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng
+										và cung cấp cho nó sự hồi sinh cần thiết. Đó là một đất nước
+										thiên đường.</p>
+									<p>
+										<a href="/shop" class="btn btn-primary px-5 py-3 mt-3">Khám
+											Phá Ngay</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="slider-item js-fullheight">
+				<div class="overlay"></div>
+				<div class="container-fluid p-0">
+					<div
+						class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end"
+						data-scrollax-parent="true">
+						<div class="one-third order-md-last img js-fullheight"
+							style="background-image: url(images/bg_2.jpg);"></div>
+						<div
+							class="one-forth d-flex js-fullheight align-items-center ftco-animate"
+							data-scrollax=" properties: { translateY: '70%' }">
+							<div class="text">
+								<span class="subheading">Cửa hàng Winkel</span>
+								<div class="horizontal">
+									<h3 class="vr"
+										style="background-image: url(images/divider.jpg);">Cửa
+										Hàng Trực Tuyến Tốt Nhất</h3>
+									<h1 class="mb-4 mt-3">
+										Một Người Phụ Nữ <span>Hiện Đại</span>
+									</h1>
+									<p>Một con sông nhỏ tên là Duden chảy qua vị trí của chúng
+										và cung cấp cho nó sự hồi sinh cần thiết. Đó là một đất nước
+										thiên đường.</p>
+
+									<p>
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua Ngay</a>
+										<a th:href="@{/shop}" class="btn btn-primary px-5 py-3 mt-3">Mua
+											Ngay</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-no-pb ftco-no-pt bg-light"
+		th:fragment="web-better-way-to-ship">
+		<div class="container">
+			<div class="row">
+				<div
+					class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+					style="background-image: url(images/about.jpg);">
+					<a href="https://www.youtube.com/watch?v=Pkh8UtuejGw"
+						class="icon popup-vimeo d-flex justify-content-center align-items-center">
+						<span class="icon-play"></span>
+					</a>
+				</div>
+				<div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
+					<div class="heading-section-bold mb-4 mt-md-5">
+						<div class="ml-md-0">
+							<h2 class="mb-4">Cách tốt hơn để vận chuyển sản phẩm của bạn</h2>
+						</div>
+					</div>
+					<div class="pb-md-5">
+						<p>Nhưng không có gì mà bản sao nói có thể thuyết phục được cô
+							và vì vậy, không mất nhiều thời gian cho đến khi một vài Nhà văn
+							Sao chép quỷ quyệt phục kích cô, khiến cô say sưa với Longe và
+							Parole và kéo cô vào công ty của họ, nơi họ lạm dụng cô vì mục
+							đích của họ.</p>
+						<div class="row ftco-services">
+							<div
+								class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+								<div class="media block-6 services">
+									<div
+										class="icon d-flex justify-content-center align-items-center mb-4">
+										<span class="flaticon-002-recommended"></span>
+									</div>
+									<div class="media-body">
+										<h3 class="heading">CHÍNH SÁCH HOÀN TIỀN</h3>
+										<p>Hoàn lại 100% tiền quý khách đã mua hàng mà không vừa
+											ý, hoặc do lỗi của cửa hàng.</p>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+								<div class="media block-6 services">
+									<div
+										class="icon d-flex justify-content-center align-items-center mb-4">
+										<span class="flaticon-001-box"></span>
+									</div>
+									<div class="media-body">
+										<h3 class="heading">Bao Bì Cao Cấp</h3>
+										<p>Mỗi sản phẩm được đóng gói cẩn thận, có vẻ ngoài ưa
+											nhìn và lịch lãm.</p>
+									</div>
+								</div>
+							</div>
+							<div
+								class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">
+								<div class="media block-6 services">
+									<div
+										class="icon d-flex justify-content-center align-items-center mb-4">
+										<span class="flaticon-003-medal"></span>
+									</div>
+									<div class="media-body">
+										<h3 class="heading">Chất Lượng Cao</h3>
+										<p>Các sản phẩm của cửa hàng đảm bảo chất lượng tuyệt đối,
+											không nhập hàng trôi nổi trên thị trường.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section bg-light">
+		<div class="container">
+			<div class="row justify-content-center mb-3 pb-3">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<h2 class="mb-4">Bán Chạy Nhất</h2>
+					<p>Những sản phẩm được khách hàng tin dùng nhất!</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<th:block th:each="item:${four_products}">
+					<div class="col-sm col-md-6 col-lg ftco-animate">
+						<div class="product">
+							<a th:href="@{/product-single(id=${item.productId})}"
+								class="img-prod"><img class="img-fluid"
+								th:src="${item.image}" th:alt="${item.name}"> </a>
+							<div class="text py-3 px-3">
+								<h3>
+									<a th:href="@{/product-single(id=${item.productId})}"
+										th:utext="${item.name}"></a>
+								</h3>
+								<div class="d-flex">
+									<div class="pricing">
+										<p class="price">
+											<span class="mr-2" th:utext="${item.price}"></span><span>
+												VND</span>
+										</p>
+									</div>
+									<div class="rating">
+										<p class="text-right">
+											<a href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a> <a
+												href="#"><span class="ion-ios-star-outline"></span></a>
+										</p>
+									</div>
+								</div>
+								<p class="bottom-area d-flex px-3">
+									<a href="#" class="add-to-cart text-center py-2 mr-1"><span>Thêm Vào Giỏ <i class="ion-ios-add ml-1"></i></span></a> 
+									<a th:href="@{/product-single(id=${item.productId})}" class="buy-now text-center py-2">Mua Ngay<span><i>
+											class="ion-ios-cart ml-1"></i></span></a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</th:block>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-counter img" id="section-counter"
+		style="background-image: url(images/bg_4.jpg);">
+		<div class="container">
+			<div class="row justify-content-center py-5">
+				<div class="col-md-10">
+					<div class="row">
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="10000">0</strong> <span>Khách
+										Hàng Hài Lòng</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="100">0</strong> <span>Chi
+										Nhánh</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="1000">0</strong> <span>Đối
+										Tác</span>
+								</div>
+							</div>
+						</div>
+						<div
+							class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+							<div class="block-18 text-center">
+								<div class="text">
+									<strong class="number" data-number="100">0</strong> <span>Giải
+										Thưởng</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<hr>
+
+	<section class="ftco-section-parallax">
+		<div class="parallax-img d-flex align-items-center">
+			<div class="container">
+				<div class="row d-flex justify-content-center py-5">
+					<div class="col-md-7 text-center heading-section ftco-animate">
+						<h2>Đăng Ký Nhận Bản Tin Của Chúng Tôi</h2>
+						<div class="row d-flex justify-content-center mt-5">
+							<div class="col-md-8">
+								<form action="" class="subscribe-form">
+									<div class="form-group d-flex">
+										<input type="text" class="form-control"
+											placeholder="Nhập Địa Chỉ Email"> <input
+											type="submit" value="Đăng ký" class="submit px-3">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="ftco-footer bg-light ftco-section"
+		th:fragment="web-footer">
+		<div class="container">
+			<div class="row">
+				<div class="mouse">
+					<a href="#" class="mouse-icon">
+						<div class="mouse-wheel">
+							<span class="ion-ios-arrow-up"></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="row mb-5">
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Winkel</h2>
+						<p>Hãy đến với chúng tôi để trải nghiệm sự tinh tế, lịch lãm,</p>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4 ml-md-5">
+						<h2 class="ftco-heading-2">Menu</h2>
+						<ul class="list-unstyled">
+							<li><a href="/shop" class="py-2 d-block">Cửa Hàng</a></li>
+							<li><a href="/about" class="py-2 d-block">Giới Thiệu</a></li>
+							<li><a href="/feedback" class="py-2 d-block">Phản Hồi</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Trợ Giúp</h2>
+						<div class="d-flex">
+							<ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+								<li><a href="#" class="py-2 d-block">Thông Tin Vận
+										Chuyển</a></li>
+								<li><a href="#" class="py-2 d-block">Trả Lại &amp; Trao
+										Đổi</a></li>
+								<li><a href="#" class="py-2 d-block">Điều Khoản &amp;
+										Điều Kiện</a></li>
+								<li><a href="#" class="py-2 d-block">Chính Sách Bảo Mật</a></li>
+							</ul>
+							<ul class="list-unstyled">
+								<li><a href="#" class="py-2 d-block">Câu Hỏi Thường Gặp</a></li>
+								<li><a th:href="@{/feedback}" class="py-2 d-block">Liên
+										Hệ</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="ftco-footer-widget mb-4">
+						<h2 class="ftco-heading-2">Có Câu Hỏi?</h2>
+						<div class="block-23 mb-3">
+							<ul>
+								<li><span class="icon icon-map-marker"></span><span
+									class="text">Minh Khai, Bắc Từ Liêm, Hà Nội, Việt Nam</span></li>
+								<li><a href="#"><span class="icon icon-phone"></span><span
+										class="text">+ 8433 3385 398</span></a></li>
+								<li><a href="#"><span class="icon icon-envelope"></span><span
+										class="text">shopwinkel@gmail.com</span></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<p>
+						Bản Quyền &copy;
+						<script>
+							document.write(new Date().getFullYear());
+						</script>
+						Đã Đăng Ký Bản Quyền | Mẫu này được thực hiện <i
+							class="icon-heart color-danger" aria-hidden="true"></i> bởi <a
+							th:href="@{/}" target="_blank">Winkel</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen">
+		<svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none"
+				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
+	</div>
+
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/jquery.animateNumber.min.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/scrollax.min.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="js/google-map.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>
