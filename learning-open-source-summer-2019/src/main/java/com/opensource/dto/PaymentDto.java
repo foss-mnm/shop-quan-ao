@@ -1,6 +1,7 @@
 package com.opensource.dto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.opensource.model.Payment;
@@ -23,17 +24,12 @@ public class PaymentDto {
 	private String phone;
 	private String address;
 	private String postcode;
-	private String date;
+	private Date date;
 	private String total;
 	private int status;
 
 	public PaymentDto() {
 		super();
-	}
-	
-	public PaymentDto(long paymentId, int status) {
-		this.paymentId=paymentId;
-		this.status=status;
 	}
 
 	public PaymentDto(Payment payment) {
@@ -41,10 +37,11 @@ public class PaymentDto {
 		this.paymentId=payment.getId();
 		List<PaymentProduct> list = new ArrayList<PaymentProduct>(payment.getPaymentProduct());
 		if (payment.getPaymentProduct().isEmpty()) {
-			this.productName = "ok";
+			this.productName = "Áo sơ mi trắng";
 		} else {
 			this.productName = list.get(0).getProduct().getName();
 		}
+		
 		this.customerName = payment.getUser().getUserInfo().getLastName()
 				+ payment.getUser().getUserInfo().getFirstName();
 		this.phone = payment.getUser().getUserInfo().getPhone();
@@ -102,11 +99,11 @@ public class PaymentDto {
 		this.postcode = postcode;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

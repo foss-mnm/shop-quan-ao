@@ -134,5 +134,4 @@ public class Payment implements Serializable{
 	public void setPaymentProduct(Set<PaymentProduct> paymentProduct) {
 		this.paymentProduct = paymentProduct;
 	}
-
 }

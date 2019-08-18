@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.opensource.dto.ImportProductDto;
 import com.opensource.dto.PaymentDto;
+import com.opensource.model.ImportProduct;
 import com.opensource.model.Payment;
 import com.opensource.model.Product;
+import com.opensource.repository.ImportRepository;
 import com.opensource.repository.PaymentRepositoty;
+import com.opensource.service.ImportService;
 import com.opensource.service.ProductService;
-
-import javassist.expr.NewArray;
 
 @Controller
 @RequestMapping("/admin")
@@ -69,10 +71,49 @@ public class ProductController {
 		return "admin/categorys";
 	}
 
+	@Autowired
+	private ImportRepository importRepository;
+	@Autowired
+	private ImportService importService;
+	
+	@GetMapping("/find-import")
+	@ResponseBody
+	public ImportProduct findImport(Long id) {
+		return importService.findOne(id);
+	}
+	
+	@GetMapping("/delete-import")
+	public String deleteImport(@RequestParam(name = "id") Long id) {
+		productService.deleteProduct(id);
+		return "redirect:/admin/products";
+	}
+	
 	// Xem danh sach nhap hang
 	@GetMapping("/import-bill")
-	public String loadImportBillInfo() {
+	public String loadImportBillInfo(Model model) {
+		List<ImportProduct> loadImport = importRepository.findAll();
+		System.err.println(loadImport);
+		List<ImportProductDto> list=new ArrayList<ImportProductDto>();
+		for(ImportProduct item:loadImport) {
+			list.add(new ImportProductDto(item));
+		}
+		
+		model.addAttribute("import", list);
+		
 		return "admin/import-bill";
+	}
+	
+	@PostMapping("/save-import")
+	public String saveImport(@RequestParam(name = "importId") long importId) {
+		importRepository.update(importId);
+//		if (importId == -1) {
+//			importRepository.update(importId);
+//		} 
+//		else {
+//			productService.saveProduct(new Product(importId, name, size, price, description, quantity, image));
+//		}
+
+		return "redirect:/admin/products";
 	}
 
 	@Autowired
@@ -82,7 +123,6 @@ public class ProductController {
 	@GetMapping("/payment")
 	public String loadPaymentInfo(Model model) {
 		List<Payment> loadPaymentInfo = paymentRepositoty.findAll();
-		System.err.println(loadPaymentInfo);
 		List<PaymentDto> list=new ArrayList<PaymentDto>();
 		for(Payment item:loadPaymentInfo) {
 			list.add(new PaymentDto(item));
@@ -93,11 +133,16 @@ public class ProductController {
 		return "admin/payment";
 	}
 	
+	//Thong tin don hang
 	@GetMapping("/save-payment")
-	public String savePayment(@RequestParam(name = "paymentId") Long paymentId) {
+	public String savePayment(@RequestParam(name = "paymentId") long paymentId) {
 		
-		if ( paymentId >-1 ) {
-			paymentRepositoty.update(paymentId);;
+		try {
+			if ( paymentId >0 ) {
+				paymentRepositoty.update(paymentId);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 		return "redirect:/admin/payment";

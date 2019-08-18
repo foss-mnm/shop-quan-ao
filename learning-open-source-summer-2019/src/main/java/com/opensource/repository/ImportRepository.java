@@ -7,12 +7,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.opensource.model.Payment;
+import com.opensource.model.ImportProduct;
 
-public interface PaymentRepositoty extends JpaRepository<Payment, Long>{
+public interface ImportRepository extends JpaRepository<ImportProduct, Long>{
 
 	@Transactional
 	@Modifying
-	@Query(CustomQuery.UPDATE_PAYMENT_STATUS)
-	void update(@Param("paymentId") long paymentId);
+	@Query(CustomQuery.UPDATE_IMPORT)
+	void update(@Param("importId") long importId);
 }

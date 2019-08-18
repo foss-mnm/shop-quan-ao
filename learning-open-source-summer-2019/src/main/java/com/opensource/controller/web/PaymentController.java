@@ -79,14 +79,17 @@ public class PaymentController {
 			userInfo = userInfoRepo.getOne(user.getUserID());	
 		}
 
-		Product product = productServive.getOne(id);
+		try {
+			Product product = productServive.getOne(id);
 
-		Date date = new Date();
-		Payment payment = new Payment(total, date, address, postcode, 0, user);
-		paymentRepo.save(payment);
+			Date date = new Date();
+			Payment payment = new Payment(total, date, address, postcode, 0, user);
+			paymentRepo.save(payment);
 
-		PaymentProduct pp = new PaymentProduct(product, payment);
-		ppRepo.save(pp);
+			PaymentProduct pp = new PaymentProduct(product, payment);
+			ppRepo.save(pp);
+		} catch (Exception e) {
+		}
 
 		return "redirect:/shop";
 	}

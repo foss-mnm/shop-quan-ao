@@ -101,6 +101,7 @@ create table import_product(
     constraint import_product_fk foreign key (import_id) references import(import_id),
     constraint import_product_fk2 foreign key (product_id) references product(product_id)
 );
+alter table import_product add column id bigint auto_increment;
 create table cart_product(
 	cart_product_id bigint auto_increment,
 	cart_id bigint,

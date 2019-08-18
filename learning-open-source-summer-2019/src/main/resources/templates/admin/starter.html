@@ -136,38 +136,26 @@
 				<!-- sidebar menu: : style can be found in sidebar.less -->
 				<ul class="sidebar-menu" data-widget="tree">
 					<li class="header">QUẢN LÝ</li>
-					<li class="treeview"><a th:href="@{/admin/products}"> <i
-							class="fa fa-tshirt"></i> <span>Sản phẩm</span> <span
-							class="pull-right-container"> <i
-								class="fa fa-angle-left pull-right"></i>
+					<li><a th:href="@{/admin/products}"> <i class="fa fa-tshirt"></i>
+							<span>Danh sách sản phẩm</span> <span class="pull-right-container">
 						</span>
-					</a>
-						<ul class="treeview-menu">
-							<li><a th:href="@{/admin/products}"><i
-									class="fa fa-list-ul"></i> Danh sách sản phẩm</a></li>
-							<li><a th:href="@{/admin/providers}"><i
-									class="fa fa-list-ul"></i> Nhà cung cấp</a></li>
-							<li><a th:href="@{/admin/import-bill}"><i
-									class="fa fa-list-ul"></i> Thông tin nhập hàng</a></li>
-							<li><a th:href="@{/admin/payment}"><i
-									class="fa fa-list-ul"></i> Thông tin đơn hàng</a></li>
-							<li><a href="#"><i
-									class="fa fa-list-ul"></i> Thông tin tài khoản khách hàng</a></li>
-						</ul></li>
+					</a></li>
+					<li><a th:href="@{/admin/providers}"> <i class="fa fa-building"></i>
+							<span>Nhà cung cấp</span> <span class="pull-right-container">
+						</span>
+					</a></li>
+					<li><a th:href="@{/admin/import-bill}"> <i class="fa fa-truck"></i>
+							<span>Thông tin nhập hàng</span> <span class="pull-right-container">
+						</span>
+					</a></li>
+					<li><a th:href="@{/admin/payment}"><i class="fa fa-file-invoice-dollar"></i>
+							<span>Thông tin đơn hàng</span> <span class="pull-right-container">
+						</span>
+					</a></li>
 					<li><a th:href="@{/admin/user}"> <i class="fa fa-users"></i>
 							<span>Tài khoản</span> <span class="pull-right-container">
 						</span>
 					</a></li>
-					<li><a th:href="@{/admin/statistic}"> <i
-							class="fa fa-chart-bar"></i> <span>Thống kê</span> <span
-							class="pull-right-container"> </span>
-					</a></li>
-					<li class="header">THÔNG BÁO</li>
-					<li><a href="#"><i class="fa fa-bell text-red"></i> <span>Quan
-								trọng</span></a></li>
-					<li><a href="#"><i
-							class="fa fa-exclamation-circle text-yellow"></i> <span>Cảnh
-								báo</span></a></li>
 				</ul>
 			</section>
 			<!-- /.sidebar -->
